@@ -1,0 +1,5 @@
+.env
+state/digest.log
+__pycache__/
+*.pyc
+.venv/

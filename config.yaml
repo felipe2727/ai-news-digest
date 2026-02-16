@@ -1,0 +1,202 @@
+schedule:
+  interval_days: 2
+  max_items_per_source: 20
+  max_items_in_digest: 30
+  lookback_hours: 52  # Slightly more than 2 days for overlap safety
+
+email:
+  smtp_server: smtp.gmail.com
+  smtp_port: 465
+  sender_email: ${GMAIL_ADDRESS}
+  sender_password: ${GMAIL_APP_PASSWORD}
+  recipients:
+    - ${GMAIL_ADDRESS}
+
+summarizer:
+  provider: gemini
+  model: gemini-2.0-flash
+  max_summary_words: 150
+
+# Topics and keywords for relevance scoring
+topics:
+  coding_assistants:
+    label: "Coding Assistants"
+    keywords:
+      - claude code
+      - codex
+      - cursor
+      - copilot
+      - windsurf
+      - kimi
+      - cline
+      - aider
+      - devin
+    weight: 10
+
+  breaking_news:
+    label: "AI Breaking News"
+    keywords:
+      - announced
+      - launches
+      - released
+      - breaking
+      - new model
+      - benchmark
+      - SOTA
+      - state of the art
+      - GPT-5
+      - GPT5
+      - Claude 4
+      - Gemini 2
+    weight: 8
+
+  open_source:
+    label: "Open Source AI"
+    keywords:
+      - open source
+      - open-source
+      - open claw
+      - openclaw
+      - llama
+      - mistral
+      - qwen
+      - deepseek
+      - weights released
+      - apache 2.0
+      - MIT license
+      - hugging face
+      - huggingface
+    weight: 9
+
+  media_generation:
+    label: "Video/Image/Voice Generation"
+    keywords:
+      - video generation
+      - image generation
+      - voice generation
+      - text to speech
+      - TTS
+      - minimax
+      - nano banana
+      - kling
+      - veo
+      - sora
+      - stable diffusion
+      - flux
+      - runway
+      - pika
+      - elevenlabs
+      - suno
+      - midjourney
+    weight: 8
+
+  github_repos:
+    label: "Interesting GitHub Repos"
+    keywords:
+      - github
+      - repository
+      - trending
+      - open source tool
+      - CLI tool
+      - framework
+      - library
+    weight: 6
+
+  entrepreneurship:
+    label: "AI Entrepreneurship"
+    keywords:
+      - startup
+      - entrepreneur
+      - monetize
+      - side project
+      - SaaS
+      - indie hacker
+      - business model
+      - revenue
+      - funding
+      - YC
+      - venture
+      - making money
+    weight: 7
+
+  agents:
+    label: "AI Agents"
+    keywords:
+      - ai agent
+      - autonomous agent
+      - multi-agent
+      - tool use
+      - function calling
+      - mcp
+      - model context protocol
+      - computer use
+      - browser use
+    weight: 8
+
+# Data sources
+sources:
+  reddit:
+    type: rss
+    feeds:
+      - name: r/LocalLLaMA
+        url: https://www.reddit.com/r/LocalLLaMA/.rss
+      - name: r/artificial
+        url: https://www.reddit.com/r/artificial/.rss
+      - name: r/MachineLearning
+        url: https://www.reddit.com/r/MachineLearning/.rss
+      - name: r/singularity
+        url: https://www.reddit.com/r/singularity/.rss
+      - name: r/ChatGPT
+        url: https://www.reddit.com/r/ChatGPT/.rss
+      - name: r/ClaudeAI
+        url: https://www.reddit.com/r/ClaudeAI/.rss
+      - name: r/StableDiffusion
+        url: https://www.reddit.com/r/StableDiffusion/.rss
+      - name: r/OpenAI
+        url: https://www.reddit.com/r/OpenAI/.rss
+
+  youtube:
+    type: rss
+    feeds:
+      - name: Two Minute Papers
+        url: https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg
+      - name: AI Explained
+        url: https://www.youtube.com/feeds/videos.xml?channel_id=UCNJ1Ymd5yFuUPtn21xtRbbw
+      - name: Matt Wolfe
+        url: https://www.youtube.com/feeds/videos.xml?channel_id=UCJIfeSCssxSC_Dhc5s7woww
+      - name: TheAIGRID
+        url: https://www.youtube.com/feeds/videos.xml?channel_id=UCbY9xX3_jW5c2fjlZVBI4cg
+      - name: Fireship
+        url: https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA
+      - name: Yannic Kilcher
+        url: https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew
+      - name: Wes Roth
+        url: https://www.youtube.com/feeds/videos.xml?channel_id=UCqcbQf6yw5KzRoDDcZ_wBSw
+
+  news:
+    type: rss
+    feeds:
+      - name: Google News AI
+        url: https://news.google.com/rss/search?q=artificial+intelligence+when:2d&hl=en-US&gl=US&ceid=US:en
+      - name: Google News LLM
+        url: https://news.google.com/rss/search?q=large+language+model+when:2d&hl=en-US&gl=US&ceid=US:en
+      - name: The Verge AI
+        url: https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
+      - name: TechCrunch AI
+        url: https://techcrunch.com/category/artificial-intelligence/feed/
+      - name: Ars Technica
+        url: https://feeds.arstechnica.com/arstechnica/technology-lab
+
+  github:
+    type: github
+    search_queries:
+      - topic: machine-learning
+        min_stars: 100
+        created_within_days: 7
+      - topic: llm
+        min_stars: 50
+        created_within_days: 7
+      - topic: generative-ai
+        min_stars: 50
+        created_within_days: 7
+    scrape_trending: true
