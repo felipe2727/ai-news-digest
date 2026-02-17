@@ -3,3 +3,5 @@ state/digest.log
 __pycache__/
 *.pyc
 .venv/
+dashboard/node_modules/
+dashboard/dist/

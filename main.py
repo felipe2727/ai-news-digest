@@ -185,6 +185,16 @@ def main() -> None:
     logger.info("Sending digest email...")
     send_digest(digest, config)
 
+    # Export data for web dashboard
+    try:
+        from dashboard.data_export import save_digest_json
+        save_digest_json(digest)
+        logger.info("Digest data exported for dashboard")
+    except ImportError:
+        logger.debug("Dashboard not installed, skipping data export.")
+    except Exception as e:
+        logger.warning("Failed to export digest data: %s", e)
+
     # Update state
     save_seen(seen, scored)
     save_last_run()
