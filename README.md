@@ -1,21 +1,22 @@
 # AI News Digest
 
-An automated pipeline that fetches AI news from Reddit, YouTube, news sites, and GitHub, scores items by relevance, summarizes them with Google Gemini, and delivers a formatted HTML email digest on a schedule.
+An automated pipeline that fetches AI news from Reddit, YouTube, news sites, and GitHub, scores items using hybrid keyword + semantic scoring, summarizes them with Google Gemini, and delivers a formatted HTML email digest on a schedule.
 
 ## How It Works
 
 ```
-Fetch (20+ sources)  -->  Dedup  -->  Score & Rank  -->  AI Summarize  -->  Email
-     ~3 seconds                        Top 30 items       Gemini Flash       Gmail SMTP
+Fetch (20+ sources)  -->  Dedup  -->  Keyword Score  -->  Semantic Rerank  -->  AI Summarize  -->  Email
+     ~3 seconds                       regex matching      Gemini embeddings     Gemini Flash       Gmail SMTP
 ```
 
 ### Pipeline
 
 1. **Fetch** - Pulls content from 20+ RSS feeds and GitHub concurrently (8 threads)
 2. **Dedup** - Filters out items already sent in previous digests (30-day memory)
-3. **Score** - Ranks items by keyword relevance across 7 configurable topics
-4. **Summarize** - Gemini 2.0 Flash generates 2-3 sentence summaries per item + an executive overview
-5. **Email** - Sends a styled HTML digest via Gmail SMTP
+3. **Keyword Score** - Regex-based keyword matching across 7 configurable topics (title matches weighted 3x)
+4. **Semantic Rerank** - Gemini embeddings compute cosine similarity between items and topic descriptions, boosting relevant items and rescuing ones that keywords missed
+5. **Summarize** - Gemini 2.0 Flash generates 2-3 sentence summaries per item, an executive overview, and top 3 project recommendations
+6. **Email** - Sends a styled HTML digest via Gmail SMTP
 
 ### Sources
 
@@ -26,19 +27,30 @@ Fetch (20+ sources)  -->  Dedup  -->  Score & Rank  -->  AI Summarize  -->  Emai
 | News | Google News AI, Google News LLM, The Verge AI, TechCrunch AI, Ars Technica |
 | GitHub | Trending repos + API search (machine-learning, llm, generative-ai) |
 
-### Topics & Scoring
+### Hybrid Scoring System
 
-Items are scored by keyword matches in title (3x weight) and content (1x weight), multiplied by topic weight:
+Scoring happens in two passes:
 
-| Topic | Weight | Example Keywords |
-|-------|--------|-----------------|
-| Coding Assistants | 10 | claude code, codex, cursor, copilot, windsurf, devin |
-| Open Source AI | 9 | llama, mistral, qwen, deepseek, hugging face |
-| Breaking News | 8 | announced, launches, new model, benchmark, SOTA |
-| Media Generation | 8 | video generation, stable diffusion, flux, sora, midjourney |
-| AI Agents | 8 | ai agent, multi-agent, mcp, computer use |
-| Entrepreneurship | 7 | startup, SaaS, indie hacker, funding, YC |
-| GitHub Repos | 6 | github, trending, framework, library |
+**Pass 1: Keyword Scoring** — Fast regex matching against configured keywords. Title matches count 3x, content matches count 1x, multiplied by topic weight. All items are kept (including zero-score) for the semantic pass.
+
+**Pass 2: Semantic Reranking** — Uses Gemini `gemini-embedding-001` (free tier) to embed item titles/snippets and topic descriptions, then computes cosine similarity. Each item receives a semantic bonus (up to +20 points). Items with no keyword matches but high semantic similarity (>0.65) are "rescued" and assigned to the best-matching topic.
+
+| Topic | Weight | Example Keywords | Semantic Description |
+|-------|--------|-----------------|---------------------|
+| Coding Assistants | 10 | claude code, codex, cursor, copilot | AI coding tools, developer productivity, IDE integrations |
+| Open Source AI | 9 | llama, mistral, qwen, deepseek | Open source ML models, released weights, community projects |
+| Breaking News | 8 | announced, launches, new model, SOTA | Major AI announcements, model releases, benchmarks |
+| Media Generation | 8 | video generation, stable diffusion, flux | AI video/image/voice generation, creative AI tools |
+| AI Agents | 8 | ai agent, multi-agent, mcp | Autonomous agents, tool use, function calling |
+| Entrepreneurship | 7 | startup, SaaS, indie hacker, funding | AI startups, SaaS businesses, revenue generation |
+| GitHub Repos | 6 | github, trending, framework, library | Notable repositories, frameworks, CLI utilities |
+
+### Email Sections
+
+Each digest email includes:
+- **TL;DR** - AI-generated executive summary of the day's news
+- **Topic Sections** - Grouped items with source badges, clickable titles, and AI summaries
+- **Top 3 Projects** - AI-recommended projects worth exploring based on the digest
 
 ## Setup
 
@@ -103,9 +115,9 @@ The workflow commits updated state files (`state/seen_items.json`, `state/last_r
 ai-news-digest/
 ├── main.py              # Orchestrator - wires the full pipeline
 ├── fetchers.py          # RSS, GitHub API, and GitHub trending scrapers
-├── scorer.py            # Keyword-based relevance scoring and grouping
+├── scorer.py            # Hybrid keyword + semantic scoring and grouping
 ├── dedup.py             # Deduplication with 30-day seen-item memory
-├── summarizer.py        # Google Gemini API integration
+├── summarizer.py        # Google Gemini API integration (summaries + recommendations)
 ├── emailer.py           # HTML/plaintext email rendering and SMTP sending
 ├── models.py            # Data classes (NewsItem, DigestSection, Digest)
 ├── config.yaml          # Sources, topics, scoring weights, schedule
@@ -128,10 +140,11 @@ Edit `config.yaml` to customize:
 - **`schedule.interval_days`** - How often to send (default: 2)
 - **`schedule.max_items_in_digest`** - Max items per digest (default: 30)
 - **`schedule.lookback_hours`** - How far back to fetch content (default: 52)
-- **`topics`** - Add/remove topics, keywords, and scoring weights
+- **`topics`** - Add/remove topics, keywords, semantic descriptions, and scoring weights
 - **`sources`** - Add/remove RSS feeds, subreddits, YouTube channels, or GitHub search queries
 - **`email.recipients`** - Add more email recipients
 
 ## Rate Limits
 
-Gemini 2.0 Flash free tier allows 15 requests per minute. The summarizer adds a 4-second delay between calls to stay under this limit. A full 30-item digest takes ~2 minutes to summarize.
+- **Gemini 2.0 Flash** (summaries): 15 RPM free tier. The summarizer adds a 4-second delay between calls. A full 30-item digest takes ~2 minutes to summarize.
+- **Gemini Embeddings** (semantic scoring): 100 texts/minute free tier. Items are capped at ~83 per run to stay under the limit in a single API call.
