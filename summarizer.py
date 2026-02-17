@@ -46,7 +46,34 @@ class Summarizer:
         )
         return self._call(prompt)
 
-    def _call(self, prompt: str, retries: int = 3) -> str:
+    def recommend_projects(self, sections: list[DigestSection]) -> str:
+        """Recommend the top 3 projects to explore based on the digest."""
+        overview_lines = []
+        for s in sections:
+            for i in s.items[:5]:
+                line = f"- [{s.title}] {i.title}"
+                if i.extra.get("stars"):
+                    line += f" ({i.extra['stars']} stars)"
+                if i.url:
+                    line += f" | {i.url}"
+                overview_lines.append(line)
+        overview = "\n".join(overview_lines)
+
+        prompt = (
+            f"Based on today's AI news digest below, recommend the top 3 projects "
+            f"or tools that are most worth exploring or trying out. "
+            f"For each, provide:\n"
+            f"1. The project name\n"
+            f"2. A one-sentence description of what it does\n"
+            f"3. Why it's worth checking out right now\n\n"
+            f"Focus on actionable, hands-on projects (GitHub repos, tools, frameworks) "
+            f"rather than news stories. Format each as a numbered item.\n\n"
+            f"Today's digest items:\n{overview}\n\n"
+            f"Top 3 Project Recommendations:"
+        )
+        return self._call(prompt, max_tokens=500)
+
+    def _call(self, prompt: str, retries: int = 3, max_tokens: int = 300) -> str:
         """Make an API call with simple retry logic."""
         for attempt in range(retries):
             try:
@@ -54,7 +81,7 @@ class Summarizer:
                     model=self.model,
                     contents=prompt,
                     config=types.GenerateContentConfig(
-                        max_output_tokens=300,
+                        max_output_tokens=max_tokens,
                     ),
                 )
                 text = response.text.strip()

@@ -21,6 +21,7 @@ summarizer:
 topics:
   coding_assistants:
     label: "Coding Assistants"
+    semantic_description: "AI coding assistants, code generation tools, developer productivity, IDE integrations, pair programming AI"
     keywords:
       - claude code
       - codex
@@ -35,6 +36,7 @@ topics:
 
   breaking_news:
     label: "AI Breaking News"
+    semantic_description: "Major AI announcements, new model releases, performance benchmarks, state of the art results, AI industry news"
     keywords:
       - announced
       - launches
@@ -52,6 +54,7 @@ topics:
 
   open_source:
     label: "Open Source AI"
+    semantic_description: "Open source machine learning models, publicly released weights, permissive licenses, community AI projects"
     keywords:
       - open source
       - open-source
@@ -70,6 +73,7 @@ topics:
 
   media_generation:
     label: "Video/Image/Voice Generation"
+    semantic_description: "AI video generation, image synthesis, voice cloning, text to speech, audio generation, creative AI media tools"
     keywords:
       - video generation
       - image generation
@@ -92,6 +96,7 @@ topics:
 
   github_repos:
     label: "Interesting GitHub Repos"
+    semantic_description: "Notable GitHub repositories, software libraries, open source tools, programming frameworks, CLI utilities"
     keywords:
       - github
       - repository
@@ -104,6 +109,7 @@ topics:
 
   entrepreneurship:
     label: "AI Entrepreneurship"
+    semantic_description: "AI startups, building products with AI, SaaS businesses, indie hacker projects, funding rounds, revenue generation"
     keywords:
       - startup
       - entrepreneur
@@ -121,6 +127,7 @@ topics:
 
   agents:
     label: "AI Agents"
+    semantic_description: "Autonomous AI agents, multi-agent systems, tool use, function calling, AI taking actions in the real world"
     keywords:
       - ai agent
       - autonomous agent

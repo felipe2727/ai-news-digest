@@ -22,7 +22,8 @@ from dotenv import load_dotenv
 
 from models import Digest
 from fetchers import fetch_all
-from scorer import score_items, sort_and_limit, group_into_sections
+from google import genai
+from scorer import score_items, sort_and_limit, group_into_sections, semantic_rerank
 from dedup import load_seen, filter_new, save_seen
 from summarizer import Summarizer
 from emailer import send_digest
@@ -113,8 +114,21 @@ def main() -> None:
     # Score & filter
     topics = config.get("topics", {})
     scored = score_items(new_items, topics)
+    logger.info("After keyword scoring: %d items (including zero-score)", len(scored))
+
+    # Semantic re-ranking (skip if no API key, e.g. dry-run without credentials)
+    api_key = os.getenv("GEMINI_API_KEY")
+    if api_key:
+        embed_client = genai.Client(api_key=api_key)
+        scored = semantic_rerank(scored, topics, embed_client)
+        logger.info("After semantic rerank: %d items above threshold", len(scored))
+    else:
+        # Fallback: keyword-only filtering
+        scored = [item for item in scored if item.score > 0]
+        logger.info("No GEMINI_API_KEY, using keyword-only scoring: %d items", len(scored))
+
     scored = sort_and_limit(scored, config["schedule"]["max_items_in_digest"])
-    logger.info("After scoring: %d relevant items", len(scored))
+    logger.info("After sort_and_limit: %d items in digest", len(scored))
 
     if not scored:
         logger.info("No relevant items found. Skipping digest.")
@@ -137,7 +151,6 @@ def main() -> None:
         return
 
     # Summarize with AI
-    api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
         logger.error("GEMINI_API_KEY not set in .env")
         return
@@ -152,12 +165,16 @@ def main() -> None:
 
     intro = summarizer.summarize_digest(sections)
 
+    logger.info("Generating project recommendations...")
+    project_recs = summarizer.recommend_projects(sections)
+
     # Build digest
     digest = Digest(
         generated_at=datetime.now(timezone.utc),
         intro_summary=intro,
         sections=sections,
         total_items=sum(len(s.items) for s in sections),
+        project_recommendations=project_recs,
         sources_checked=sum(
             len(src.get("feeds", []))
             for src in config.get("sources", {}).values()

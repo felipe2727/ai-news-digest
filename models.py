@@ -44,3 +44,4 @@ class Digest:
     sections: list[DigestSection]
     total_items: int
     sources_checked: int
+    project_recommendations: str = ""

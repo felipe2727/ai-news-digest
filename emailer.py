@@ -40,6 +40,10 @@ def render_plaintext(digest: Digest) -> str:
             if item.summary:
                 lines.append(f"  {item.summary}")
             lines.append("")
+    if digest.project_recommendations:
+        lines.append("--- Top 3 Projects to Explore ---")
+        lines.append(digest.project_recommendations)
+        lines.append("")
     return "\n".join(lines)
 
 
