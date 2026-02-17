@@ -1,0 +1,7 @@
+{
+  "name": "ai-news-digest",
+  "private": true,
+  "scripts": {
+    "build": "cd dashboard && npm install && npm run build"
+  }
+}
