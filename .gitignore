@@ -1,7 +1,9 @@
 .env
-state/digest.log
+.env.local
+backend/state/digest.log
 __pycache__/
 *.pyc
 .venv/
-dashboard/node_modules/
-dashboard/dist/
+web/node_modules/
+web/.next/
+web/dist/
