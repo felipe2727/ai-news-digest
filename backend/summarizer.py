@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import re
 
 import requests
 
@@ -10,12 +11,20 @@ logger = logging.getLogger(__name__)
 
 # Free models on OpenRouter, in priority order
 DEFAULT_MODELS = [
-    "google/gemini-2.0-flash-exp:free",
-    "meta-llama/llama-4-maverick:free",
-    "qwen/qwen3-235b-a22b:free",
+    "openrouter/free",
+    "google/gemma-3-27b-it:free",
+    "meta-llama/llama-3.3-70b-instruct:free",
+    "mistralai/mistral-small-3.1-24b-instruct:free",
 ]
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+
+SYSTEM_MSG = (
+    "You are a concise AI news summarizer. "
+    "Respond ONLY with the requested summary text. "
+    "Do not include reasoning, thinking, citations, or web search results. "
+    "Do not use markdown links or URL citations."
+)
 
 
 class Summarizer:
@@ -92,10 +101,13 @@ class Summarizer:
                     },
                     json={
                         "model": model,
-                        "messages": [{"role": "user", "content": prompt}],
+                        "messages": [
+                            {"role": "system", "content": SYSTEM_MSG},
+                            {"role": "user", "content": prompt},
+                        ],
                         "max_tokens": max_tokens,
                     },
-                    timeout=30,
+                    timeout=60,
                 )
 
                 if response.status_code == 429:
@@ -118,9 +130,15 @@ class Summarizer:
                     logger.warning("Model %s error: %s", model, data["error"])
                     continue
 
-                text = data["choices"][0]["message"]["content"].strip()
+                msg = data["choices"][0]["message"]
+                text = (msg.get("content") or "").strip()
+
+                # Clean up thinking model artifacts
+                text = _clean_response(text)
+
                 if text:
-                    logger.debug("Used model: %s", model)
+                    used = data.get("model", model)
+                    logger.info("Summarized with %s", used)
                     return text
 
             except requests.exceptions.Timeout:
@@ -132,3 +150,21 @@ class Summarizer:
 
         logger.error("All models failed for prompt: %.80s...", prompt)
         return ""
+
+
+def _clean_response(text: str) -> str:
+    """Remove thinking/reasoning artifacts from model responses."""
+    # Remove <think>...</think> blocks
+    text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL)
+    # Remove markdown URL citations [text](url)
+    text = re.sub(r"\[([^\]]+)\]\(https?://[^)]+\)", r"\1", text)
+    # Remove lines that start with common reasoning prefixes
+    lines = text.split("\n")
+    cleaned = []
+    for line in lines:
+        stripped = line.strip().lower()
+        if stripped.startswith(("the user", "okay,", "let me", "i need to", "looking at")):
+            continue
+        cleaned.append(line)
+    text = "\n".join(cleaned).strip()
+    return text
