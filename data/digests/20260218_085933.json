@@ -1,0 +1,488 @@
+{
+  "id": "20260218_085933",
+  "generated_at": "2026-02-18T08:59:33.829175+00:00",
+  "intro_summary": "",
+  "project_recommendations": "",
+  "total_items": 30,
+  "sources_checked": 21,
+  "sections": [
+    {
+      "title": "Coding Assistants",
+      "items": [
+        {
+          "item_id": "203033b2b9323380",
+          "title": "Claude vs Copilot vs Codex",
+          "url": "https://www.reddit.com/r/OpenAI/comments/1r7u50f/claude_vs_copilot_vs_codex/",
+          "source_name": "r/OpenAI",
+          "source_type": "reddit",
+          "published": "2026-02-18T05:10:44+00:00",
+          "score": 138.8,
+          "matched_topics": [
+            "coding_assistants",
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "1ac80e298c226afc",
+          "title": "New: Figma MCP lets you Import Claude Code UI directly as editable design frames, details below",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1r7vvmr/new_figma_mcp_lets_you_import_claude_code_ui/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-02-18T06:47:47+00:00",
+          "score": 114.2,
+          "matched_topics": [
+            "coding_assistants",
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "2975a82bcb6bd500",
+          "title": "Join Claude Code’s 1st Birthday in SF",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1r7khjx/join_claude_codes_1st_birthday_in_sf/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-02-17T22:10:24+00:00",
+          "score": 62.1,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "f1a93a210593f813",
+          "title": "Codex is insane",
+          "url": "https://www.reddit.com/r/ChatGPT/comments/1r7hbn6/codex_is_insane/",
+          "source_name": "r/ChatGPT",
+          "source_type": "reddit",
+          "published": "2026-02-17T20:13:29+00:00",
+          "score": 41.7,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "e316d7d8d1b4a0f0",
+          "title": "Claude changed my life",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1r7c08a/claude_changed_my_life/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-02-17T17:08:53+00:00",
+          "score": 39.6,
+          "matched_topics": [
+            "coding_assistants",
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Breaking News",
+      "items": [
+        {
+          "item_id": "df2606a99d5e781e",
+          "title": "How AI is breaking the SaaS business model...",
+          "url": "https://www.youtube.com/watch?v=cxcb55zr2Q8",
+          "source_name": "Fireship",
+          "source_type": "youtube",
+          "published": "2026-02-17T18:17:11+00:00",
+          "score": 86.9,
+          "matched_topics": [
+            "breaking_news",
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "45e06fdb6919f12f",
+          "title": "GLM-5 and DeepSeek are in the Top 6 of the Game Agent Coding League across five games",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r7i2im/glm5_and_deepseek_are_in_the_top_6_of_the_game/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-17T20:40:43+00:00",
+          "score": 68.1,
+          "matched_topics": [
+            "breaking_news",
+            "open_source",
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "4cacab19b462569a",
+          "title": "I built a benchmark that tests coding LLMs on REAL codebases (65 tasks, ELO ranked)",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r7shtv/i_built_a_benchmark_that_tests_coding_llms_on/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-18T03:50:07+00:00",
+          "score": 61.0,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "22b40f1e61348d0b",
+          "title": "Best Audio Models - Feb 2026",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r7bsfd/best_audio_models_feb_2026/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-17T17:01:37+00:00",
+          "score": 60.6,
+          "matched_topics": [
+            "breaking_news",
+            "open_source",
+            "media_generation",
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "e818934e718f9a22",
+          "title": "Sonnet 4.6 scores on the Extended NYT Connections benchmark",
+          "url": "https://www.reddit.com/r/singularity/comments/1r7mcbn/sonnet_46_scores_on_the_extended_nyt_connections/",
+          "source_name": "r/singularity",
+          "source_type": "reddit",
+          "published": "2026-02-17T23:23:41+00:00",
+          "score": 55.2,
+          "matched_topics": [
+            "breaking_news",
+            "open_source",
+            "media_generation"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "73960eeb631583a9",
+          "title": "Difference Between Sonnet 4.5 and Sonnet 4.6 on a Spatial Reasoning Benchmark (MineBench)",
+          "url": "https://www.reddit.com/r/singularity/comments/1r7lra3/difference_between_sonnet_45_and_sonnet_46_on_a/",
+          "source_name": "r/singularity",
+          "source_type": "reddit",
+          "published": "2026-02-17T22:59:50+00:00",
+          "score": 52.7,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "f9aace1e9a84293d",
+          "title": "Difference Between Sonnet 4.5 and Sonnet 4.6 on a Spatial Reasoning Benchmark (MineBench)",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1r7lphz/difference_between_sonnet_45_and_sonnet_46_on_a/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-02-17T22:57:48+00:00",
+          "score": 52.7,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "c7d7074521948851",
+          "title": "Ai’s Conflicting Goals Revealed By New Benchmark Assessing Safety, Values And Culture - Quantum Zeitgeist",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOX0RGdWR6cG1lOFZ2STNKTC13RFp3SjVob0E5OXEtMEk1ekl4bkdjMllFbnRiQzZTYlNCdlhDRFd3cFVyc0xjaHlMYlZJSTRxeXhFdFNVWnpMM2tzU2VKeUs0amJub0hPeC04bmFMY0ZIUVFiSVlqcTEwWk52VkQzQmZveDlUZw?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-02-17T23:15:07+00:00",
+          "score": 44.7,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Open Source AI",
+      "items": [
+        {
+          "item_id": "f1d28979bf9a73de",
+          "title": "How AI is revolutionizing GitHub and open-source: Non-coders are contributing code",
+          "url": "https://www.youtube.com/watch?v=M5WEpFmi4M4",
+          "source_name": "Matt Wolfe",
+          "source_type": "youtube",
+          "published": "2026-02-17T21:00:04+00:00",
+          "score": 96.2,
+          "matched_topics": [
+            "open_source",
+            "github_repos",
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "522baa586ae965b5",
+          "title": "Origin story of OpenClaw: From 1-hour prototype to 180,000 stars of GitHub | Peter Steinberger",
+          "url": "https://www.youtube.com/watch?v=0ch2xoBzf3A",
+          "source_name": "Matt Wolfe",
+          "source_type": "youtube",
+          "published": "2026-02-18T05:00:04+00:00",
+          "score": 94.8,
+          "matched_topics": [
+            "open_source",
+            "github_repos",
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "702d251925dbb564",
+          "title": "How OpenClaw works | Peter Steinberger and Lex Fridman",
+          "url": "https://www.youtube.com/watch?v=5heqpW5-S9w",
+          "source_name": "Matt Wolfe",
+          "source_type": "youtube",
+          "published": "2026-02-18T01:00:04+00:00",
+          "score": 76.3,
+          "matched_topics": [
+            "open_source",
+            "github_repos",
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "50f6d3443f0e3d7a",
+          "title": "Best programming language for coding with AI agents | Peter Steinberger and Lex Fridman",
+          "url": "https://www.youtube.com/watch?v=mPaEgPwJJho",
+          "source_name": "Matt Wolfe",
+          "source_type": "youtube",
+          "published": "2026-02-17T13:00:04+00:00",
+          "score": 74.8,
+          "matched_topics": [
+            "open_source",
+            "github_repos",
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "20ef8e2fa053ad4c",
+          "title": "Qwen3.5 NVFP4 (Blackwell) is up!",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r77fz7/qwen35_nvfp4_blackwell_is_up/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-17T14:27:43+00:00",
+          "score": 72.4,
+          "matched_topics": [
+            "open_source",
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "f35ccd876a965968",
+          "title": "PrimeIntellect/INTELLECT-3.1 · Hugging Face",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r7plp1/primeintellectintellect31_hugging_face/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-18T01:43:01+00:00",
+          "score": 60.4,
+          "matched_topics": [
+            "open_source",
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "551d08db02e23f35",
+          "title": "Mistral AI buys Koyeb in first acquisition to back its cloud ambitions",
+          "url": "https://techcrunch.com/2026/02/17/mistral-ai-buys-koyeb-in-first-acquisition-to-back-its-cloud-ambitions/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-02-17T17:22:09+00:00",
+          "score": 54.4,
+          "matched_topics": [
+            "open_source",
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "1662544ccc67fc41",
+          "title": "AI is not enough: Why human programmers are still needed | Peter Steinberger and Lex Fridman",
+          "url": "https://www.youtube.com/watch?v=Vam29GKcyMM",
+          "source_name": "Matt Wolfe",
+          "source_type": "youtube",
+          "published": "2026-02-17T17:00:03+00:00",
+          "score": 50.1,
+          "matched_topics": [
+            "open_source",
+            "github_repos",
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "b121f548d77792fb",
+          "title": "bobeff / open-source-games",
+          "url": "https://github.com/bobeff/open-source-games",
+          "source_name": "GitHub Trending",
+          "source_type": "github",
+          "published": null,
+          "score": 48.7,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "12000",
+            "language": ""
+          }
+        },
+        {
+          "item_id": "7ee0451c8c150c30",
+          "title": "Qwen 3.5 397B is Strong one!",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r79dcd/qwen_35_397b_is_strong_one/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-17T15:41:44+00:00",
+          "score": 48.1,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "5af7aac174a99c52",
+          "title": "Alibaba's new Qwen3.5-397B-A17B is the #3 open weights model in the Artificial Analysis Intelligence Index",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r7bf1l/alibabas_new_qwen35397ba17b_is_the_3_open_weights/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-17T16:49:25+00:00",
+          "score": 41.0,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "8432fcc30f622549",
+          "title": "OpenClaw creator says Europe's stifling regulations are why he's moving to the US to join OpenAI",
+          "url": "https://www.reddit.com/r/singularity/comments/1r7v48a/openclaw_creator_says_europes_stifling/",
+          "source_name": "r/singularity",
+          "source_type": "reddit",
+          "published": "2026-02-18T06:04:22+00:00",
+          "score": 39.5,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Video/Image/Voice Generation",
+      "items": [
+        {
+          "item_id": "bc38d99f85f275a0",
+          "title": "Sales reps at $11 billion AI startup ElevenLabs have to bring in 20 times their base salary, or they're out — VP says",
+          "url": "https://www.reddit.com/r/artificial/comments/1r7pf2s/sales_reps_at_11_billion_ai_startup_elevenlabs/",
+          "source_name": "r/artificial",
+          "source_type": "reddit",
+          "published": "2026-02-18T01:35:09+00:00",
+          "score": 57.2,
+          "matched_topics": [
+            "media_generation",
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Entrepreneurship",
+      "items": [
+        {
+          "item_id": "6520e5be9ddcbc0c",
+          "title": "Large Language Model (LLM) integration risks for SaaS and enterprise - Security Boulevard",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQVzNEVmhHakowRlhpZzEzTTNuLXVCWnpoYnhVSTRvbkE1OFZRRG5qcDF2THI5M1JINjRlODNNb19Qd0d0SkgzNjVpRVp5dW1vVnBIal9lNHAtNUo3bmVLS2c2NVMzaTFZanl1Q0M5SjAwdEhlTkVsMlpiSUxyUDVHcjdhV1JWSVQ1TU4xLVNubUotR1FQWXRGZnFWX01JSVVMR2F3VGZ5MG0?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-02-17T12:24:18+00:00",
+          "score": 40.6,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "b73c4c3ee8101779",
+          "title": "Just 8 months in, India’s vibe-coding startup Emergent claims ARR of over $100M",
+          "url": "https://techcrunch.com/2026/02/17/emergent-hits-100m-arr-eight-months-after-launch-rolls-out-mobile-app/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-02-17T14:00:00+00:00",
+          "score": 39.8,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Agents",
+      "items": [
+        {
+          "item_id": "b3943de901588c78",
+          "title": "AI Agent Learns To Autonomously Respond To Cyberattacks Using Existing Knowledge - Quantum Zeitgeist",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOakthTUJ2dmtVTFVZWTM1UDlJMWVONnU2bHJMVGZyMm0wWFFTcHV5VVhqVTNMOTE4MDh4bU96WktOQnVnVWVWc2RsX2JnVUQ0U0FFV1BET0lGQWtUM1dTUWtqaUN2eUJTeGlUS2VyelhHWFA5UFFkd3BUVnNHdndFM0doUnV5dw?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-02-17T18:57:57+00:00",
+          "score": 44.6,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "19690f1673d6257f",
+          "title": "AI Agents Ground Creative in Performance Signals To Stop AI 'Slop' 02/18/2026 - MediaPost",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOMzcwU0ZaNzZoWGEwRkE3czU4UmRPOHhtQkpyTjFwbk9FbnhFbVZfTlduU05jU3RsOHRCY3pBMzhlNl9PdmNxaUtwTUxnRXVCTGVXU1NCUmgyM194dkZqdDN1cW1BRUk1Z2lCaG5QMkdxMVV5WnBjWHpjcWQ2ZkpobzhXcHFjNmxTTjFJaFRPaGVlaGxCZGZkSWVjM1Z4czJPeVEyMW9qU2pmNnhtOXc?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-02-18T03:12:57+00:00",
+          "score": 44.4,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    }
+  ]
+}
