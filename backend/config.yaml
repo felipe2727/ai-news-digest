@@ -13,8 +13,11 @@ email:
     - ${GMAIL_ADDRESS}
 
 summarizer:
-  provider: gemini
-  model: gemini-2.0-flash
+  provider: openrouter
+  models:
+    - google/gemini-2.0-flash-exp:free
+    - meta-llama/llama-4-maverick:free
+    - qwen/qwen3-235b-a22b:free
   max_summary_words: 150
 
 # Topics and keywords for relevance scoring

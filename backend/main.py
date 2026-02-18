@@ -13,7 +13,6 @@ import json
 import logging
 import os
 import re
-import time
 import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -151,15 +150,16 @@ def main() -> None:
             print()
         return
 
-    # Summarize with AI
-    if not api_key:
-        logger.error("GEMINI_API_KEY not set in .env")
+    # Summarize with AI (OpenRouter with model fallback)
+    openrouter_key = os.getenv("OPENROUTER_API_KEY")
+    if not openrouter_key:
+        logger.error("OPENROUTER_API_KEY not set in .env")
         return
 
-    model = config.get("summarizer", {}).get("model", "gemini-2.0-flash")
-    summarizer = Summarizer(api_key, model)
+    models = config.get("summarizer", {}).get("models")
+    summarizer = Summarizer(openrouter_key, models)
 
-    logger.info("Summarizing %d items with %s...", len(scored), model)
+    logger.info("Summarizing %d items via OpenRouter...")
     for section in sections:
         for item in section.items:
             item.summary = summarizer.summarize_item(item)
@@ -167,7 +167,6 @@ def main() -> None:
     intro = summarizer.summarize_digest(sections)
 
     logger.info("Generating project recommendations...")
-    time.sleep(10)  # Extra cooldown to avoid rate limit for recommendations
     project_recs = summarizer.recommend_projects(sections)
 
     # Build digest

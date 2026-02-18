@@ -1,20 +1,27 @@
 from __future__ import annotations
 
 import logging
-import time
 
-from google import genai
-from google.genai import types
+import requests
 
 from models import NewsItem, DigestSection
 
 logger = logging.getLogger(__name__)
 
+# Free models on OpenRouter, in priority order
+DEFAULT_MODELS = [
+    "google/gemini-2.0-flash-exp:free",
+    "meta-llama/llama-4-maverick:free",
+    "qwen/qwen3-235b-a22b:free",
+]
+
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+
 
 class Summarizer:
-    def __init__(self, api_key: str, model: str = "gemini-2.0-flash"):
-        self.client = genai.Client(api_key=api_key)
-        self.model = model
+    def __init__(self, api_key: str, models: list[str] | None = None):
+        self.api_key = api_key
+        self.models = models or DEFAULT_MODELS
 
     def summarize_item(self, item: NewsItem) -> str:
         """Generate a 2-3 sentence summary of a single news item."""
@@ -73,26 +80,55 @@ class Summarizer:
         )
         return self._call(prompt, max_tokens=500)
 
-    def _call(self, prompt: str, retries: int = 3, max_tokens: int = 300) -> str:
-        """Make an API call with simple retry logic."""
-        for attempt in range(retries):
+    def _call(self, prompt: str, max_tokens: int = 300) -> str:
+        """Make an API call with model fallback — tries each model in order."""
+        for model in self.models:
             try:
-                response = self.client.models.generate_content(
-                    model=self.model,
-                    contents=prompt,
-                    config=types.GenerateContentConfig(
-                        max_output_tokens=max_tokens,
-                    ),
+                response = requests.post(
+                    OPENROUTER_URL,
+                    headers={
+                        "Authorization": f"Bearer {self.api_key}",
+                        "Content-Type": "application/json",
+                    },
+                    json={
+                        "model": model,
+                        "messages": [{"role": "user", "content": prompt}],
+                        "max_tokens": max_tokens,
+                    },
+                    timeout=30,
                 )
-                text = response.text.strip()
-                time.sleep(4)  # Stay under Gemini free tier 15 RPM limit
-                return text
+
+                if response.status_code == 429:
+                    logger.warning("Rate limited on %s, trying next model...", model)
+                    continue
+
+                if response.status_code != 200:
+                    logger.warning(
+                        "Model %s returned %d: %s",
+                        model,
+                        response.status_code,
+                        response.text[:200],
+                    )
+                    continue
+
+                data = response.json()
+
+                # Check for OpenRouter error in response body
+                if "error" in data:
+                    logger.warning("Model %s error: %s", model, data["error"])
+                    continue
+
+                text = data["choices"][0]["message"]["content"].strip()
+                if text:
+                    logger.debug("Used model: %s", model)
+                    return text
+
+            except requests.exceptions.Timeout:
+                logger.warning("Timeout on %s, trying next model...", model)
+                continue
             except Exception as e:
-                if "429" in str(e) or "ResourceExhausted" in str(e):
-                    wait = 2 ** (attempt + 2)
-                    logger.warning("Rate limited, retrying in %ds...", wait)
-                    time.sleep(wait)
-                else:
-                    logger.error("Summarization failed: %s", e)
-                    return ""
+                logger.warning("Error with %s: %s", model, e)
+                continue
+
+        logger.error("All models failed for prompt: %.80s...", prompt)
         return ""
