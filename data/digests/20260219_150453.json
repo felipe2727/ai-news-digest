@@ -1,0 +1,488 @@
+{
+  "id": "20260219_150453",
+  "generated_at": "2026-02-19T15:04:53.764809+00:00",
+  "intro_summary": "",
+  "project_recommendations": "[]",
+  "total_items": 30,
+  "sources_checked": 21,
+  "sections": [
+    {
+      "title": "Coding Assistants",
+      "items": [
+        {
+          "item_id": "3b6dfd664fc08ea9",
+          "title": "I built a Claude Code plugin that analyzes codebases and generates architecture diagrams",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1r8wh4s/i_built_a_claude_code_plugin_that_analyzes/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-02-19T11:09:39+00:00",
+          "score": 58.7,
+          "matched_topics": [
+            "coding_assistants",
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "053c1db4f6a701d2",
+          "title": "Anthropic bans OAuth token usage in third-party tools — Claude Max/Pro users affected",
+          "url": "https://www.reddit.com/r/artificial/comments/1r8t76o/anthropic_bans_oauth_token_usage_in_thirdparty/",
+          "source_name": "r/artificial",
+          "source_type": "reddit",
+          "published": "2026-02-19T07:49:47+00:00",
+          "score": 41.2,
+          "matched_topics": [
+            "coding_assistants",
+            "open_source"
+          ],
+          "summary": "Anthropicupdated its Claude Code legal compliance documentation to explicitly ban using OAuth tokens from consumer plans (Free,",
+          "extra": {}
+        },
+        {
+          "item_id": "e2377a8366c97ba4",
+          "title": "Anthropic bans OAuth tokens from consumer plans in third-party Tools",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1r8ecyq/anthropic_bans_oauth_tokens_from_consumer_plans/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-02-18T20:30:20+00:00",
+          "score": 22.2,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "Anthropic has updated its terms of service to explicitly prohibit using OAuth tokens from consumer Claude plans (Free, Pro, or Max) in third-party tools, including the Agent SDK. The company is actively enforcing this policy with server-side blocks and account bans, disrupting popular tools like OpenCode and OpenClaw that previously allowed users to route their subscription access through alternative interfaces. This move effectively forces developers to use API keys instead of subscription credentials, significantly impacting how third-party tools can integrate with Claude and raising concerns about the value proposition of higher-tier consumer plans.",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Breaking News",
+      "items": [
+        {
+          "item_id": "a36aa43c79a9ed9e",
+          "title": "Open-source benchmark EVMbench tests how well AI agents handle smart contract exploits",
+          "url": "https://www.reddit.com/r/artificial/comments/1r8y11e/opensource_benchmark_evmbench_tests_how_well_ai/",
+          "source_name": "r/artificial",
+          "source_type": "reddit",
+          "published": "2026-02-19T12:33:47+00:00",
+          "score": 121.6,
+          "matched_topics": [
+            "breaking_news",
+            "open_source",
+            "agents"
+          ],
+          "summary": "OpenAI and Paradigm have launched EVMbench, an open-source benchmark that evaluates AI agents' abilities to detect, patch, and exploit vulnerabilities in Ethereum smart contracts. The benchmark uses 120 real-world vulnerabilities from audited codebases and contest reports to measure how well AI can handle practical blockchain security tasks, addressing the growing risk as AI agents become more capable of both attacking and defending crypto assets worth over $100 billion.",
+          "extra": {}
+        },
+        {
+          "item_id": "9738536411c214dc",
+          "title": "So apparently today we’re getting Gemini 3.1, DeepSeek V4 and ChatGPT 5.3 (plus “Adult Mode”). Sure we are.",
+          "url": "https://www.reddit.com/r/OpenAI/comments/1r8zrra/so_apparently_today_were_getting_gemini_31/",
+          "source_name": "r/OpenAI",
+          "source_type": "reddit",
+          "published": "2026-02-19T13:53:01+00:00",
+          "score": 64.7,
+          "matched_topics": [
+            "breaking_news",
+            "open_source",
+            "agents"
+          ],
+          "summary": "On February 13th, 2026, major AI systems like Gemini 3.1, DeepSeek v4, and the updated ChatGPT 5.3 were announced, marking significant advancements in reasoning and capabilities. These releases signal a shift toward stronger tool use, improved scalability, and new enterprise features like an AI 'adult mode.' The moves reflect intense competition as companies vie for leadership in advanced AI reasoning.",
+          "extra": {}
+        },
+        {
+          "item_id": "a4c92f9fddfc17ef",
+          "title": "So apparently today we’re getting Gemini 3.1, DeepSeek V4 and ChatGPT 5.3 (plus “Adult Mode”). Sure we are.",
+          "url": "https://www.reddit.com/r/ChatGPT/comments/1r8zr0k/so_apparently_today_were_getting_gemini_31/",
+          "source_name": "r/ChatGPT",
+          "source_type": "reddit",
+          "published": "2026-02-19T13:52:07+00:00",
+          "score": 64.7,
+          "matched_topics": [
+            "breaking_news",
+            "open_source",
+            "agents"
+          ],
+          "summary": "Google released Gemini 3",
+          "extra": {}
+        },
+        {
+          "item_id": "180efec86b7d41c9",
+          "title": "UWF Launches Center for Cybersecurity and AI to Advance National and Global Impact - University of West Florida",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPcnc1RGRzR3U0b0VuVHJLWV8ybHp0V25kRTM5NFdMVFlvZXJRWTRNX3pKeFJYRVZERTZBTFRpSjNfbzZXYjZnZGFXOTA1N1QyT1Nxam1FRDhFT3NQZWNrWFU5VVBnZ0U0RDJDdDBfdzN0S2g5eVRDd3BteHpndFlaX1ZqcVJoQ3AwYnBYUUxGUmlqSldNV2NRb3ZGc3YtZ3dQQlViS3JxYw?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-02-19T14:35:25+00:00",
+          "score": 42.7,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "The University of West Florida has launched a new Center for Cybersecurity and AI to advance national and global impact. The center aims to integrate AI and cybersecurity education, addressing critical workforce needs and enhancing cyber resilience. UWF's initiatives have been recognized with major federal grants, including a $9.6 million award to expand cybersecurity training and a $32.5 million grant to advance computational research.",
+          "extra": {}
+        },
+        {
+          "item_id": "168128a444e1b37e",
+          "title": "Best coding models (or other models) one can run on an rtx5070ti (16gb vram) with of 64gb RAM",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r8kybv/best_coding_models_or_other_models_one_can_run_on/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-19T00:51:53+00:00",
+          "score": 39.3,
+          "matched_topics": [
+            "breaking_news",
+            "open_source"
+          ],
+          "summary": "Developers are increasingly adopting local AI coding models to maintain privacy, save costs, and avoid recurring fees, as seen in 2026 with VRAM-tier systems. This shift favors models that match onto consumer hardware like the RTX5070ti, offering decent general-purpose support without heavy cloud costs. Key benchmarks show well-qualified 20B and 32B parameter models running efficiently even on modest VRAM hardware.",
+          "extra": {}
+        },
+        {
+          "item_id": "0305c88dafa06ed6",
+          "title": "Google launches Lyria 3 AI music in Gemini — what this means for independent AI music platforms",
+          "url": "https://www.reddit.com/r/artificial/comments/1r90ssr/google_launches_lyria_3_ai_music_in_gemini_what/",
+          "source_name": "r/artificial",
+          "source_type": "reddit",
+          "published": "2026-02-19T14:35:18+00:00",
+          "score": 36.2,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "Google has integrated its Lyria 3 AI music model into the Gemini app, allowing users to generate 30-second tracks from text, image, or video prompts. This move by a major tech company legitimizes AI music creation and intensifies competition with specialized AI music platforms. The feature is free, global, and includes safeguards like watermarking to address copyright concerns.",
+          "extra": {}
+        },
+        {
+          "item_id": "52b9854ac31a6756",
+          "title": "Whenever a new model drops",
+          "url": "https://www.reddit.com/r/singularity/comments/1r8zw4u/whenever_a_new_model_drops/",
+          "source_name": "r/singularity",
+          "source_type": "reddit",
+          "published": "2026-02-19T13:58:09+00:00",
+          "score": 35.9,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "OpenAI and Anthropic released competing flagship",
+          "extra": {}
+        },
+        {
+          "item_id": "f60ad44c4f95ae0c",
+          "title": "Breaking: Elon Musk shares new delusions",
+          "url": "https://www.reddit.com/r/singularity/comments/1r8pc2k/breaking_elon_musk_shares_new_delusions/",
+          "source_name": "r/singularity",
+          "source_type": "reddit",
+          "published": "2026-02-19T04:14:35+00:00",
+          "score": 35.1,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Open Source AI",
+      "items": [
+        {
+          "item_id": "d0fe07c02a61778a",
+          "title": "TextWeb: render web pages as 2-5KB text grids instead of 1MB screenshots for AI agents (open source, MCP + LangChain + CrewAI)",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r90b3a/textweb_render_web_pages_as_25kb_text_grids/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-19T14:14:54+00:00",
+          "score": 87.9,
+          "matched_topics": [
+            "open_source",
+            "agents"
+          ],
+          "summary": "Google Chrome introduced WebMCP, a browser API enabling AI agents to interact with websites via structured tools instead of parsing raw HTML or screenshots. This reduces token usage and latency by 34-78% compared to current methods",
+          "extra": {}
+        },
+        {
+          "item_id": "8e60773a3dc50b4c",
+          "title": "\"How the f*ck did it do that?\" - The first AI agent mind-blowing moment | Peter Steinberger",
+          "url": "https://www.youtube.com/watch?v=LbgrXwDX3WQ",
+          "source_name": "Matt Wolfe",
+          "source_type": "youtube",
+          "published": "2026-02-19T13:00:03+00:00",
+          "score": 74.1,
+          "matched_topics": [
+            "open_source",
+            "github_repos",
+            "agents"
+          ],
+          "summary": "Peter Steinberger, creator of the open-source AI agent framework OpenClaw, joined OpenAI to advance its development into a foundation for autonomous, multi-agent AI systems, signaling a shift",
+          "extra": {}
+        },
+        {
+          "item_id": "c8a2fe0eea79099b",
+          "title": "Last week in Image & Video Generation",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1r8q5de/last_week_in_image_video_generation/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-02-19T04:56:42+00:00",
+          "score": 70.8,
+          "matched_topics": [
+            "open_source",
+            "media_generation",
+            "github_repos"
+          ],
+          "summary": "A custom ComfyUI nodeimplementing AutoGuidance simplifies adding advanced image guidance to existing workflows. An open-weight image editing model, FireRed-Image-Edit-1.0, launched on Hugging Face for accessible editing integration. Both developments enhance accessibility and efficiency in local AI image generation",
+          "extra": {}
+        },
+        {
+          "item_id": "d39cc4078d52625e",
+          "title": "I built an eBPF tracer to monitor AI agents the same way you'd monitor malware in a sandbox",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r8yvu5/i_built_an_ebpf_tracer_to_monitor_ai_agents_the/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-19T13:14:07+00:00",
+          "score": 69.9,
+          "matched_topics": [
+            "open_source",
+            "agents"
+          ],
+          "summary": "Azazel, an open-source eBPF-based tracer, monitors AI agents in containers by bypassing their control over application logs, addressing security risks from self-sabotaging logs. This method ensures transparent oversight",
+          "extra": {}
+        },
+        {
+          "item_id": "24c860d874b15a38",
+          "title": "Last Week in Multimodal AI - Local Edition",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r8pohi/last_week_in_multimodal_ai_local_edition/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-19T04:31:57+00:00",
+          "score": 41.0,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "Alibaba's Qwen 3.5-397B-A17B model launched as a native multimodal foundation model, combining vision and language processing without a separate vision encoder. It offers 397B total parameters with 17B active per token, enabling efficient document parsing, chart analysis, and visual reasoning for local deployment. This positions Alibaba as a competitive open-source",
+          "extra": {}
+        },
+        {
+          "item_id": "7c1be080d10ae0c3",
+          "title": "For open-source programs, AI coding tools are a mixed blessing",
+          "url": "https://techcrunch.com/2026/02/19/for-open-source-programs-ai-coding-tools-are-a-mixed-blessing/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-02-19T14:00:00+00:00",
+          "score": 40.8,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "65591a3380aecb27",
+          "title": "Metadata Viewer",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1r86y7a/metadata_viewer/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-02-18T16:03:52+00:00",
+          "score": 40.2,
+          "matched_topics": [
+            "open_source",
+            "media_generation",
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "c58ead019bef157e",
+          "title": "Sam Altman Says OpenAI’s Next Big Push Is Personal Agents After Hiring OpenClaw Creator",
+          "url": "https://www.reddit.com/r/OpenAI/comments/1r83h91/sam_altman_says_openais_next_big_push_is_personal/",
+          "source_name": "r/OpenAI",
+          "source_type": "reddit",
+          "published": "2026-02-18T13:49:19+00:00",
+          "score": 39.9,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "d9909afd2202347b",
+          "title": "[P] Utterance, an open source client-side semantic endpointing SDK for voice apps. We are looking for contributors.",
+          "url": "https://www.reddit.com/r/MachineLearning/comments/1r8cy9j/p_utterance_an_open_source_clientside_semantic/",
+          "source_name": "r/MachineLearning",
+          "source_type": "reddit",
+          "published": "2026-02-18T19:37:54+00:00",
+          "score": 39.5,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "e023906557523488",
+          "title": "OpenClaw leaked 1.5M API tokens including OpenAI keys — full security breakdown",
+          "url": "https://www.reddit.com/r/ChatGPT/comments/1r84u15/openclaw_leaked_15m_api_tokens_including_openai/",
+          "source_name": "r/ChatGPT",
+          "source_type": "reddit",
+          "published": "2026-02-18T14:44:08+00:00",
+          "score": 38.7,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "08ead619722a62b2",
+          "title": "[D] 1T performance from a 397B model. How?",
+          "url": "https://www.reddit.com/r/MachineLearning/comments/1r8txnn/d_1t_performance_from_a_397b_model_how/",
+          "source_name": "r/MachineLearning",
+          "source_type": "reddit",
+          "published": "2026-02-19T08:35:52+00:00",
+          "score": 22.3,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "4cb8d95e0728576e",
+          "title": "LLMs grading other LLMs 2",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r86i3o/llms_grading_other_llms_2/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-18T15:47:24+00:00",
+          "score": 21.5,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "e7df4bc2e15926a8",
+          "title": "I plugged a $30 radio into my Mac mini and told my AI \"connect to this\" — now I control my smart home and send voice messages over radio with zero internet",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r8ectu/i_plugged_a_30_radio_into_my_mac_mini_and_told_my/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-18T20:30:14+00:00",
+          "score": 21.5,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Video/Image/Voice Generation",
+      "items": [
+        {
+          "item_id": "e6aec155642002b2",
+          "title": "Ai Toolkit Configs",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1r8v9iu/ai_toolkit_configs/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-02-19T09:58:45+00:00",
+          "score": 27.8,
+          "matched_topics": [
+            "media_generation"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Entrepreneurship",
+      "items": [
+        {
+          "item_id": "e8f83674cffd3758",
+          "title": "Bloomberg reports OpenAI close to finalizing first phase of a new funding round likely to bring in more than $100B, valuation could exceed $850B",
+          "url": "https://www.reddit.com/r/singularity/comments/1r8nozc/bloomberg_reports_openai_close_to_finalizing/",
+          "source_name": "r/singularity",
+          "source_type": "reddit",
+          "published": "2026-02-19T02:56:38+00:00",
+          "score": 40.9,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "deea1c6a77b12056",
+          "title": "OpenAI Funding Round Nears Record $100B Raise as Valuation Targets $850B",
+          "url": "https://www.reddit.com/r/artificial/comments/1r8y452/openai_funding_round_nears_record_100b_raise_as/",
+          "source_name": "r/artificial",
+          "source_type": "reddit",
+          "published": "2026-02-19T12:38:04+00:00",
+          "score": 34.3,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "a1a66f153a701e49",
+          "title": "This is chilling…a true psychopath’s creation",
+          "url": "https://www.reddit.com/r/ChatGPT/comments/1r8u1kf/this_is_chillinga_true_psychopaths_creation/",
+          "source_name": "r/ChatGPT",
+          "source_type": "reddit",
+          "published": "2026-02-19T08:42:42+00:00",
+          "score": 31.4,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Agents",
+      "items": [
+        {
+          "item_id": "7e189e693414edec",
+          "title": "Virtana expands MCP Server to bring full-stack enterprise context to AI agents - Help Net Security",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBLMG41SUdhU2hrdWt1Ukd0bWtKV203STNSRXQ1VlBXN1lpSW0yQzR0UWxSUUY1VGIwYVZ1LUxPUWpYMEFTcFRDUmxQLWtveDBHQV9teGJlbm9IRjJieUIzbGxKa2hvZlZzUVNlLWhYTQ?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-02-19T08:03:30+00:00",
+          "score": 75.5,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "bfb62ab6b5e7459e",
+          "title": "Intelligent-Internet/CommonGround",
+          "url": "https://github.com/Intelligent-Internet/CommonGround",
+          "source_name": "GitHub Search (llm)",
+          "source_type": "github",
+          "published": null,
+          "score": 21.8,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "76",
+            "language": "Python",
+            "topics": [
+              "agents",
+              "ai",
+              "ai-agents",
+              "llm",
+              "multi-agent-systems",
+              "multiagent"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
