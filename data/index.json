@@ -1,5 +1,12 @@
 [
   {
+    "id": "20260219_115947",
+    "generated_at": "2026-02-19T11:59:47.086281+00:00",
+    "total_items": 30,
+    "sources_checked": 21,
+    "intro_snippet": "Anthropic launched Claude Sonnet 4.6, bringing near- frontier capabilities including a 1M token context to free users, while also facing developer backlash over a Claude Code update that obscures file operations."
+  },
+  {
     "id": "20260218_085933",
     "generated_at": "2026-02-18T08:59:33.829175+00:00",
     "total_items": 30,

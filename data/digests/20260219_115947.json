@@ -1,0 +1,481 @@
+{
+  "id": "20260219_115947",
+  "generated_at": "2026-02-19T11:59:47.086281+00:00",
+  "intro_summary": "Anthropic launched Claude Sonnet 4.6, bringing near- frontier capabilities including a 1M token context to free users, while also facing developer backlash over a Claude Code update that obscures file operations. OpenClaw's explosive growth to 190K GitHub stars",
+  "project_recommendations": "[{\"name\": \"Claude Code\", \"description\": \"An agentic coding tool that runs in your terminal, understands your codebase, and executes routine tasks via natural language commands.\", \"why\": \"It's a powerful agent for automating repetitive coding tasks, demonstrating immediate practical value for developers.\", \"url\": \"https://github.com/anthropics/claude-code\", \"category\": \"tool\"}, {\"name\": \"OpenClaw\", \"description\": \"A self-hosted AI agent platform connecting multiple messaging apps to handle workflow automation securely.\", \"why\": \"Its architecture allows developers to run LLMs locally across diverse platforms with full control and auditability.\", \"url\": \"https://openclaw.ai\", \"category\": \"framework\"}, {\"name\": \"Kitten TTS\", \"description\": \"A lightweight Super-Tiny TTS model under 25 MB for generating lifelike kitty voiceovers.\", \"why\": \"Perfect for prototyping voice-based AI applications quickly and efficiently.\", \"url\": \"https://www.reddit.com/r/LocalLLaMA/comments/1r8pztp/kitten_tts_v08_is_out_new_sota_supertiny_tts\", \"category\": \"model\"}]",
+  "total_items": 30,
+  "sources_checked": 21,
+  "sections": [
+    {
+      "title": "Coding Assistants",
+      "items": [
+        {
+          "item_id": "99c4443e925635a9",
+          "title": "New Anthropic research: Measuring AI agent autonomy in practice",
+          "url": "https://www.reddit.com/r/singularity/comments/1r8dl9j/new_anthropic_research_measuring_ai_agent/",
+          "source_name": "r/singularity",
+          "source_type": "reddit",
+          "published": "2026-02-18T20:01:19+00:00",
+          "score": 63.4,
+          "matched_topics": [
+            "coding_assistants",
+            "agents"
+          ],
+          "summary": "Anthropic analyzed millions of real-world interactions across Claude Code and their API to",
+          "extra": {}
+        },
+        {
+          "item_id": "19b50f95c1ac77a0",
+          "title": "iOS App for Claude Code",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1r88s1c/ios_app_for_claude_code/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-02-18T17:08:19+00:00",
+          "score": 62.8,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "An iOS app named Labide enables remote development with Claude Code on iPhone and iPad, allowing code editing and project management while leveraging Claude for generation, refactoring, debugging, explanations, and tests directly within the editor. It integrates with existing local Claude Code setups via the user's computer account/API, ensuring seamless workflow continuity without requiring new accounts. This mobile extension enhances accessibility for developers, enabling AI-assisted coding from anywhere while maintaining secure, local project context.",
+          "extra": {}
+        },
+        {
+          "item_id": "466b50cd46e8f9c4",
+          "title": "Anthropic's Claude Code creator predicts software engineering title will start to 'go away' in 2026",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1r801ox/anthropics_claude_code_creator_predicts_software/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-02-18T11:02:20+00:00",
+          "score": 61.3,
+          "matched_topics": [
+            "coding_assistants",
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "df69f1797bdaa37f",
+          "title": "[web novel] I woke up and I was inside Claude Code?",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1r8rhdu/web_novel_i_woke_up_and_i_was_inside_claude_code/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-02-19T06:07:49+00:00",
+          "score": 60.5,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "1aa45ce06b1f3a26",
+          "title": "Microsoft says Office bug exposed customers’ confidential emails to Copilot AI",
+          "url": "https://techcrunch.com/2026/02/18/microsoft-says-office-bug-exposed-customers-confidential-emails-to-copilot-ai/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-02-18T14:44:28+00:00",
+          "score": 51.2,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "Microsoft confirmed a bug in its 365 Copilot AI that allowed the chatbot to access and summarize confidential emails in Outlook, bypassing data loss prevention (DLP) policies. The flaw, tracked as CW1226324, affected emails in Sent Items and Drafts folders, including those marked with confidentiality labels, raising serious privacy and compliance concerns for enterprise users. Microsoft deployed a fix in early February but has not disclosed how many customers were impacted or whether any data was stored beyond summaries.",
+          "extra": {}
+        },
+        {
+          "item_id": "972db9e57237d7db",
+          "title": "Major Claude Code policy clear up from Anthropic",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1r88qh6/major_claude_code_policy_clear_up_from_anthropic/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-02-18T17:06:47+00:00",
+          "score": 42.1,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "Anthropic has clarified that using Claude Code subscription OAuth tokens in third-party tools violates its terms of service, actively blocking such access and banning accounts that attempt it. This move ends \"arbitrage coding\" where developers used flat-rate consumer subscriptions for enterprise-grade automation, forcing them into metered API pricing instead. The policy aims to secure Anthropic's revenue streams ahead of a potential IPO and prevent unauthorized access to its AI models.",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Breaking News",
+      "items": [
+        {
+          "item_id": "2fa76314fe754d38",
+          "title": "Kitten TTS V0.8 is out: New SOTA Super-tiny TTS Model (Less than 25 MB)",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r8pztp/kitten_tts_v08_is_out_new_sota_supertiny_tts/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-19T04:48:29+00:00",
+          "score": 206.9,
+          "matched_topics": [
+            "breaking_news",
+            "open_source",
+            "media_generation",
+            "github_repos"
+          ],
+          "summary": "Kitten ML released three new open-source TTS models (80M, 40M, 14M) under Apache 2.0, all under 25 MB in size, offering exceptional expressiveness in a compact package. The tiny models enable efficient, accessible text-to-speech applications without sacrificing quality. Release includes GitHub, Discord, and Hugging Face access for immediate use.",
+          "extra": {}
+        },
+        {
+          "item_id": "1a01f36fc0cc1bcc",
+          "title": "Indian AI lab Sarvam’s new models are a major bet on the viability of open source AI",
+          "url": "https://techcrunch.com/2026/02/18/indian-ai-lab-sarvams-new-models-are-a-major-bet-on-the-viability-of-open-source-ai/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-02-18T12:55:20+00:00",
+          "score": 64.8,
+          "matched_topics": [
+            "breaking_news",
+            "open_source"
+          ],
+          "summary": "Indian AI lab Sarvam launched new open-source models, including 30B and 105B parameter LLMs, text-to-speech, speech-to-text, and document vision models. This",
+          "extra": {}
+        },
+        {
+          "item_id": "b6af983e336dbaf0",
+          "title": "[D] Which hyperparameters search library to use?",
+          "url": "https://www.reddit.com/r/MachineLearning/comments/1r8v4fn/d_which_hyperparameters_search_library_to_use/",
+          "source_name": "r/MachineLearning",
+          "source_type": "reddit",
+          "published": "2026-02-19T09:50:06+00:00",
+          "score": 44.0,
+          "matched_topics": [
+            "breaking_news",
+            "github_repos"
+          ],
+          "summary": "A Reddit user is asking for recommendations among Optuna, Hyperopt, sklearn.GridSearchCV, and sklearn.RandomizedSearchCV for hyperparameter optimization,",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Open Source AI",
+      "items": [
+        {
+          "item_id": "a6caa3662d38f4fb",
+          "title": "OpenClaw security concerns & drama - response from OpenClaw creator | Peter Steinberger",
+          "url": "https://www.youtube.com/watch?v=9HiWv7Q3OXE",
+          "source_name": "Matt Wolfe",
+          "source_type": "youtube",
+          "published": "2026-02-18T17:00:04+00:00",
+          "score": 103.1,
+          "matched_topics": [
+            "open_source",
+            "github_repos",
+            "agents"
+          ],
+          "summary": "Peter Steinberger, creator of the viral AI agent framework OpenClaw, has announced he's joining OpenAI to work on bringing AI agents to a broader audience. He cited Europe's strict regulations as a key reason for moving to the US, noting that tech companies face significant challenges operating under European labor laws and regulatory constraints. Steinberger emphasized that while OpenClaw will remain open-source through a planned foundation structure, joining OpenAI provides access to cutting-edge research and resources needed to advance agent technology.",
+          "extra": {}
+        },
+        {
+          "item_id": "1de196d34a0bf097",
+          "title": "Easy setup of OpenClaw AI agent | Peter Steinberger and Lex Fridman",
+          "url": "https://www.youtube.com/watch?v=oVHOM-eWfrw",
+          "source_name": "Matt Wolfe",
+          "source_type": "youtube",
+          "published": "2026-02-18T21:00:24+00:00",
+          "score": 101.0,
+          "matched_topics": [
+            "open_source",
+            "github_repos",
+            "agents"
+          ],
+          "summary": "Peter Steinberger's OpenClaw, an open-source AI agent framework, is the fastest-growing GitHub project, offering simplified setup for AI developers. Its rapid rise highlights growing interest in accessible, community-driven AI tools. Steinberger's work, discussed in a Lex Fridman Podcast episode, emphasizes ease of use and scalability in AI agent development.",
+          "extra": {}
+        },
+        {
+          "item_id": "fa49e56bc7bca310",
+          "title": "Do we want the benefits of Ollama API without actually using Ollama?",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r8gb3p/do_we_want_the_benefits_of_ollama_api_without/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-18T21:43:03+00:00",
+          "score": 84.1,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "The developer integrated Ollama API into Lemonade Server by repurposing existing functions via /api endpoints, enabling native model management features like auto-detection and UI-based model control. This mirrors app-specific advantages of Ollama over OpenAI API, offering smoother setup and user-friendly model handling. Key facts include compatibility with Ollama's port 11434 server and the ability to pull/eject models directly from the web interface.",
+          "extra": {}
+        },
+        {
+          "item_id": "996968e71355f221",
+          "title": "OpenClaw creator's programming setup | Peter Steinberger and Lex Fridman",
+          "url": "https://www.youtube.com/watch?v=m_l9pUKLiXo",
+          "source_name": "Matt Wolfe",
+          "source_type": "youtube",
+          "published": "2026-02-18T13:00:04+00:00",
+          "score": 76.8,
+          "matched_topics": [
+            "open_source",
+            "github_repos",
+            "agents"
+          ],
+          "summary": "Peter Steinberger, creator of the fastest-growing GitHub project OpenClaw, discussed his innovative programming setup with Lex Fridman, revealing how he runs 5-10 AI coding agents simultaneously while maintaining architectural control. This agentic engineering approach has allowed him to build at a pace comparable to a mid-stage startup team, shipping 6,600+ commits in January alone as a solo developer. His methods represent a",
+          "extra": {}
+        },
+        {
+          "item_id": "9478b213c32c5b88",
+          "title": "Local VLMs (Qwen 3 VL) for document OCR with bounding box detection for PII detection/redaction workflows (blog post and open source app)",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r8smbk/local_vlms_qwen_3_vl_for_document_ocr_with/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-19T07:13:57+00:00",
+          "score": 75.5,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "A developer has created an open-source document redaction application that uses the local",
+          "extra": {}
+        },
+        {
+          "item_id": "b41a3c7bdba83b4b",
+          "title": "MiniMax-M2.5-REAP from cerebras",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r8g0iw/minimaxm25reap_from_cerebras/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-18T21:32:00+00:00",
+          "score": 71.6,
+          "matched_topics": [
+            "open_source",
+            "media_generation"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "65a22a3bcae6d7bd",
+          "title": "ZUNA \"Thought-to-Text\": a 380M-parameter BCI foundation model for EEG data (Apache 2.0)",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r8vhhq/zuna_thoughttotext_a_380mparameter_bci_foundation/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-19T10:11:39+00:00",
+          "score": 70.4,
+          "matched_topics": [
+            "open_source",
+            "github_repos"
+          ],
+          "summary": "Zyphra has released ZUNA, a 380M-parameter brain-computer interface (BCI) foundation model for electroencephalography (EEG) data that advances toward \"thought-to-text\" capabilities. The open-source model, available under Apache 2.0, reconstructs and denoises EEG signals across different electrode configurations, addressing challenges in EEG data quality and usability. ZUNA aims to enable direct communication between human thought and AI systems while providing immediate practical value for EEG practitioners in medical devices, neuroscience research, and consumer neurotechnology.",
+          "extra": {}
+        },
+        {
+          "item_id": "6afe051759edde59",
+          "title": "Minimax 2.5 on Strix Halo Thread",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r8rgcp/minimax_25_on_strix_halo_thread/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-19T06:06:20+00:00",
+          "score": 68.9,
+          "matched_topics": [
+            "open_source",
+            "media_generation"
+          ],
+          "summary": "Minimax 2.5 is dropping in production due to local deployment constraints, though deploying it locally offers impressive quality but with significant performance limitations. Running it on hardware like the RTX 8060S and a 128GB GPU yields solid results, but decode speeds stay moderate, making real-time use challenging. Users are seeking optimization tips to make it faster for local deployment.",
+          "extra": {}
+        },
+        {
+          "item_id": "8f1710dc55a5bfdb",
+          "title": "I updated my LoRA Analysis Tool with a 'Forensic Copycat Detector'. It now finds the exact training image your model is memorizing. (Mirror Metrics - Open Source)",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1r8clyn/i_updated_my_lora_analysis_tool_with_a_forensic/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-02-18T19:25:17+00:00",
+          "score": 67.2,
+          "matched_topics": [
+            "open_source",
+            "entrepreneurship"
+          ],
+          "summary": "A new version of the open-source",
+          "extra": {}
+        },
+        {
+          "item_id": "6c6f011803a8b653",
+          "title": "[P] I just launched an open-source framework to help researchers *responsibly* and *rigorously* harness frontier LLM coding assistants for rapidly accelerating data analysis. I genuinely think this change the future of science with your help -- it's also kind of terrifying, so let's talk about it!",
+          "url": "https://www.reddit.com/r/MachineLearning/comments/1r87oz0/p_i_just_launched_an_opensource_framework_to_help/",
+          "source_name": "r/MachineLearning",
+          "source_type": "reddit",
+          "published": "2026-02-18T16:30:21+00:00",
+          "score": 57.1,
+          "matched_topics": [
+            "open_source",
+            "github_repos"
+          ],
+          "summary": "Brian Heseung Kim launched an open-source framework called ResearStudio to enable rigorous, auditable use of frontier LLMs in research. This system allows real-time human intervention during AI-driven data analysis, addressing ethical concerns by letting users pause, edit,",
+          "extra": {}
+        },
+        {
+          "item_id": "c321863cb0f9ea13",
+          "title": "Terminal vs IDE: Why CLI is better for programming with AI | Peter Steinberger and Lex Fridman",
+          "url": "https://www.youtube.com/watch?v=69UonSdioCI",
+          "source_name": "Matt Wolfe",
+          "source_type": "youtube",
+          "published": "2026-02-19T01:00:04+00:00",
+          "score": 51.0,
+          "matched_topics": [
+            "open_source",
+            "github_repos",
+            "agents"
+          ],
+          "summary": "Peter Steinberger, creator of the viral open-source AI agent OpenClaw and now OpenAI's new AI lead, discussed on Lex Fridman's podcast why CLI-based interfaces are superior to IDEs for programming with AI agents. CLI agents excel at delegation, enabling",
+          "extra": {}
+        },
+        {
+          "item_id": "e6ceaa57e41809b6",
+          "title": "Why open source is the cheat code for AI - cio.com",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPU0psejZBdXRIYjJReG16akNYZllzcDNwNkxtbWItYWtVNzAwR19CUFc2b3pkeTdPdXJvYVRjYjh1bmxabzRZY2ZuRkRTZUg0MXVFMjlFb0tndHpXN0pVbTFrNVJtTURWaFh4VGRlRzItb0JRM0tNaFZlRUZnZWFldGlwcWxKbkhq?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-02-19T10:03:52+00:00",
+          "score": 50.0,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "Enterprise companies are increasingly turning to open-source AI models to reduce costs while achieving competitive performance, marking a strategic shift as closed systems remain dominant but face limits. This change emphasizes collaboration and transparency but raises concerns over security and potential misuse. Open-source AI offers businesses greater flexibility, innovation, and control at a fraction of the price.",
+          "extra": {}
+        },
+        {
+          "item_id": "55146b3a4719eeb9",
+          "title": "Career advice for programmers | Peter Steinberger and Lex Fridman",
+          "url": "https://www.youtube.com/watch?v=SLlPp3H26fM",
+          "source_name": "Matt Wolfe",
+          "source_type": "youtube",
+          "published": "2026-02-19T05:00:03+00:00",
+          "score": 49.2,
+          "matched_topics": [
+            "open_source",
+            "github_repos",
+            "agents"
+          ],
+          "summary": "Peter Steinberger, founder of OpenClaw, an AI-driven agentic web interface, made headlines by revealing his open-source project's rapid rise and viral popularity in 2026. His candid reflections highlight the challenges of building complex AI models and the personal drive behind his latest creation. The episode underscores how OpenClaw's success reflects broader shifts toward advanced AI in software development.",
+          "extra": {}
+        },
+        {
+          "item_id": "2bd3315abf350524",
+          "title": "[D] Qwen3.5 rumored to merge MoE + Hybrid Attention — thoughts?",
+          "url": "https://www.reddit.com/r/MachineLearning/comments/1r89si5/d_qwen35_rumored_to_merge_moe_hybrid_attention/",
+          "source_name": "r/MachineLearning",
+          "source_type": "reddit",
+          "published": "2026-02-18T17:44:09+00:00",
+          "score": 48.8,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "Alibaba has unveiled Qwen3.5, a highly efficient open-source large language model with 397 billion parameters, combining a Mixof-Experts (MoE) architecture and hybrid attention to boost performance while reducing latency. This design helps the model deliver reasoning and multimodal capabilities quickly, offering better speed and cost-effectiveness compared to heavier models like GPT-5.2. The key innovation lies in its sparse parameter activation, making it accessible for local deployment without needing expensive hardware.",
+          "extra": {}
+        },
+        {
+          "item_id": "b121f548d77792fb",
+          "title": "bobeff / open-source-games",
+          "url": "https://github.com/bobeff/open-source-games",
+          "source_name": "GitHub Trending",
+          "source_type": "github",
+          "published": null,
+          "score": 48.7,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "12029",
+            "language": ""
+          }
+        },
+        {
+          "item_id": "e1ad2d027f1f14bb",
+          "title": "[D] Native Vision-Language vs Modular: The Qwen Approach.",
+          "url": "https://www.reddit.com/r/MachineLearning/comments/1r8ttvl/d_native_visionlanguage_vs_modular_the_qwen/",
+          "source_name": "r/MachineLearning",
+          "source_type": "reddit",
+          "published": "2026-02-19T08:29:26+00:00",
+          "score": 48.5,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "2d32be0d83d770d8",
+          "title": "I'm 100% convinced that it's the NFT-bros pushing all the openclawd engagement on X",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r8qh08/im_100_convinced_that_its_the_nftbros_pushing_all/",
+          "source_name": "r/LocalLLaMA",
+          "source_type": "reddit",
+          "published": "2026-02-19T05:13:10+00:00",
+          "score": 46.7,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Video/Image/Voice Generation",
+      "items": [
+        {
+          "item_id": "26828aac6338f79b",
+          "title": "Stop Motion style LoRA - Flux.2 Klein",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1r8plmf/stop_motion_style_lora_flux2_klein/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-02-19T04:27:47+00:00",
+          "score": 43.3,
+          "matched_topics": [
+            "media_generation"
+          ],
+          "summary": "The article introduces a new LoRA called FLUX.2 Klein, designed to combine generation and editing tasks in a single lightweight model, making it fast and efficient for real-time applications. It emphasizes improvements in realism and detailed prompt handling, blending styles like LAIKA and MADGOD+. Key factors are its performance on consumer hardware and the community's enthusiasm for its ability to achieve photorealistic and multi-reference outputs.",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Entrepreneurship",
+      "items": [
+        {
+          "item_id": "c2a194272fe67520",
+          "title": "Google Cloud’s VP for startups on reading your ‘check engine light’ before it’s too late",
+          "url": "https://techcrunch.com/podcast/google-clouds-vp-for-startups-on-reading-your-check-engine-light-before-its-too-late/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-02-18T20:22:29+00:00",
+          "score": 54.9,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "Google Cloud's VP urges startups to monitor early infrastructure choices—like cloud credits and GPU access—to avoid costly scaling issues later. This reflects growing concerns as startups leverage AI",
+          "extra": {}
+        },
+        {
+          "item_id": "6c4006fd929d9e99",
+          "title": "Is your startup’s check engine light on? Google Cloud’s VP explains what to do",
+          "url": "https://techcrunch.com/video/is-your-startups-check-engine-light-on-google-clouds-vp-explains-what-to-do/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-02-18T21:07:00+00:00",
+          "score": 54.6,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "Google Cloud's VP Darren Mowrywarns startup founders that their infrastructure choices, like using cloud credits and AI tools, can create hidden problems (\"check engine light\") as they scale beyond free credits. These early decisions may lead to unexpected costs and technical debt, forcing founders to refactor systems during critical funding rounds. The analogy emphasizes the need for proactive infrastructure monitoring to avoid scaling crises.",
+          "extra": {}
+        },
+        {
+          "item_id": "f361756c665739bb",
+          "title": "Kana emerges from stealth with $15M to build flexible AI agents for marketers",
+          "url": "https://techcrunch.com/2026/02/18/kana-emerges-from-stealth-with-15m-to-build-flexible-ai-agents-for-marketers/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-02-18T15:08:40+00:00",
+          "score": 42.9,
+          "matched_topics": [
+            "entrepreneurship",
+            "agents"
+          ],
+          "summary": "AI marketing startup Kana emerged from stealth with $15 million in seed funding to launch a platform of customizable AI agents for tasks like audience targeting and campaign management. Founded by experienced marketing tech entrepreneurs Tom Chavez and Vivek Vaidya, the platform different",
+          "extra": {}
+        }
+      ]
+    }
+  ]
+}
