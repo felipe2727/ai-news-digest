@@ -65,7 +65,7 @@ class Summarizer:
         return self._call(prompt)
 
     def recommend_projects(self, sections: list[DigestSection]) -> str:
-        """Recommend the top 3 projects as structured JSON."""
+        """Generate 1 creative project/business idea inspired by today's digest."""
         overview_lines = []
         for s in sections:
             for i in s.items[:5]:
@@ -78,20 +78,23 @@ class Summarizer:
         overview = "\n".join(overview_lines)
 
         prompt = (
-            "Based on today's AI news digest below, recommend the top 3 projects "
-            "or tools that are most worth exploring or trying out.\n\n"
-            "Respond ONLY with a JSON array (no markdown, no code fences). Each element must have:\n"
-            '- "name": project name\n'
-            '- "description": one-sentence description of what it does\n'
-            '- "why": one sentence on why it\'s worth checking out right now\n'
-            '- "url": the project URL (use the URL from the digest items)\n'
-            '- "category": one of "tool", "framework", "model", "library"\n\n'
-            "Focus on actionable, hands-on projects (GitHub repos, tools, frameworks) "
-            "rather than news stories.\n\n"
+            "You are a creative startup advisor. Based on today's AI news digest below, "
+            "come up with ONE original project or business idea that someone could build "
+            "inspired by the trends and tools in this digest.\n\n"
+            "Be creative and specific — don't just describe an existing project from the list. "
+            "Instead, imagine a NEW product, tool, or side project that combines or builds on "
+            "what's trending. Think about gaps, opportunities, or creative mashups.\n\n"
+            "Respond ONLY with a JSON array containing exactly 1 object (no markdown, no code fences). "
+            "The object must have:\n"
+            '- "name": a catchy name for the project idea\n'
+            '- "description": one sentence describing what it does\n'
+            '- "why": one sentence on why this is a good idea right now (connect it to today\'s trends)\n'
+            '- "url": leave as empty string ""\n'
+            '- "category": one of "saas", "tool", "community", "marketplace"\n\n'
             f"Today's digest items:\n{overview}\n\n"
             "JSON array:"
         )
-        raw = self._call(prompt, max_tokens=600)
+        raw = self._call(prompt, max_tokens=400)
         return self._parse_projects_json(raw)
 
     @staticmethod
@@ -108,15 +111,15 @@ class Summarizer:
                 raise ValueError("Expected a JSON array")
             # Validate and clean each project
             cleaned = []
+            valid_cats = ("tool", "framework", "model", "library", "saas", "community", "marketplace")
             for p in projects[:3]:
+                cat = str(p.get("category", "tool")).lower()
                 cleaned.append({
                     "name": str(p.get("name", "Unnamed")),
                     "description": str(p.get("description", "")),
                     "why": str(p.get("why", "")),
                     "url": str(p.get("url", "")),
-                    "category": str(p.get("category", "tool"))
-                    if p.get("category") in ("tool", "framework", "model", "library")
-                    else "tool",
+                    "category": cat if cat in valid_cats else "tool",
                 })
             return json.dumps(cleaned)
         except (json.JSONDecodeError, ValueError) as e:

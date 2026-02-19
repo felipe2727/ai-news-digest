@@ -5,7 +5,7 @@ interface ProjectPick {
   description: string;
   why: string;
   url: string;
-  category: "tool" | "framework" | "model" | "library";
+  category: string;
 }
 
 const CATEGORY_ICONS: Record<string, string> = {
@@ -13,6 +13,9 @@ const CATEGORY_ICONS: Record<string, string> = {
   framework: "\u{1F4E6}",
   model: "\u{1F9E0}",
   library: "\u{1F4DA}",
+  saas: "\u{1F680}",
+  community: "\u{1F465}",
+  marketplace: "\u{1F6D2}",
 };
 
 export function parseProjectPicks(raw: string): ProjectPick[] {
@@ -34,40 +37,53 @@ export default function ProjectPicks({
 }) {
   if (!picks.length) return null;
 
+  const isSingle = picks.length === 1;
+
   return (
-    <div className={compact ? "mt-6" : "mt-8 mb-10"}>
+    <div className={compact ? "mt-6 mb-8" : "mt-8 mb-10"}>
       <div className="flex items-center justify-between mb-4">
         <p className="text-xs font-bold uppercase tracking-wider text-emerald-500">
-          Today&apos;s Picks
+          Build This
         </p>
         <Link
           href="/picks"
           className="text-xs text-emerald-500 hover:text-emerald-400 transition-colors"
         >
-          View all &rarr;
+          Past ideas &rarr;
         </Link>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div className={isSingle ? "max-w-2xl" : "grid grid-cols-1 md:grid-cols-3 gap-3"}>
         {picks.map((pick) => (
           <Link
             key={pick.name}
             href="/picks"
-            className="glass rounded-xl p-4 border-l-2 border-l-emerald-500/50 hover:border-l-emerald-500 transition-all group cursor-pointer"
+            className={`glass rounded-xl border-l-2 border-l-emerald-500/50 hover:border-l-emerald-500 transition-all group cursor-pointer block ${
+              isSingle ? "p-6" : "p-4"
+            }`}
           >
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-sm">
+              <span className={isSingle ? "text-lg" : "text-sm"}>
                 {CATEGORY_ICONS[pick.category] || CATEGORY_ICONS.tool}
               </span>
               <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-500/70">
                 {pick.category}
               </span>
             </div>
-            <p className="text-sm font-semibold text-[var(--foreground)] group-hover:text-emerald-400 transition-colors leading-tight mb-1">
+            <p className={`font-semibold text-[var(--foreground)] group-hover:text-emerald-400 transition-colors leading-tight mb-1 ${
+              isSingle ? "text-base" : "text-sm"
+            }`}>
               {pick.name}
             </p>
-            <p className="text-xs text-[var(--muted)] leading-relaxed line-clamp-2">
+            <p className={`text-[var(--muted)] leading-relaxed ${
+              isSingle ? "text-sm mb-2" : "text-xs line-clamp-2"
+            }`}>
               {pick.description}
             </p>
+            {isSingle && pick.why && (
+              <p className="text-xs text-emerald-500/80 leading-relaxed">
+                {pick.why}
+              </p>
+            )}
           </Link>
         ))}
       </div>

@@ -9,10 +9,13 @@ const CATEGORY_ICONS: Record<string, string> = {
   framework: "\u{1F4E6}",
   model: "\u{1F9E0}",
   library: "\u{1F4DA}",
+  saas: "\u{1F680}",
+  community: "\u{1F465}",
+  marketplace: "\u{1F6D2}",
 };
 
 export default async function PicksPage() {
-  const digests = await getDigestsWithPicks(20);
+  const digests = await getDigestsWithPicks(30);
 
   return (
     <>
@@ -26,16 +29,16 @@ export default async function PicksPage() {
         </Link>
 
         <h1 className="font-[var(--font-instrument-serif)] text-4xl mb-2">
-          Project Picks
+          Build This
         </h1>
         <p className="text-sm text-[var(--muted)] mb-10">
-          Curated projects and tools worth exploring, selected from each daily
-          digest.
+          AI-generated project and business ideas inspired by each day&apos;s
+          trending news.
         </p>
 
         {digests.length === 0 && (
           <p className="text-[var(--muted)] text-center py-20">
-            No picks yet. Run the pipeline to generate your first digest.
+            No ideas yet. Run the pipeline to generate your first digest.
           </p>
         )}
 
@@ -62,12 +65,9 @@ export default async function PicksPage() {
 
               <div className="flex flex-col gap-4">
                 {picks.map((pick, i) => (
-                  <a
+                  <div
                     key={i}
-                    href={pick.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="glass rounded-xl p-6 border-l-4 border-l-emerald-500/40 hover:border-l-emerald-500 transition-all group block"
+                    className="glass rounded-xl p-6 border-l-4 border-l-emerald-500/40 block"
                   >
                     <div className="flex items-start gap-4">
                       <span className="text-2xl mt-0.5">
@@ -79,11 +79,8 @@ export default async function PicksPage() {
                             {pick.category}
                           </span>
                         </div>
-                        <h3 className="text-base font-semibold text-[var(--foreground)] group-hover:text-emerald-400 transition-colors mb-1">
+                        <h3 className="text-base font-semibold text-[var(--foreground)] mb-1">
                           {pick.name}
-                          <span className="ml-2 text-xs text-[var(--muted)] opacity-0 group-hover:opacity-100 transition-opacity">
-                            &#8599;
-                          </span>
                         </h3>
                         <p className="text-sm text-[var(--muted)] leading-relaxed mb-2">
                           {pick.description}
@@ -93,7 +90,7 @@ export default async function PicksPage() {
                         </p>
                       </div>
                     </div>
-                  </a>
+                  </div>
                 ))}
               </div>
             </section>

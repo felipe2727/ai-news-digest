@@ -54,7 +54,7 @@ def render_plaintext(digest: Digest) -> str:
             lines.append("")
     picks = _parse_picks(digest)
     if picks:
-        lines.append("--- Top 3 Picks ---")
+        lines.append("--- Build This ---")
         for i, p in enumerate(picks, 1):
             lines.append(f"  {i}. {p.get('name', 'Unnamed')} [{p.get('category', 'tool')}]")
             lines.append(f"     {p.get('description', '')}")

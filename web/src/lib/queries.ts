@@ -59,12 +59,18 @@ export async function getAvailableDigestDates(): Promise<string[]> {
     .from("digests")
     .select("generated_at")
     .order("generated_at", { ascending: false })
-    .limit(30);
+    .limit(60);
 
   if (!data) return [];
-  return data.map((d) =>
-    new Date(d.generated_at).toISOString().split("T")[0]
-  );
+  // Deduplicate dates (multiple digests can exist on the same day)
+  const seen = new Set<string>();
+  return data
+    .map((d) => new Date(d.generated_at).toISOString().split("T")[0])
+    .filter((date) => {
+      if (seen.has(date)) return false;
+      seen.add(date);
+      return true;
+    });
 }
 
 export async function getDigests(

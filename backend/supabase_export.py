@@ -21,10 +21,11 @@ def _get_client() -> Client:
     return create_client(url, key)
 
 
-def _make_slug(title: str, item_hash: str) -> str:
+def _make_slug(title: str, item_hash: str, digest_id: str) -> str:
     """Generate a URL-safe slug from a title, with hash suffix for uniqueness."""
     base = slugify(title, max_length=80)
-    return f"{base}-{item_hash[:8]}" if base else item_hash
+    short_digest = digest_id[:6]
+    return f"{base}-{short_digest}" if base else f"{item_hash}-{short_digest}"
 
 
 def save_digest_to_supabase(digest: Digest) -> str | None:
@@ -51,7 +52,7 @@ def save_digest_to_supabase(digest: Digest) -> str | None:
                 "digest_id": digest_id,
                 "item_hash": item.id,
                 "title": item.title,
-                "slug": _make_slug(item.title, item.id),
+                "slug": _make_slug(item.title, item.id, digest_id),
                 "url": item.url,
                 "source_name": item.source_name,
                 "source_type": item.source_type.value,
@@ -65,7 +66,11 @@ def save_digest_to_supabase(digest: Digest) -> str | None:
             })
 
     if articles:
-        client.table("articles").insert(articles).execute()
-        logger.info("Inserted %d articles for digest %s", len(articles), digest_id)
+        try:
+            client.table("articles").insert(articles).execute()
+            logger.info("Inserted %d articles for digest %s", len(articles), digest_id)
+        except Exception as e:
+            logger.error("Failed to insert articles for digest %s: %s", digest_id, e)
+            raise
 
     return digest_id
