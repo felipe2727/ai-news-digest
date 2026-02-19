@@ -23,9 +23,9 @@ def _get_client() -> Client:
 
 def _make_slug(title: str, item_hash: str, digest_id: str) -> str:
     """Generate a URL-safe slug from a title, with hash suffix for uniqueness."""
-    base = slugify(title, max_length=80)
-    short_digest = digest_id[:6]
-    return f"{base}-{short_digest}" if base else f"{item_hash}-{short_digest}"
+    base = slugify(title, max_length=60)
+    suffix = f"{item_hash[:4]}{digest_id[:4]}"
+    return f"{base}-{suffix}" if base else f"{item_hash}-{digest_id[:6]}"
 
 
 def save_digest_to_supabase(digest: Digest) -> str | None:
@@ -67,10 +67,16 @@ def save_digest_to_supabase(digest: Digest) -> str | None:
 
     if articles:
         try:
-            client.table("articles").insert(articles).execute()
+            client.table("articles").upsert(articles, on_conflict="slug").execute()
             logger.info("Inserted %d articles for digest %s", len(articles), digest_id)
         except Exception as e:
             logger.error("Failed to insert articles for digest %s: %s", digest_id, e)
+            # Roll back the digest so we don't leave an empty shell
+            try:
+                client.table("digests").delete().eq("id", digest_id).execute()
+                logger.info("Rolled back digest %s after article insert failure", digest_id)
+            except Exception:
+                pass
             raise
 
     return digest_id

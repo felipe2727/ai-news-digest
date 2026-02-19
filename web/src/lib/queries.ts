@@ -6,22 +6,30 @@ export async function getLatestDigest(): Promise<{
   articles: Article[];
 } | null> {
   const supabase = await createClient();
-  const { data: digest } = await supabase
+
+  // Try the most recent digests and return the first one that has articles
+  const { data: digests } = await supabase
     .from("digests")
     .select("*")
     .order("generated_at", { ascending: false })
-    .limit(1)
-    .single();
+    .limit(5);
 
-  if (!digest) return null;
+  if (!digests?.length) return null;
 
-  const { data: articles } = await supabase
-    .from("articles")
-    .select("*")
-    .eq("digest_id", digest.id)
-    .order("score", { ascending: false });
+  for (const digest of digests) {
+    const { data: articles } = await supabase
+      .from("articles")
+      .select("*")
+      .eq("digest_id", digest.id)
+      .order("score", { ascending: false });
 
-  return { digest, articles: articles || [] };
+    if (articles && articles.length > 0) {
+      return { digest, articles };
+    }
+  }
+
+  // Fallback: return the latest digest even with no articles
+  return { digest: digests[0], articles: [] };
 }
 
 export async function getDigestByDate(dateStr: string): Promise<{
@@ -29,28 +37,35 @@ export async function getDigestByDate(dateStr: string): Promise<{
   articles: Article[];
 } | null> {
   const supabase = await createClient();
-  // Find digest generated on the given date (YYYY-MM-DD)
+  // Find digests generated on the given date (YYYY-MM-DD)
   const dayStart = `${dateStr}T00:00:00Z`;
   const dayEnd = `${dateStr}T23:59:59Z`;
 
-  const { data: digest } = await supabase
+  const { data: digests } = await supabase
     .from("digests")
     .select("*")
     .gte("generated_at", dayStart)
     .lte("generated_at", dayEnd)
     .order("generated_at", { ascending: false })
-    .limit(1)
-    .single();
+    .limit(5);
 
-  if (!digest) return null;
+  if (!digests?.length) return null;
 
-  const { data: articles } = await supabase
-    .from("articles")
-    .select("*")
-    .eq("digest_id", digest.id)
-    .order("score", { ascending: false });
+  // Prefer the digest that actually has articles
+  for (const digest of digests) {
+    const { data: articles } = await supabase
+      .from("articles")
+      .select("*")
+      .eq("digest_id", digest.id)
+      .order("score", { ascending: false });
 
-  return { digest, articles: articles || [] };
+    if (articles && articles.length > 0) {
+      return { digest, articles };
+    }
+  }
+
+  // Fallback: return the latest digest for this date even with no articles
+  return { digest: digests[0], articles: [] };
 }
 
 export async function getAvailableDigestDates(): Promise<string[]> {
