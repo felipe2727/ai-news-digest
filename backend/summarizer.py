@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import json
 import logging
 import re
+import time
 
 import requests
 
@@ -63,7 +65,7 @@ class Summarizer:
         return self._call(prompt)
 
     def recommend_projects(self, sections: list[DigestSection]) -> str:
-        """Recommend the top 3 projects to explore based on the digest."""
+        """Recommend the top 3 projects as structured JSON."""
         overview_lines = []
         for s in sections:
             for i in s.items[:5]:
@@ -76,79 +78,120 @@ class Summarizer:
         overview = "\n".join(overview_lines)
 
         prompt = (
-            f"Based on today's AI news digest below, recommend the top 3 projects "
-            f"or tools that are most worth exploring or trying out. "
-            f"For each, provide:\n"
-            f"1. The project name\n"
-            f"2. A one-sentence description of what it does\n"
-            f"3. Why it's worth checking out right now\n\n"
-            f"Focus on actionable, hands-on projects (GitHub repos, tools, frameworks) "
-            f"rather than news stories. Format each as a numbered item.\n\n"
+            "Based on today's AI news digest below, recommend the top 3 projects "
+            "or tools that are most worth exploring or trying out.\n\n"
+            "Respond ONLY with a JSON array (no markdown, no code fences). Each element must have:\n"
+            '- "name": project name\n'
+            '- "description": one-sentence description of what it does\n'
+            '- "why": one sentence on why it\'s worth checking out right now\n'
+            '- "url": the project URL (use the URL from the digest items)\n'
+            '- "category": one of "tool", "framework", "model", "library"\n\n'
+            "Focus on actionable, hands-on projects (GitHub repos, tools, frameworks) "
+            "rather than news stories.\n\n"
             f"Today's digest items:\n{overview}\n\n"
-            f"Top 3 Project Recommendations:"
+            "JSON array:"
         )
-        return self._call(prompt, max_tokens=500)
+        raw = self._call(prompt, max_tokens=600)
+        return self._parse_projects_json(raw)
+
+    @staticmethod
+    def _parse_projects_json(raw: str) -> str:
+        """Parse LLM response into a validated JSON array string."""
+        if not raw:
+            return "[]"
+        # Strip markdown code fences if present
+        raw = re.sub(r"^```(?:json)?\s*", "", raw.strip())
+        raw = re.sub(r"\s*```$", "", raw.strip())
+        try:
+            projects = json.loads(raw)
+            if not isinstance(projects, list):
+                raise ValueError("Expected a JSON array")
+            # Validate and clean each project
+            cleaned = []
+            for p in projects[:3]:
+                cleaned.append({
+                    "name": str(p.get("name", "Unnamed")),
+                    "description": str(p.get("description", "")),
+                    "why": str(p.get("why", "")),
+                    "url": str(p.get("url", "")),
+                    "category": str(p.get("category", "tool"))
+                    if p.get("category") in ("tool", "framework", "model", "library")
+                    else "tool",
+                })
+            return json.dumps(cleaned)
+        except (json.JSONDecodeError, ValueError) as e:
+            logger.warning("Failed to parse project JSON: %s — raw: %.200s", e, raw)
+            return "[]"
 
     def _call(self, prompt: str, max_tokens: int = 300) -> str:
-        """Make an API call with model fallback — tries each model in order."""
-        for model in self.models:
-            try:
-                response = requests.post(
-                    OPENROUTER_URL,
-                    headers={
-                        "Authorization": f"Bearer {self.api_key}",
-                        "Content-Type": "application/json",
-                    },
-                    json={
-                        "model": model,
-                        "messages": [
-                            {"role": "system", "content": SYSTEM_MSG},
-                            {"role": "user", "content": prompt},
-                        ],
-                        "max_tokens": max_tokens,
-                    },
-                    timeout=60,
-                )
+        """Make an API call with model fallback and retry on rate limits."""
+        # Small delay between calls to stay under rate limits
+        time.sleep(1.5)
 
-                if response.status_code == 429:
-                    logger.warning("Rate limited on %s, trying next model...", model)
-                    continue
-
-                if response.status_code != 200:
-                    logger.warning(
-                        "Model %s returned %d: %s",
-                        model,
-                        response.status_code,
-                        response.text[:200],
+        for attempt in range(3):  # retry up to 3 times
+            for model in self.models:
+                try:
+                    response = requests.post(
+                        OPENROUTER_URL,
+                        headers={
+                            "Authorization": f"Bearer {self.api_key}",
+                            "Content-Type": "application/json",
+                        },
+                        json={
+                            "model": model,
+                            "messages": [
+                                {"role": "system", "content": SYSTEM_MSG},
+                                {"role": "user", "content": prompt},
+                            ],
+                            "max_tokens": max_tokens,
+                        },
+                        timeout=60,
                     )
+
+                    if response.status_code == 429:
+                        logger.warning("Rate limited on %s, trying next model...", model)
+                        continue
+
+                    if response.status_code != 200:
+                        logger.warning(
+                            "Model %s returned %d: %s",
+                            model,
+                            response.status_code,
+                            response.text[:200],
+                        )
+                        continue
+
+                    data = response.json()
+
+                    # Check for OpenRouter error in response body
+                    if "error" in data:
+                        logger.warning("Model %s error: %s", model, data["error"])
+                        continue
+
+                    msg = data["choices"][0]["message"]
+                    text = (msg.get("content") or "").strip()
+
+                    # Clean up thinking model artifacts
+                    text = _clean_response(text)
+
+                    if text:
+                        used = data.get("model", model)
+                        logger.info("Summarized with %s", used)
+                        return text
+
+                except requests.exceptions.Timeout:
+                    logger.warning("Timeout on %s, trying next model...", model)
+                    continue
+                except Exception as e:
+                    logger.warning("Error with %s: %s", model, e)
                     continue
 
-                data = response.json()
+            # All models failed this attempt — wait before retrying
+            wait = 10 * (attempt + 1)
+            logger.warning("All models failed (attempt %d/3), waiting %ds...", attempt + 1, wait)
+            time.sleep(wait)
 
-                # Check for OpenRouter error in response body
-                if "error" in data:
-                    logger.warning("Model %s error: %s", model, data["error"])
-                    continue
-
-                msg = data["choices"][0]["message"]
-                text = (msg.get("content") or "").strip()
-
-                # Clean up thinking model artifacts
-                text = _clean_response(text)
-
-                if text:
-                    used = data.get("model", model)
-                    logger.info("Summarized with %s", used)
-                    return text
-
-            except requests.exceptions.Timeout:
-                logger.warning("Timeout on %s, trying next model...", model)
-                continue
-            except Exception as e:
-                logger.warning("Error with %s: %s", model, e)
-                continue
-
-        logger.error("All models failed for prompt: %.80s...", prompt)
+        logger.error("All models failed after 3 attempts for: %.80s...", prompt)
         return ""
 
 

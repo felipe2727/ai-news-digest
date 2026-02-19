@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import logging
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -15,11 +16,22 @@ logger = logging.getLogger(__name__)
 TEMPLATE_DIR = Path(__file__).parent / "templates"
 
 
+def _parse_picks(digest: Digest) -> list[dict]:
+    """Parse project_recommendations JSON string into a list of dicts."""
+    try:
+        picks = json.loads(digest.project_recommendations)
+        if isinstance(picks, list):
+            return picks[:3]
+    except (json.JSONDecodeError, TypeError):
+        pass
+    return []
+
+
 def render_html(digest: Digest) -> str:
     """Render the digest as HTML using the Jinja2 template."""
     env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)))
     template = env.get_template("digest.html")
-    return template.render(digest=digest)
+    return template.render(digest=digest, project_picks=_parse_picks(digest))
 
 
 def render_plaintext(digest: Digest) -> str:
@@ -40,10 +52,16 @@ def render_plaintext(digest: Digest) -> str:
             if item.summary:
                 lines.append(f"  {item.summary}")
             lines.append("")
-    if digest.project_recommendations:
-        lines.append("--- Top 3 Projects to Explore ---")
-        lines.append(digest.project_recommendations)
-        lines.append("")
+    picks = _parse_picks(digest)
+    if picks:
+        lines.append("--- Top 3 Picks ---")
+        for i, p in enumerate(picks, 1):
+            lines.append(f"  {i}. {p.get('name', 'Unnamed')} [{p.get('category', 'tool')}]")
+            lines.append(f"     {p.get('description', '')}")
+            lines.append(f"     Why: {p.get('why', '')}")
+            if p.get("url"):
+                lines.append(f"     {p['url']}")
+            lines.append("")
     return "\n".join(lines)
 
 

@@ -4,6 +4,7 @@ import { getDigestById } from "@/lib/queries";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import ArticleCard from "@/components/blog/ArticleCard";
+import ProjectPicks, { parseProjectPicks } from "@/components/blog/ProjectPicks";
 
 export default async function DigestDetailPage({
   params,
@@ -72,16 +73,7 @@ export default async function DigestDetailPage({
           </section>
         ))}
 
-        {digest.project_recommendations && (
-          <div className="glass rounded-xl p-6 mt-6 border-l-4 border-l-emerald-500">
-            <p className="text-xs font-bold uppercase tracking-wider text-emerald-500 mb-2">
-              Top 3 Projects to Explore
-            </p>
-            <p className="text-sm text-[var(--muted)] leading-relaxed whitespace-pre-line">
-              {digest.project_recommendations}
-            </p>
-          </div>
-        )}
+        <ProjectPicks picks={parseProjectPicks(digest.project_recommendations)} />
       </main>
       <Footer />
     </>
