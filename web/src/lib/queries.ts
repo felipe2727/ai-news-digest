@@ -24,6 +24,49 @@ export async function getLatestDigest(): Promise<{
   return { digest, articles: articles || [] };
 }
 
+export async function getDigestByDate(dateStr: string): Promise<{
+  digest: Digest;
+  articles: Article[];
+} | null> {
+  const supabase = await createClient();
+  // Find digest generated on the given date (YYYY-MM-DD)
+  const dayStart = `${dateStr}T00:00:00Z`;
+  const dayEnd = `${dateStr}T23:59:59Z`;
+
+  const { data: digest } = await supabase
+    .from("digests")
+    .select("*")
+    .gte("generated_at", dayStart)
+    .lte("generated_at", dayEnd)
+    .order("generated_at", { ascending: false })
+    .limit(1)
+    .single();
+
+  if (!digest) return null;
+
+  const { data: articles } = await supabase
+    .from("articles")
+    .select("*")
+    .eq("digest_id", digest.id)
+    .order("score", { ascending: false });
+
+  return { digest, articles: articles || [] };
+}
+
+export async function getAvailableDigestDates(): Promise<string[]> {
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("digests")
+    .select("generated_at")
+    .order("generated_at", { ascending: false })
+    .limit(30);
+
+  if (!data) return [];
+  return data.map((d) =>
+    new Date(d.generated_at).toISOString().split("T")[0]
+  );
+}
+
 export async function getDigests(
   limit = 20,
   offset = 0
