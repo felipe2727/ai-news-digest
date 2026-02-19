@@ -3,6 +3,7 @@ import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import HeroSection from "@/components/blog/HeroSection";
 import ArticleGrid from "@/components/blog/ArticleGrid";
+import ProjectPicks, { parseProjectPicks } from "@/components/blog/ProjectPicks";
 
 export default async function HomePage() {
   const data = await getLatestDigest();
@@ -52,7 +53,7 @@ export default async function HomePage() {
         </div>
 
         {digest.intro_summary && (
-          <div className="glass rounded-xl p-6 mb-10 border-l-4 border-l-[var(--accent)]">
+          <div className="glass rounded-xl p-6 mb-6 border-l-4 border-l-[var(--accent)]">
             <p className="text-xs font-bold uppercase tracking-wider text-[var(--accent)] mb-2">
               TL;DR
             </p>
@@ -62,18 +63,9 @@ export default async function HomePage() {
           </div>
         )}
 
-        <ArticleGrid articles={rest} />
+        <ProjectPicks picks={parseProjectPicks(digest.project_recommendations)} compact />
 
-        {digest.project_recommendations && (
-          <div className="glass rounded-xl p-6 mt-10 border-l-4 border-l-emerald-500">
-            <p className="text-xs font-bold uppercase tracking-wider text-emerald-500 mb-2">
-              Top 3 Projects to Explore
-            </p>
-            <p className="text-sm text-[var(--muted)] leading-relaxed whitespace-pre-line">
-              {digest.project_recommendations}
-            </p>
-          </div>
-        )}
+        <ArticleGrid articles={rest} />
       </main>
       <Footer />
     </>

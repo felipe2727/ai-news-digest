@@ -115,6 +115,21 @@ export async function searchArticles(
   return data || [];
 }
 
+export async function getDigestsWithPicks(
+  limit = 10
+): Promise<{ id: string; generated_at: string; project_recommendations: string }[]> {
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("digests")
+    .select("id, generated_at, project_recommendations")
+    .neq("project_recommendations", "")
+    .neq("project_recommendations", "[]")
+    .order("generated_at", { ascending: false })
+    .limit(limit);
+
+  return data || [];
+}
+
 export async function getRelatedArticles(
   article: Article,
   limit = 4
