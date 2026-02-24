@@ -116,14 +116,15 @@ def main() -> None:
     scored = score_items(new_items, topics)
     logger.info("After keyword scoring: %d items (including zero-score)", len(scored))
 
-    # Semantic re-ranking (skip if no API key, e.g. dry-run without credentials)
+    # Create Gemini client (used for embeddings + summarization)
     api_key = os.getenv("GEMINI_API_KEY")
-    if api_key:
-        embed_client = genai.Client(api_key=api_key)
-        scored = semantic_rerank(scored, topics, embed_client)
+    gemini_client = genai.Client(api_key=api_key) if api_key else None
+
+    # Semantic re-ranking
+    if gemini_client:
+        scored = semantic_rerank(scored, topics, gemini_client)
         logger.info("After semantic rerank: %d items above threshold", len(scored))
     else:
-        # Fallback: keyword-only filtering
         scored = [item for item in scored if item.score > 0]
         logger.info("No GEMINI_API_KEY, using keyword-only scoring: %d items", len(scored))
 
@@ -150,16 +151,22 @@ def main() -> None:
             print()
         return
 
-    # Summarize with AI (OpenRouter with model fallback)
-    openrouter_key = os.getenv("OPENROUTER_API_KEY")
-    if not openrouter_key:
-        logger.error("OPENROUTER_API_KEY not set in .env")
+    # Enrich articles with full content via Firecrawl (optional)
+    firecrawl_key = os.getenv("FIRECRAWL_API_KEY")
+    if firecrawl_key:
+        from enricher import enrich_items
+        enrich_items(scored, firecrawl_key)
+    else:
+        logger.info("No FIRECRAWL_API_KEY set, skipping content enrichment")
+
+    # Summarize with Gemini
+    if not gemini_client:
+        logger.error("GEMINI_API_KEY not set — cannot summarize")
         return
 
-    models = config.get("summarizer", {}).get("models")
-    summarizer = Summarizer(openrouter_key, models)
+    summarizer = Summarizer(gemini_client)
 
-    logger.info("Summarizing %d items via OpenRouter...")
+    logger.info("Summarizing %d items via Gemini...", sum(len(s.items) for s in sections))
     for section in sections:
         for item in section.items:
             item.summary = summarizer.summarize_item(item)

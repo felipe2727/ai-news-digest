@@ -5,21 +5,12 @@ import logging
 import re
 import time
 
-import requests
+from google import genai
+from google.genai import types
 
 from models import NewsItem, DigestSection
 
 logger = logging.getLogger(__name__)
-
-# Free models on OpenRouter, in priority order
-DEFAULT_MODELS = [
-    "openrouter/free",
-    "google/gemma-3-27b-it:free",
-    "meta-llama/llama-3.3-70b-instruct:free",
-    "mistralai/mistral-small-3.1-24b-instruct:free",
-]
-
-OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 SYSTEM_MSG = (
     "You are a concise AI news summarizer. "
@@ -30,13 +21,13 @@ SYSTEM_MSG = (
 
 
 class Summarizer:
-    def __init__(self, api_key: str, models: list[str] | None = None):
-        self.api_key = api_key
-        self.models = models or DEFAULT_MODELS
+    def __init__(self, client: genai.Client, model: str = "gemini-2.0-flash"):
+        self.client = client
+        self.model = model
 
     def summarize_item(self, item: NewsItem) -> str:
         """Generate a 2-3 sentence summary of a single news item."""
-        content = item.content_snippet[:1000] if item.content_snippet else item.title
+        content = item.content_snippet[:2000] if item.content_snippet else item.title
         prompt = (
             f"Summarize this AI news item in 2-3 concise sentences. "
             f"Focus on: what happened, why it matters, and any key facts.\n\n"
@@ -127,74 +118,34 @@ class Summarizer:
             return "[]"
 
     def _call(self, prompt: str, max_tokens: int = 300) -> str:
-        """Make an API call with model fallback and retry on rate limits."""
-        # Small delay between calls to stay under rate limits
-        time.sleep(1.5)
+        """Make a Gemini API call with retry on rate limits."""
+        for attempt in range(3):
+            try:
+                response = self.client.models.generate_content(
+                    model=self.model,
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        system_instruction=SYSTEM_MSG,
+                        max_output_tokens=max_tokens,
+                        temperature=0.3,
+                    ),
+                )
+                text = (response.text or "").strip()
+                text = _clean_response(text)
+                if text:
+                    logger.info("Summarized with %s", self.model)
+                    return text
+            except Exception as e:
+                err = str(e)
+                if "429" in err or "RESOURCE_EXHAUSTED" in err:
+                    wait = 5 * (2 ** attempt)
+                    logger.warning("Rate limited (attempt %d/3), waiting %ds...", attempt + 1, wait)
+                    time.sleep(wait)
+                else:
+                    logger.error("Gemini call failed: %s", e)
+                    break
 
-        for attempt in range(3):  # retry up to 3 times
-            for model in self.models:
-                try:
-                    response = requests.post(
-                        OPENROUTER_URL,
-                        headers={
-                            "Authorization": f"Bearer {self.api_key}",
-                            "Content-Type": "application/json",
-                        },
-                        json={
-                            "model": model,
-                            "messages": [
-                                {"role": "system", "content": SYSTEM_MSG},
-                                {"role": "user", "content": prompt},
-                            ],
-                            "max_tokens": max_tokens,
-                        },
-                        timeout=60,
-                    )
-
-                    if response.status_code == 429:
-                        logger.warning("Rate limited on %s, trying next model...", model)
-                        continue
-
-                    if response.status_code != 200:
-                        logger.warning(
-                            "Model %s returned %d: %s",
-                            model,
-                            response.status_code,
-                            response.text[:200],
-                        )
-                        continue
-
-                    data = response.json()
-
-                    # Check for OpenRouter error in response body
-                    if "error" in data:
-                        logger.warning("Model %s error: %s", model, data["error"])
-                        continue
-
-                    msg = data["choices"][0]["message"]
-                    text = (msg.get("content") or "").strip()
-
-                    # Clean up thinking model artifacts
-                    text = _clean_response(text)
-
-                    if text:
-                        used = data.get("model", model)
-                        logger.info("Summarized with %s", used)
-                        return text
-
-                except requests.exceptions.Timeout:
-                    logger.warning("Timeout on %s, trying next model...", model)
-                    continue
-                except Exception as e:
-                    logger.warning("Error with %s: %s", model, e)
-                    continue
-
-            # All models failed this attempt — wait before retrying
-            wait = 10 * (attempt + 1)
-            logger.warning("All models failed (attempt %d/3), waiting %ds...", attempt + 1, wait)
-            time.sleep(wait)
-
-        logger.error("All models failed after 3 attempts for: %.80s...", prompt)
+        logger.error("Summarization failed after retries for: %.80s...", prompt)
         return ""
 
 
