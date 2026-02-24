@@ -13,8 +13,8 @@ email:
     - ${GMAIL_ADDRESS}
 
 summarizer:
-  provider: gemini
-  model: gemini-2.0-flash
+  provider: openai
+  model: gpt-4o-mini
 
 # Topics and keywords for relevance scoring
 topics:

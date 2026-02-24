@@ -5,8 +5,7 @@ import logging
 import re
 import time
 
-from google import genai
-from google.genai import types
+from openai import OpenAI
 
 from models import NewsItem, DigestSection
 
@@ -21,8 +20,8 @@ SYSTEM_MSG = (
 
 
 class Summarizer:
-    def __init__(self, client: genai.Client, model: str = "gemini-2.0-flash"):
-        self.client = client
+    def __init__(self, api_key: str, model: str = "gpt-4o-mini"):
+        self.client = OpenAI(api_key=api_key)
         self.model = model
 
     def summarize_item(self, item: NewsItem) -> str:
@@ -118,31 +117,31 @@ class Summarizer:
             return "[]"
 
     def _call(self, prompt: str, max_tokens: int = 300) -> str:
-        """Make a Gemini API call with retry on rate limits."""
+        """Make an OpenAI API call with retry on rate limits."""
         for attempt in range(3):
             try:
-                response = self.client.models.generate_content(
+                response = self.client.chat.completions.create(
                     model=self.model,
-                    contents=prompt,
-                    config=types.GenerateContentConfig(
-                        system_instruction=SYSTEM_MSG,
-                        max_output_tokens=max_tokens,
-                        temperature=0.3,
-                    ),
+                    messages=[
+                        {"role": "system", "content": SYSTEM_MSG},
+                        {"role": "user", "content": prompt},
+                    ],
+                    max_tokens=max_tokens,
+                    temperature=0.3,
                 )
-                text = (response.text or "").strip()
+                text = (response.choices[0].message.content or "").strip()
                 text = _clean_response(text)
                 if text:
                     logger.info("Summarized with %s", self.model)
                     return text
             except Exception as e:
                 err = str(e)
-                if "429" in err or "RESOURCE_EXHAUSTED" in err:
+                if "429" in err or "rate" in err.lower():
                     wait = 5 * (2 ** attempt)
                     logger.warning("Rate limited (attempt %d/3), waiting %ds...", attempt + 1, wait)
                     time.sleep(wait)
                 else:
-                    logger.error("Gemini call failed: %s", e)
+                    logger.error("OpenAI call failed: %s", e)
                     break
 
         logger.error("Summarization failed after retries for: %.80s...", prompt)

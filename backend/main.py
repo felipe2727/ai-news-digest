@@ -159,14 +159,15 @@ def main() -> None:
     else:
         logger.info("No FIRECRAWL_API_KEY set, skipping content enrichment")
 
-    # Summarize with Gemini
-    if not gemini_client:
-        logger.error("GEMINI_API_KEY not set — cannot summarize")
+    # Summarize with OpenAI
+    openai_key = os.getenv("OPENAI_API_KEY")
+    if not openai_key:
+        logger.error("OPENAI_API_KEY not set — cannot summarize")
         return
 
-    summarizer = Summarizer(gemini_client)
+    summarizer = Summarizer(openai_key)
 
-    logger.info("Summarizing %d items via Gemini...", sum(len(s.items) for s in sections))
+    logger.info("Summarizing %d items via OpenAI...", sum(len(s.items) for s in sections))
     for section in sections:
         for item in section.items:
             item.summary = summarizer.summarize_item(item)
