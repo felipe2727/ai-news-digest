@@ -2,12 +2,14 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
+from supabase import create_client
 
 from models import Digest
 
@@ -65,29 +67,54 @@ def render_plaintext(digest: Digest) -> str:
     return "\n".join(lines)
 
 
+def _get_subscriber_emails() -> list[str]:
+    """Fetch confirmed subscriber emails from Supabase."""
+    url = os.getenv("SUPABASE_URL", "")
+    key = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
+    if not url or not key:
+        return []
+    try:
+        client = create_client(url, key)
+        result = client.table("subscribers").select("email").eq("confirmed", True).execute()
+        return [row["email"] for row in (result.data or [])]
+    except Exception as e:
+        logger.warning("Failed to fetch subscribers: %s", e)
+        return []
+
+
 def send_digest(digest: Digest, config: dict) -> None:
-    """Send the digest email via Gmail SMTP."""
+    """Send the digest email via Gmail SMTP to config recipients + subscribers."""
     email_cfg = config["email"]
     sender = email_cfg["sender_email"]
     password = email_cfg["sender_password"]
-    recipients = email_cfg["recipients"]
+
+    # Merge config recipients with database subscribers, deduplicate
+    config_recipients = email_cfg.get("recipients", [])
+    subscriber_emails = _get_subscriber_emails()
+    all_recipients = list(dict.fromkeys(config_recipients + subscriber_emails))
+
+    if not all_recipients:
+        logger.warning("No recipients to send to")
+        return
+
+    logger.info("Sending digest to %d recipients (%d subscribers)", len(all_recipients), len(subscriber_emails))
 
     html = render_html(digest)
     plain = render_plaintext(digest)
-
-    msg = MIMEMultipart("alternative")
-    msg["Subject"] = f"AI News Digest - {digest.generated_at.strftime('%b %d, %Y')}"
-    msg["From"] = sender
-    msg["To"] = ", ".join(recipients)
-
-    msg.attach(MIMEText(plain, "plain"))
-    msg.attach(MIMEText(html, "html"))
+    subject = f"AI News Digest - {digest.generated_at.strftime('%b %d, %Y')}"
 
     try:
         with smtplib.SMTP_SSL(email_cfg["smtp_server"], email_cfg["smtp_port"]) as server:
             server.login(sender, password)
-            server.send_message(msg)
-        logger.info("Digest email sent to %s", recipients)
+            for recipient in all_recipients:
+                msg = MIMEMultipart("alternative")
+                msg["Subject"] = subject
+                msg["From"] = sender
+                msg["To"] = recipient
+                msg.attach(MIMEText(plain, "plain"))
+                msg.attach(MIMEText(html, "html"))
+                server.send_message(msg)
+                logger.info("Sent to %s", recipient)
     except Exception as e:
         logger.error("Failed to send email: %s", e)
         raise
