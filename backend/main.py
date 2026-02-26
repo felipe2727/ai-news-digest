@@ -177,6 +177,14 @@ def main() -> None:
     logger.info("Generating project recommendations...")
     project_recs = summarizer.recommend_projects(sections)
 
+    logger.info("Generating hero image for top article...")
+    hero_url = summarizer.generate_hero_image(scored[0])
+    if hero_url:
+        scored[0].extra["hero_image"] = hero_url
+        logger.info("Hero image attached to top article")
+    else:
+        logger.info("Hero image generation skipped/failed; frontend fallback will be used")
+
     # Build digest
     digest = Digest(
         generated_at=datetime.now(timezone.utc),

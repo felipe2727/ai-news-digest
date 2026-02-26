@@ -87,6 +87,39 @@ class Summarizer:
         raw = self._call(prompt, max_tokens=400)
         return self._parse_projects_json(raw)
 
+    def generate_hero_image(self, item: NewsItem) -> str:
+        """Generate a single hero image for the top article using DALL-E 3."""
+        topic = item.matched_topics[0].replace("_", " ") if item.matched_topics else "ai"
+        prompt = (
+            "Abstract 3D topographic landscape, cyber-noir, dark background, "
+            "emerald green accents, cinematic lighting, high contrast, "
+            f"inspired by this AI news headline: {item.title}. "
+            f"Topic context: {topic}. "
+            "No text, no logos, no watermarks."
+        )
+
+        for attempt in range(2):
+            try:
+                response = self.client.images.generate(
+                    model="dall-e-3",
+                    prompt=prompt,
+                    size="1792x1024",
+                    quality="standard",
+                    n=1,
+                )
+                image_url = (response.data[0].url if response.data else "") or ""
+                if image_url:
+                    logger.info("Generated hero image with DALL-E 3")
+                    return image_url
+            except Exception as e:
+                logger.warning(
+                    "Hero image generation failed (attempt %d/2): %s",
+                    attempt + 1,
+                    e,
+                )
+
+        return ""
+
     @staticmethod
     def _parse_projects_json(raw: str) -> str:
         """Parse LLM response into a validated JSON array string."""
