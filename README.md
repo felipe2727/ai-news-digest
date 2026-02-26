@@ -88,8 +88,15 @@ Open `http://localhost:3000`.
 3. Keyword scoring by topic
 4. Optional semantic rerank via Gemini embeddings when `GEMINI_API_KEY` is set
 5. Summarization and project ideas via OpenAI (`gpt-4o-mini` by default)
-6. Email send via Gmail SMTP
-7. Export digest to Supabase (fallback to local JSON if export fails)
+6. Hero image generation for the top-ranked article via OpenAI DALL-E 3 (`1792x1024`, `standard`)
+7. Email send via Gmail SMTP
+8. Export digest to Supabase (fallback to local JSON if export fails)
+
+Hero image behavior:
+
+- Only the top article in each digest run gets an AI-generated image URL.
+- URL is stored in article `extra.hero_image`.
+- If generation fails, frontend uses its built-in gradient fallback.
 
 ## GitHub Actions
 
@@ -98,3 +105,16 @@ Workflow: `.github/workflows/digest.yml`
 - Schedule: daily at 09:00 UTC
 - Runs `backend/main.py --force`
 - Commits updated state/data files after successful run
+
+Required repository secrets:
+
+- `OPENAI_API_KEY`
+- `GEMINI_API_KEY`
+- `GMAIL_ADDRESS`
+- `GMAIL_APP_PASSWORD`
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
+
+Optional secret:
+
+- `FIRECRAWL_API_KEY` (full-article enrichment)
