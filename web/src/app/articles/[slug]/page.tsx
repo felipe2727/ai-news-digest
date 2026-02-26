@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getArticleBySlug, getRelatedArticles } from "@/lib/queries";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
+import WindowChrome from "@/components/shared/WindowChrome";
 import SourceBadge from "@/components/blog/SourceBadge";
 import TopicTag from "@/components/blog/TopicTag";
 import ScoreBadge from "@/components/blog/ScoreBadge";
@@ -36,7 +37,7 @@ export default async function ArticleDetailPage({
 }) {
   const { slug } = await params;
   const article = await getArticleBySlug(slug);
-  if (!article) notFound();
+  if (!article) return notFound();
 
   const related = await getRelatedArticles(article);
 
@@ -51,75 +52,80 @@ export default async function ArticleDetailPage({
   return (
     <>
       <Navbar />
-      <main className="max-w-3xl mx-auto px-6 py-8">
+      <main className="max-w-3xl mx-auto px-4 md:px-6 py-8">
         <Link
-          href="/articles"
-          className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors mb-6 inline-block"
+          href="/"
+          className="text-[11px] font-mono text-muted hover:text-primary transition-colors mb-6 inline-block"
         >
-          &larr; Back to articles
+          &larr; cd /home
         </Link>
 
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center gap-2 mb-4">
-            <SourceBadge type={article.source_type} />
-            {article.matched_topics.map((t) => (
-              <TopicTag key={t} topic={t} />
-            ))}
-            <div className="ml-auto">
-              <ScoreBadge score={article.score} />
+        <WindowChrome filename={`${article.slug}.md`}>
+          <div className="p-6 md:p-8">
+            {/* Badges */}
+            <div className="flex items-center gap-2 mb-4 flex-wrap">
+              <SourceBadge type={article.source_type} />
+              {article.matched_topics.map((t) => (
+                <TopicTag key={t} topic={t} />
+              ))}
+              <div className="ml-auto">
+                <ScoreBadge score={article.score} />
+              </div>
             </div>
+
+            {/* Title */}
+            <h1 className="serif-headline text-3xl md:text-4xl leading-tight mb-4">
+              {article.title}
+            </h1>
+
+            {/* Metadata */}
+            <div className="flex items-center gap-3 text-[11px] font-mono text-muted mb-6">
+              <span>{article.source_name}</span>
+              {publishedStr && (
+                <>
+                  <span className="text-border">|</span>
+                  <span>{publishedStr}</span>
+                </>
+              )}
+              {"stars" in (article.extra || {}) && (
+                <>
+                  <span className="text-border">|</span>
+                  <span>&#9733; {String((article.extra as Record<string, unknown>).stars)} stars</span>
+                </>
+              )}
+            </div>
+
+            {/* Summary */}
+            <div className="border border-border p-5 mb-6">
+              <p className="text-[10px] font-mono font-bold uppercase tracking-wider text-primary mb-2">
+                // AI Summary
+              </p>
+              <p className="text-sm leading-relaxed font-mono text-muted">
+                {article.summary}
+              </p>
+            </div>
+
+            {/* CTA */}
+            <a
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 border border-primary text-primary text-sm font-mono hover:bg-primary hover:text-black transition-colors"
+            >
+              Read the original &rarr;
+            </a>
           </div>
-
-          <h1 className="font-[var(--font-instrument-serif)] text-3xl md:text-4xl leading-tight mb-4">
-            {article.title}
-          </h1>
-
-          <div className="flex items-center gap-3 text-sm text-[var(--muted)]">
-            <span>{article.source_name}</span>
-            {publishedStr && (
-              <>
-                <span>·</span>
-                <span>{publishedStr}</span>
-              </>
-            )}
-            {"stars" in (article.extra || {}) && (
-              <>
-                <span>·</span>
-                <span>&#11088; {String((article.extra as Record<string, unknown>).stars)} stars</span>
-              </>
-            )}
-          </div>
-        </div>
-
-        {/* Summary */}
-        <div className="glass rounded-xl p-6 mb-8">
-          <p className="text-xs font-bold uppercase tracking-wider text-[var(--accent)] mb-2">
-            AI Summary
-          </p>
-          <p className="leading-relaxed">{article.summary}</p>
-        </div>
-
-        {/* CTA */}
-        <a
-          href={article.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--accent)] text-[var(--background)] font-semibold hover:bg-[var(--accent-hover)] transition-colors mb-12"
-        >
-          Read the original
-          <span aria-hidden>&#8599;</span>
-        </a>
+        </WindowChrome>
 
         {/* Related articles */}
         {related.length > 0 && (
-          <section>
-            <h2 className="font-[var(--font-instrument-serif)] text-xl mb-4">
-              Related Articles
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <section className="mt-12">
+            <h2 className="serif-headline text-xl mb-4">Related Articles</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2">
               {related.map((r) => (
-                <ArticleCard key={r.id} article={r} />
+                <div key={r.id} className="border-b border-r border-border">
+                  <ArticleCard article={r} />
+                </div>
               ))}
             </div>
           </section>

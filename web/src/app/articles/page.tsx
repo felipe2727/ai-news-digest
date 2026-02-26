@@ -36,18 +36,20 @@ export default async function ArticlesPage({
   return (
     <>
       <Navbar />
-      <div className="max-w-7xl mx-auto px-6 py-8 flex gap-8">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-8 flex gap-8">
         {/* Left sidebar */}
         <aside className="hidden lg:block w-56 shrink-0">
-          <div className="sticky top-24">
-            <p className="text-xs font-bold uppercase tracking-wider text-[var(--muted)] mb-3">
-              Topics
+          <div className="sticky top-16 pt-4">
+            <p className="text-[10px] font-mono font-bold uppercase tracking-wider text-primary mb-3">
+              // topics
             </p>
-            <div className="flex flex-col gap-1 mb-6">
+            <div className="flex flex-col gap-0.5 mb-6">
               <a
                 href="/articles"
-                className={`text-sm px-3 py-1.5 rounded hover:bg-[var(--surface-hover)] transition-colors ${
-                  !params.topic ? "text-[var(--accent)]" : "text-[var(--muted)]"
+                className={`text-[11px] font-mono px-3 py-1.5 border-l-2 transition-colors ${
+                  !params.topic
+                    ? "border-primary text-primary"
+                    : "border-transparent text-muted hover:text-foreground"
                 }`}
               >
                 All Topics
@@ -56,10 +58,10 @@ export default async function ArticlesPage({
                 <a
                   key={t}
                   href={`/articles?topic=${t}${params.source ? `&source=${params.source}` : ""}`}
-                  className={`text-sm px-3 py-1.5 rounded hover:bg-[var(--surface-hover)] transition-colors ${
+                  className={`text-[11px] font-mono px-3 py-1.5 border-l-2 transition-colors ${
                     params.topic === t
-                      ? "text-[var(--accent)]"
-                      : "text-[var(--muted)]"
+                      ? "border-primary text-primary"
+                      : "border-transparent text-muted hover:text-foreground"
                   }`}
                 >
                   {t.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
@@ -67,18 +69,18 @@ export default async function ArticlesPage({
               ))}
             </div>
 
-            <p className="text-xs font-bold uppercase tracking-wider text-[var(--muted)] mb-3">
-              Sources
+            <p className="text-[10px] font-mono font-bold uppercase tracking-wider text-primary mb-3">
+              // sources
             </p>
-            <div className="flex flex-col gap-1 mb-6">
+            <div className="flex flex-col gap-0.5 mb-6">
               {SOURCES.map((s) => (
                 <a
                   key={s}
                   href={`/articles?source=${s}${params.topic ? `&topic=${params.topic}` : ""}`}
-                  className={`text-sm px-3 py-1.5 rounded hover:bg-[var(--surface-hover)] transition-colors capitalize ${
+                  className={`text-[11px] font-mono px-3 py-1.5 border-l-2 transition-colors capitalize ${
                     params.source === s
-                      ? "text-[var(--accent)]"
-                      : "text-[var(--muted)]"
+                      ? "border-primary text-primary"
+                      : "border-transparent text-muted hover:text-foreground"
                   }`}
                 >
                   {s}
@@ -86,26 +88,26 @@ export default async function ArticlesPage({
               ))}
             </div>
 
-            <p className="text-xs font-bold uppercase tracking-wider text-[var(--muted)] mb-3">
-              Sort
+            <p className="text-[10px] font-mono font-bold uppercase tracking-wider text-primary mb-3">
+              // sort
             </p>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-0.5">
               <a
                 href={`/articles?sort=score${params.topic ? `&topic=${params.topic}` : ""}${params.source ? `&source=${params.source}` : ""}`}
-                className={`text-sm px-3 py-1.5 rounded hover:bg-[var(--surface-hover)] transition-colors ${
+                className={`text-[11px] font-mono px-3 py-1.5 border-l-2 transition-colors ${
                   params.sort !== "date"
-                    ? "text-[var(--accent)]"
-                    : "text-[var(--muted)]"
+                    ? "border-primary text-primary"
+                    : "border-transparent text-muted hover:text-foreground"
                 }`}
               >
                 By Relevance
               </a>
               <a
                 href={`/articles?sort=date${params.topic ? `&topic=${params.topic}` : ""}${params.source ? `&source=${params.source}` : ""}`}
-                className={`text-sm px-3 py-1.5 rounded hover:bg-[var(--surface-hover)] transition-colors ${
+                className={`text-[11px] font-mono px-3 py-1.5 border-l-2 transition-colors ${
                   params.sort === "date"
-                    ? "text-[var(--accent)]"
-                    : "text-[var(--muted)]"
+                    ? "border-primary text-primary"
+                    : "border-transparent text-muted hover:text-foreground"
                 }`}
               >
                 By Date
@@ -116,18 +118,18 @@ export default async function ArticlesPage({
 
         {/* Main content */}
         <main className="flex-1 min-w-0">
-          <h1 className="font-[var(--font-instrument-serif)] text-3xl mb-6">
-            Articles
-          </h1>
+          <h1 className="serif-headline text-3xl mb-6">Articles</h1>
 
           {articles.length === 0 ? (
-            <div className="text-center py-20 text-[var(--muted)]">
+            <div className="text-center py-20 text-muted font-mono text-sm">
               No articles found matching your filters.
             </div>
           ) : (
-            <div className="flex flex-col gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2">
               {articles.map((article) => (
-                <ArticleCard key={article.id} article={article} />
+                <div key={article.id} className="border-b border-r border-border">
+                  <ArticleCard article={article} />
+                </div>
               ))}
             </div>
           )}

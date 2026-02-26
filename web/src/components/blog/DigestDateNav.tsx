@@ -23,7 +23,6 @@ export default function DigestDateNav({
 
   function navigate(date: string | null) {
     if (!date) return;
-    // If navigating to the latest, remove the param
     if (date === availableDates[0]) {
       router.push("/");
     } else {
@@ -34,20 +33,20 @@ export default function DigestDateNav({
   }
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-2 font-mono text-[11px]">
       <button
         onClick={() => navigate(olderDate)}
         disabled={!olderDate}
-        className="text-sm px-3 py-1.5 rounded-lg glass disabled:opacity-30 disabled:cursor-not-allowed hover:text-[var(--accent)] transition-colors"
+        className="px-3 py-1.5 border border-border text-muted disabled:opacity-30 disabled:cursor-not-allowed hover:text-primary hover:border-primary/30 transition-colors"
         aria-label="Older digest"
       >
-        &larr; Older
+        &larr; older
       </button>
 
       <select
         value={currentDate}
         onChange={(e) => navigate(e.target.value)}
-        className="text-sm px-3 py-1.5 rounded-lg bg-[var(--surface)] border border-[var(--border)] text-[var(--foreground)] cursor-pointer"
+        className="px-3 py-1.5 bg-surface border border-border text-foreground cursor-pointer"
       >
         {availableDates.map((date) => (
           <option key={date} value={date}>
@@ -63,10 +62,10 @@ export default function DigestDateNav({
       <button
         onClick={() => navigate(newerDate)}
         disabled={isLatest}
-        className="text-sm px-3 py-1.5 rounded-lg glass disabled:opacity-30 disabled:cursor-not-allowed hover:text-[var(--accent)] transition-colors"
+        className="px-3 py-1.5 border border-border text-muted disabled:opacity-30 disabled:cursor-not-allowed hover:text-primary hover:border-primary/30 transition-colors"
         aria-label="Newer digest"
       >
-        Newer &rarr;
+        newer &rarr;
       </button>
     </div>
   );

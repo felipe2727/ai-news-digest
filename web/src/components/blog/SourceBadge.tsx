@@ -1,18 +1,23 @@
-"use client";
-
 import type { SourceType } from "@/lib/types";
 
 const styles: Record<SourceType, string> = {
-  reddit: "bg-[var(--reddit)] text-white",
-  youtube: "bg-[var(--youtube)] text-white",
-  github: "bg-[#333] text-[var(--github)]",
-  news: "bg-[var(--news)] text-white",
+  reddit: "text-reddit",
+  youtube: "text-youtube",
+  github: "text-github",
+  news: "text-news",
+};
+
+export const sourceFilenames: Record<SourceType, string> = {
+  reddit: "reddit.rs",
+  youtube: "youtube.ts",
+  github: "github.go",
+  news: "news.py",
 };
 
 export default function SourceBadge({ type }: { type: SourceType }) {
   return (
     <span
-      className={`inline-block px-2 py-0.5 text-[10px] font-bold uppercase rounded ${styles[type]}`}
+      className={`inline-block text-[10px] font-mono font-bold uppercase tracking-wider ${styles[type]}`}
     >
       {type}
     </span>

@@ -1,16 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0A0A0B;
-  --foreground: #E8E8E8;
-  --surface: #141415;
-  --surface-hover: #1C1C1E;
-  --border: #2A2A2D;
-  --accent: #F5A623;
-  --accent-hover: #E09000;
-  --muted: #8A8A8E;
-  --card: rgba(255, 255, 255, 0.03);
-  --card-border: rgba(255, 255, 255, 0.07);
+  --background: #000000;
+  --foreground: #e4e4e7;
+  --surface: #09090b;
+  --surface-hover: #18181b;
+  --border: #27272a;
+  --primary: #10b981;
+  --primary-hover: #059669;
+  --muted: #a1a1aa;
   --reddit: #FF4500;
   --youtube: #FF0000;
   --github: #8b949e;
@@ -23,24 +21,28 @@
   --color-surface: var(--surface);
   --color-surface-hover: var(--surface-hover);
   --color-border: var(--border);
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --color-muted: var(--muted);
-  --color-card: var(--card);
-  --color-card-border: var(--card-border);
   --color-reddit: var(--reddit);
   --color-youtube: var(--youtube);
   --color-github: var(--github);
   --color-news: var(--news);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-dm-mono);
-  --font-serif: var(--font-instrument-serif);
+  --font-mono: var(--font-ibm-plex-mono);
+  --font-serif: var(--font-playfair-display);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+}
+
+/* Selection */
+::selection {
+  background: var(--primary);
+  color: white;
 }
 
 /* Noise texture overlay */
@@ -56,30 +58,47 @@ body::before {
   background-size: 256px 256px;
 }
 
-/* Subtle grid overlay */
-body::after {
+/* Serif headlines */
+.serif-headline {
+  font-family: var(--font-serif), 'Playfair Display', serif;
+}
+
+/* Grid background pattern */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, #27272a 1px, transparent 1px),
+                    linear-gradient(to bottom, #27272a 1px, transparent 1px);
+}
+
+/* Scanline hover effect for images */
+.scanline-hover {
+  position: relative;
+  overflow: hidden;
+}
+.scanline-hover::after {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
-  z-index: 0;
+  opacity: 0;
   pointer-events: none;
-  opacity: 0.02;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
-  background-size: 60px 60px;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(16, 185, 129, 0.03) 2px,
+    rgba(16, 185, 129, 0.03) 4px
+  );
+  transition: opacity 0.3s ease;
+}
+.scanline-hover:hover::after {
+  opacity: 1;
 }
 
-/* Glass card utility */
-.glass {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(20px);
-}
-
-.glass:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.12);
+/* Window chrome dots */
+.window-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
 }
 
 /* Scrollbar */
@@ -92,4 +111,13 @@ body::after {
 ::-webkit-scrollbar-thumb {
   background: var(--border);
   border-radius: 3px;
+}
+
+/* Hide scrollbar for filter bars */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

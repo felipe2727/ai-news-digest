@@ -1,71 +1,58 @@
 import Link from "next/link";
 import type { Article } from "@/lib/types";
-import SourceBadge from "./SourceBadge";
-import TopicTag from "./TopicTag";
-import ScoreBadge from "./ScoreBadge";
+import WindowChrome from "@/components/shared/WindowChrome";
+import { sourceFilenames } from "./SourceBadge";
 
-export default function ArticleCard({
-  article,
-  featured = false,
-}: {
-  article: Article;
-  featured?: boolean;
-}) {
+export default function ArticleCard({ article }: { article: Article }) {
   const timeAgo = article.published_at
     ? formatTimeAgo(new Date(article.published_at))
     : null;
 
+  const filename = sourceFilenames[article.source_type] || "article.md";
+
   return (
     <Link href={`/articles/${article.slug}`} className="block group">
-      <div
-        className={`glass rounded-xl p-5 transition-all duration-200 group-hover:border-[var(--accent)]/30 group-hover:translate-y-[-2px] ${
-          featured ? "col-span-2" : ""
-        }`}
-      >
-        <div className="flex items-center gap-2 mb-3">
-          <SourceBadge type={article.source_type} />
+      <WindowChrome filename={filename}>
+        <div className="p-5">
+          {/* Category as code syntax */}
           {article.matched_topics[0] && (
-            <TopicTag topic={article.matched_topics[0]} />
+            <div className="mb-3 text-[11px] font-mono text-muted">
+              <span className="text-primary">export const</span>{" "}
+              <span className="text-foreground">category</span>{" "}
+              <span className="text-primary">=</span>{" "}
+              <span className="text-muted">&quot;{article.matched_topics[0].replace(/_/g, " ")}&quot;</span>
+            </div>
           )}
-          <div className="ml-auto">
-            <ScoreBadge score={article.score} />
+
+          {/* Headline */}
+          <h3 className="serif-headline text-lg leading-tight mb-2 text-foreground group-hover:text-primary transition-colors decoration-primary underline-offset-4 group-hover:underline">
+            {article.title}
+          </h3>
+
+          {/* Summary */}
+          {article.summary && (
+            <p className="text-xs text-muted leading-relaxed font-mono line-clamp-3 mb-4">
+              {article.summary}
+            </p>
+          )}
+
+          {/* Footer */}
+          <div className="border-t border-dashed border-border pt-3 flex items-center justify-between text-[11px] font-mono text-muted">
+            <span className="text-primary font-bold">
+              &#9733; {Math.round(article.score)} pts
+            </span>
+            <div className="flex items-center gap-2">
+              <span>{article.source_name}</span>
+              {timeAgo && (
+                <>
+                  <span className="text-border">|</span>
+                  <span>{timeAgo}</span>
+                </>
+              )}
+            </div>
           </div>
         </div>
-
-        <h3
-          className={`font-[var(--font-instrument-serif)] leading-tight mb-2 group-hover:text-[var(--accent)] transition-colors ${
-            featured ? "text-2xl" : "text-lg"
-          }`}
-        >
-          {article.title}
-        </h3>
-
-        {article.summary && (
-          <p
-            className={`text-sm text-[var(--muted)] leading-relaxed ${
-              featured ? "line-clamp-4" : "line-clamp-3"
-            }`}
-          >
-            {article.summary}
-          </p>
-        )}
-
-        <div className="flex items-center gap-3 mt-3 text-xs text-[var(--muted)]">
-          <span>{article.source_name}</span>
-          {timeAgo && (
-            <>
-              <span>·</span>
-              <span>{timeAgo}</span>
-            </>
-          )}
-          {"stars" in (article.extra || {}) && (
-            <>
-              <span>·</span>
-              <span>&#11088; {String((article.extra as Record<string, unknown>).stars)}</span>
-            </>
-          )}
-        </div>
-      </div>
+      </WindowChrome>
     </Link>
   );
 }

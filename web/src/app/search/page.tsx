@@ -6,7 +6,6 @@ import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import ArticleCard from "@/components/blog/ArticleCard";
 import type { Article } from "@/lib/types";
-import { Search } from "lucide-react";
 
 export default function SearchPage() {
   const [query, setQuery] = useState("");
@@ -40,51 +39,49 @@ export default function SearchPage() {
   return (
     <>
       <Navbar />
-      <main className="max-w-3xl mx-auto px-6 py-8">
-        <h1 className="font-[var(--font-instrument-serif)] text-3xl mb-6">
-          Search
-        </h1>
+      <main className="max-w-3xl mx-auto px-4 md:px-6 py-8">
+        <h1 className="serif-headline text-3xl mb-6">Search</h1>
 
         <div className="relative mb-8">
-          <Search
-            size={18}
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--muted)]"
-          />
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-primary font-mono text-sm">
+            $
+          </span>
           <input
             type="text"
-            placeholder="Search articles..."
+            placeholder="search --query &quot;your search here&quot;"
             value={query}
             onChange={(e) => {
               const val = e.target.value;
               setQuery(val);
-              // Debounce
               const timer = setTimeout(() => handleSearch(val), 300);
               return () => clearTimeout(timer);
             }}
-            className="w-full pl-11 pr-4 py-3 rounded-xl glass text-sm outline-none focus:border-[var(--accent)] transition-colors"
+            className="w-full pl-8 pr-4 py-3 bg-surface border border-border text-sm font-mono text-foreground outline-none focus:border-primary transition-colors"
           />
         </div>
 
         {loading && (
-          <div className="text-center py-12 text-[var(--muted)] text-sm">
+          <div className="text-center py-12 text-muted text-sm font-mono">
             Searching...
           </div>
         )}
 
         {searched && !loading && (
-          <p className="text-sm text-[var(--muted)] mb-4">
+          <p className="text-[11px] font-mono text-muted mb-4">
             {results.length} result{results.length !== 1 ? "s" : ""} found
           </p>
         )}
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col">
           {results.map((article) => (
-            <ArticleCard key={article.id} article={article} />
+            <div key={article.id} className="border-b border-border">
+              <ArticleCard article={article} />
+            </div>
           ))}
         </div>
 
         {searched && !loading && results.length === 0 && (
-          <div className="text-center py-12 text-[var(--muted)] text-sm">
+          <div className="text-center py-12 text-muted text-sm font-mono">
             No articles match your search.
           </div>
         )}

@@ -7,9 +7,8 @@ import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import HeroSection from "@/components/blog/HeroSection";
 import ArticleGrid from "@/components/blog/ArticleGrid";
-import ProjectPicks, {
-  parseProjectPicks,
-} from "@/components/blog/ProjectPicks";
+import TLDRBar from "@/components/blog/TLDRBar";
+import { parseProjectPicks } from "@/components/blog/ProjectPicks";
 import DigestDateNav from "@/components/blog/DigestDateNav";
 
 export default async function HomePage({
@@ -29,15 +28,13 @@ export default async function HomePage({
     return (
       <>
         <Navbar />
-        <main className="max-w-7xl mx-auto px-6 py-20">
-          <div className="text-center py-20 text-[var(--muted)]">
-            <h1 className="font-[var(--font-instrument-serif)] text-4xl mb-4">
-              AI News Digest
-            </h1>
+        <main className="max-w-[1400px] mx-auto px-4 md:px-6 py-20">
+          <div className="text-center py-20 text-muted font-mono">
+            <h1 className="serif-headline text-4xl mb-4">AI News Digest</h1>
             {date ? (
-              <p>No digest found for {date}. Try a different date.</p>
+              <p className="text-sm">No digest found for {date}. Try a different date.</p>
             ) : (
-              <p>No digests yet. Run the pipeline to generate your first digest.</p>
+              <p className="text-sm">No digests yet. Run the pipeline to generate your first digest.</p>
             )}
             {availableDates.length > 0 && (
               <div className="mt-6 flex justify-center">
@@ -68,19 +65,25 @@ export default async function HomePage({
   });
 
   const isLatest = !date || currentDate === availableDates[0];
+  const picks = parseProjectPicks(digest.project_recommendations);
 
   return (
     <>
       <Navbar />
-      <main className="max-w-7xl mx-auto px-6 py-8">
+      <main className="max-w-[1400px] mx-auto px-4 md:px-6 py-8">
+        {/* Hero */}
         {featured && <HeroSection article={featured} />}
 
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+        {/* TL;DR */}
+        <TLDRBar summary={digest.intro_summary} />
+
+        {/* Digest header + date nav */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
           <div>
-            <h2 className="font-[var(--font-instrument-serif)] text-2xl">
+            <h2 className="serif-headline text-2xl">
               {isLatest ? "Today\u2019s" : ""} Digest &mdash; {dateStr}
             </h2>
-            <p className="text-sm text-[var(--muted)] mt-1">
+            <p className="text-[11px] font-mono text-muted mt-1">
               {digest.total_items} items from {digest.sources_checked} sources
             </p>
           </div>
@@ -92,23 +95,11 @@ export default async function HomePage({
           )}
         </div>
 
-        {digest.intro_summary && (
-          <div className="glass rounded-xl p-6 mb-6 border-l-4 border-l-[var(--accent)]">
-            <p className="text-xs font-bold uppercase tracking-wider text-[var(--accent)] mb-2">
-              TL;DR
-            </p>
-            <p className="text-sm text-[var(--muted)] leading-relaxed">
-              {digest.intro_summary}
-            </p>
-          </div>
-        )}
-
-        <ProjectPicks
-          picks={parseProjectPicks(digest.project_recommendations)}
-          compact
+        {/* Article Grid with BuildThis card */}
+        <ArticleGrid
+          articles={rest}
+          buildThisPick={picks[0] || null}
         />
-
-        <ArticleGrid articles={rest} />
       </main>
       <Footer />
     </>

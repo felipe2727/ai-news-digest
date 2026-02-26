@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getDigestsWithPicks } from "@/lib/queries";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
+import WindowChrome from "@/components/shared/WindowChrome";
 import { parseProjectPicks } from "@/components/blog/ProjectPicks";
 
 const CATEGORY_ICONS: Record<string, string> = {
@@ -20,82 +21,85 @@ export default async function PicksPage() {
   return (
     <>
       <Navbar />
-      <main className="max-w-4xl mx-auto px-6 py-8">
+      <main className="max-w-[1400px] mx-auto px-4 md:px-6 py-8">
         <Link
           href="/"
-          className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors mb-6 inline-block"
+          className="text-[11px] font-mono text-muted hover:text-primary transition-colors mb-6 inline-block"
         >
-          &larr; Back to home
+          &larr; cd /home
         </Link>
 
-        <h1 className="font-[var(--font-instrument-serif)] text-4xl mb-2">
-          Build This
+        <h1 className="serif-headline text-6xl md:text-8xl font-black uppercase tracking-tight mb-2">
+          Build Library
         </h1>
-        <p className="text-sm text-[var(--muted)] mb-10">
+        <p className="text-sm font-mono text-muted mb-10">
           AI-generated project and business ideas inspired by each day&apos;s
           trending news.
         </p>
 
         {digests.length === 0 && (
-          <p className="text-[var(--muted)] text-center py-20">
+          <p className="text-muted text-center py-20 font-mono text-sm">
             No ideas yet. Run the pipeline to generate your first digest.
           </p>
         )}
 
-        {digests.map((digest) => {
-          const picks = parseProjectPicks(digest.project_recommendations);
-          if (!picks.length) return null;
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+          {digests.flatMap((digest) => {
+            const picks = parseProjectPicks(digest.project_recommendations);
+            if (!picks.length) return [];
 
-          const dateStr = new Date(digest.generated_at).toLocaleDateString(
-            "en-US",
-            { year: "numeric", month: "long", day: "numeric" }
-          );
+            const dateStr = new Date(digest.generated_at).toLocaleDateString(
+              "en-US",
+              { month: "short", day: "numeric" }
+            );
 
-          return (
-            <section key={digest.id} className="mb-12">
-              <div className="flex items-center gap-3 mb-4">
-                <h2 className="font-semibold text-lg">{dateStr}</h2>
-                <Link
-                  href={`/digest/${digest.id}`}
-                  className="text-xs text-[var(--muted)] hover:text-[var(--accent)] transition-colors"
-                >
-                  View digest &rarr;
-                </Link>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                {picks.map((pick, i) => (
-                  <div
-                    key={i}
-                    className="glass rounded-xl p-6 border-l-4 border-l-emerald-500/40 block"
-                  >
-                    <div className="flex items-start gap-4">
-                      <span className="text-2xl mt-0.5">
+            return picks.map((pick, i) => (
+              <div
+                key={`${digest.id}-${i}`}
+                className="border-b border-r border-border"
+              >
+                <WindowChrome filename={`${pick.category || "project"}-${dateStr.toLowerCase().replace(/\s/g, "")}.md`}>
+                  <div className="p-5">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-lg">
                         {CATEGORY_ICONS[pick.category] || CATEGORY_ICONS.tool}
                       </span>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-500/70 bg-emerald-500/10 px-2 py-0.5 rounded">
-                            {pick.category}
-                          </span>
-                        </div>
-                        <h3 className="text-base font-semibold text-[var(--foreground)] mb-1">
-                          {pick.name}
-                        </h3>
-                        <p className="text-sm text-[var(--muted)] leading-relaxed mb-2">
-                          {pick.description}
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-primary/70">
+                        {pick.category}
+                      </span>
+                      <span className="ml-auto text-[10px] font-mono text-muted">
+                        {dateStr}
+                      </span>
+                    </div>
+
+                    <h3 className="serif-headline text-lg leading-tight mb-2 text-foreground">
+                      {pick.name}
+                    </h3>
+
+                    <p className="text-xs text-muted leading-relaxed font-mono line-clamp-3 mb-3">
+                      {pick.description}
+                    </p>
+
+                    {pick.why && (
+                      <div className="border border-primary/20 bg-primary/5 p-3 mb-3">
+                        <p className="text-[10px] font-mono text-primary uppercase tracking-wider mb-1">
+                          Impact Analysis
                         </p>
-                        <p className="text-xs text-emerald-500/80 leading-relaxed">
+                        <p className="text-[11px] font-mono text-muted leading-relaxed">
                           {pick.why}
                         </p>
                       </div>
-                    </div>
+                    )}
+
+                    <span className="text-[11px] font-mono text-primary hover:underline">
+                      Retrieve_Blueprint &rarr;
+                    </span>
                   </div>
-                ))}
+                </WindowChrome>
               </div>
-            </section>
-          );
-        })}
+            ));
+          })}
+        </div>
       </main>
       <Footer />
     </>
