@@ -61,8 +61,19 @@ class Summarizer:
         )
         return self._call(prompt)
 
-    def recommend_projects(self, sections: list[DigestSection]) -> str:
+    def recommend_projects(
+        self,
+        sections: list[DigestSection],
+        recent_projects: list[dict] | None = None,
+        target_category: str | None = None,
+    ) -> str:
         """Generate 1 creative project/business idea inspired by today's digest."""
+        recent_projects = recent_projects or []
+        valid_cats = ("tool", "framework", "model", "library", "saas", "community", "marketplace")
+        category = (target_category or "tool").lower()
+        if category not in valid_cats:
+            category = "tool"
+
         overview_lines = []
         for s in sections:
             for i in s.items[:5]:
@@ -73,26 +84,46 @@ class Summarizer:
                     line += f" | {i.url}"
                 overview_lines.append(line)
         overview = "\n".join(overview_lines)
+        avoid_names = [str(p.get("name", "")) for p in recent_projects if p.get("name")]
+        avoid_names_text = ", ".join(avoid_names[:12]) if avoid_names else "None"
 
         prompt = (
-            "You are a creative startup advisor. Based on today's AI news digest below, "
-            "come up with ONE original project or business idea that someone could build "
-            "inspired by the trends and tools in this digest.\n\n"
-            "Be creative and specific — don't just describe an existing project from the list. "
-            "Instead, imagine a NEW product, tool, or side project that combines or builds on "
-            "what's trending. Think about gaps, opportunities, or creative mashups.\n\n"
+            "You are a creative startup advisor for daily AI build ideas.\n\n"
+            "Generate ONE original project idea based on today's digest. "
+            "The idea must be specific and implementation-oriented, not generic.\n\n"
+            "Hard constraints:\n"
+            f"1) Category MUST be exactly \"{category}\".\n"
+            "2) Do not reuse names or concepts from recent ideas.\n"
+            "3) Avoid generic coding-copilot concepts unless strongly differentiated.\n"
+            "4) Connect directly to at least two concrete trends in today's digest.\n\n"
+            f"Recent idea names to avoid: {avoid_names_text}\n\n"
             "Respond ONLY with a JSON array containing exactly 1 object (no markdown, no code fences). "
             "The object must have:\n"
             '- "name": a catchy name for the project idea\n'
             '- "description": one sentence describing what it does\n'
             '- "why": one sentence on why this is a good idea right now (connect it to today\'s trends)\n'
             '- "url": leave as empty string ""\n'
-            '- "category": one of "saas", "tool", "community", "marketplace"\n\n'
+            f'- "category": exactly "{category}"\n\n'
             f"Today's digest items:\n{overview}\n\n"
             "JSON array:"
         )
-        raw = self._call(prompt, max_tokens=400)
-        return self._parse_projects_json(raw)
+
+        raw = self._call(prompt, max_tokens=450, temperature=0.85)
+        parsed = self._parse_projects_json(raw)
+
+        # Retry once with stronger anti-duplication guidance if output clashes with recent history.
+        if recent_projects and self._is_project_duplicate(parsed, recent_projects):
+            retry_prompt = (
+                prompt
+                + "\n\nPrevious output was too close to recent ideas. "
+                + "Regenerate with a distinctly different product name, audience, and value proposition."
+            )
+            raw_retry = self._call(retry_prompt, max_tokens=450, temperature=0.9)
+            parsed_retry = self._parse_projects_json(raw_retry)
+            if parsed_retry != "[]" and not self._is_project_duplicate(parsed_retry, recent_projects):
+                return parsed_retry
+
+        return parsed
 
     def generate_hero_image(self, item: NewsItem) -> str:
         """Generate and persist a hero image for the top article."""
@@ -219,7 +250,7 @@ class Summarizer:
 
     @staticmethod
     def _parse_projects_json(raw: str) -> str:
-        """Parse LLM response into a validated JSON array string."""
+        """Parse LLM response into a validated single-project JSON array string."""
         if not raw:
             return "[]"
         # Strip markdown code fences if present
@@ -227,12 +258,14 @@ class Summarizer:
         raw = re.sub(r"\s*```$", "", raw.strip())
         try:
             projects = json.loads(raw)
+            if isinstance(projects, dict):
+                projects = [projects]
             if not isinstance(projects, list):
                 raise ValueError("Expected a JSON array")
             # Validate and clean each project
-            cleaned = []
+            cleaned: list[dict] = []
             valid_cats = ("tool", "framework", "model", "library", "saas", "community", "marketplace")
-            for p in projects[:3]:
+            for p in projects[:1]:
                 cat = str(p.get("category", "tool")).lower()
                 cleaned.append({
                     "name": str(p.get("name", "Unnamed")),
@@ -246,7 +279,33 @@ class Summarizer:
             logger.warning("Failed to parse project JSON: %s — raw: %.200s", e, raw)
             return "[]"
 
-    def _call(self, prompt: str, max_tokens: int = 300) -> str:
+    @staticmethod
+    def _is_project_duplicate(raw_project_json: str, recent_projects: list[dict]) -> bool:
+        """Check if generated project is too similar to recent projects."""
+        try:
+            parsed = json.loads(raw_project_json)
+            if not isinstance(parsed, list) or not parsed:
+                return False
+            p = parsed[0]
+        except Exception:
+            return False
+
+        new_sig = (
+            f"{str(p.get('name', '')).lower()}|"
+            f"{str(p.get('description', '')).lower()[:120]}"
+        )
+        for recent in recent_projects:
+            recent_sig = (
+                f"{str(recent.get('name', '')).lower()}|"
+                f"{str(recent.get('description', '')).lower()[:120]}"
+            )
+            if new_sig == recent_sig:
+                return True
+            if str(p.get("name", "")).strip().lower() == str(recent.get("name", "")).strip().lower():
+                return True
+        return False
+
+    def _call(self, prompt: str, max_tokens: int = 300, temperature: float = 0.3) -> str:
         """Make an OpenAI API call with retry on rate limits."""
         for attempt in range(3):
             try:
@@ -257,7 +316,7 @@ class Summarizer:
                         {"role": "user", "content": prompt},
                     ],
                     max_tokens=max_tokens,
-                    temperature=0.3,
+                    temperature=temperature,
                 )
                 text = (response.choices[0].message.content or "").strip()
                 text = _clean_response(text)

@@ -31,6 +31,15 @@ from emailer import send_digest
 BASE_DIR = Path(__file__).parent
 STATE_DIR = BASE_DIR / "state"
 LAST_RUN_FILE = STATE_DIR / "last_run.json"
+PROJECT_CATEGORY_ROTATION = [
+    "tool",
+    "saas",
+    "community",
+    "marketplace",
+    "framework",
+    "library",
+    "model",
+]
 
 
 def setup_logging() -> None:
@@ -82,6 +91,92 @@ def save_last_run() -> None:
     LAST_RUN_FILE.write_text(json.dumps({
         "last_run": datetime.now(timezone.utc).isoformat()
     }))
+
+
+def _parse_project_recommendations(raw: str) -> list[dict]:
+    """Best-effort parse of project_recommendations JSON."""
+    try:
+        parsed = json.loads(raw or "[]")
+        if isinstance(parsed, dict):
+            parsed = [parsed]
+        if isinstance(parsed, list):
+            return [p for p in parsed if isinstance(p, dict)]
+    except Exception:
+        pass
+    return []
+
+
+def _daily_project_category(dt: datetime) -> str:
+    """Rotate target project category by UTC day for variety."""
+    idx = dt.timetuple().tm_yday % len(PROJECT_CATEGORY_ROTATION)
+    return PROJECT_CATEGORY_ROTATION[idx]
+
+
+def _get_recent_project_ideas(limit: int = 21) -> list[dict]:
+    """Load recent ideas from Supabase for anti-duplication context."""
+    url = os.getenv("SUPABASE_URL", "")
+    key = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
+    if not url or not key:
+        return []
+
+    try:
+        from supabase import create_client
+
+        client = create_client(url, key)
+        result = (
+            client.table("digests")
+            .select("generated_at, project_recommendations")
+            .neq("project_recommendations", "")
+            .neq("project_recommendations", "[]")
+            .order("generated_at", desc=True)
+            .limit(max(limit * 2, 20))
+            .execute()
+        )
+        recent: list[dict] = []
+        for row in result.data or []:
+            for project in _parse_project_recommendations(row.get("project_recommendations", "")):
+                recent.append(project)
+                if len(recent) >= limit:
+                    return recent
+        return recent
+    except Exception:
+        return []
+
+
+def _get_existing_project_for_date(dt: datetime) -> str | None:
+    """Reuse existing same-day project recommendation to keep one project per day."""
+    url = os.getenv("SUPABASE_URL", "")
+    key = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
+    if not url or not key:
+        return None
+
+    day = dt.strftime("%Y-%m-%d")
+    day_start = f"{day}T00:00:00Z"
+    day_end = f"{day}T23:59:59Z"
+
+    try:
+        from supabase import create_client
+
+        client = create_client(url, key)
+        result = (
+            client.table("digests")
+            .select("project_recommendations, generated_at")
+            .gte("generated_at", day_start)
+            .lte("generated_at", day_end)
+            .neq("project_recommendations", "")
+            .neq("project_recommendations", "[]")
+            .order("generated_at", desc=True)
+            .limit(5)
+            .execute()
+        )
+        for row in result.data or []:
+            raw = row.get("project_recommendations", "")
+            if _parse_project_recommendations(raw):
+                return raw
+    except Exception:
+        return None
+
+    return None
 
 
 def main() -> None:
@@ -174,8 +269,24 @@ def main() -> None:
 
     intro = summarizer.summarize_digest(sections)
 
-    logger.info("Generating project recommendations...")
-    project_recs = summarizer.recommend_projects(sections)
+    run_date = datetime.now(timezone.utc)
+    existing_project_recs = _get_existing_project_for_date(run_date)
+    if existing_project_recs:
+        logger.info("Reusing existing project recommendation for %s", run_date.strftime("%Y-%m-%d"))
+        project_recs = existing_project_recs
+    else:
+        target_category = _daily_project_category(run_date)
+        recent_projects = _get_recent_project_ideas(limit=21)
+        logger.info(
+            "Generating project recommendation (target category: %s, recent ideas: %d)...",
+            target_category,
+            len(recent_projects),
+        )
+        project_recs = summarizer.recommend_projects(
+            sections,
+            recent_projects=recent_projects,
+            target_category=target_category,
+        )
 
     logger.info("Generating hero image for top article...")
     hero_url = summarizer.generate_hero_image(scored[0])

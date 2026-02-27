@@ -101,6 +101,13 @@ Hero image behavior:
 - URL is stored in article `extra.hero_image`.
 - If generation fails, frontend uses its built-in gradient fallback.
 
+Build-this project behavior:
+
+- Stored in `digests.project_recommendations` as a JSON array (single object).
+- Exactly one project is generated per digest output.
+- If multiple runs happen on the same UTC day, pipeline reuses that day’s existing project to keep one project per day.
+- Prompt uses recent project history + daily category rotation to reduce repetition.
+
 ## GitHub Actions
 
 Workflow: `.github/workflows/digest.yml`

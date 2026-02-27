@@ -9,7 +9,7 @@ export interface ProjectPick {
 export function parseProjectPicks(raw: string): ProjectPick[] {
   try {
     const picks = JSON.parse(raw);
-    if (Array.isArray(picks)) return picks.slice(0, 3);
+    if (Array.isArray(picks)) return picks.slice(0, 1);
   } catch {
     // ignore
   }

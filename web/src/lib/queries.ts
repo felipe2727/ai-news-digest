@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import type { Digest, Article } from "@/lib/types";
+import { parseProjectPicks, type ProjectPick } from "@/components/blog/ProjectPicks";
 
 export async function getLatestDigest(): Promise<{
   digest: Digest;
@@ -192,6 +193,84 @@ export async function getDigestsWithPicks(
     .limit(limit);
 
   return data || [];
+}
+
+export interface BuildLibraryItem {
+  digest_id: string;
+  generated_at: string;
+  date: string;
+  pick: ProjectPick;
+}
+
+function projectSignature(pick: ProjectPick): string {
+  const name = (pick.name || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const desc = (pick.description || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  return `${name}|${desc.slice(0, 120)}`;
+}
+
+function getUniquePick(
+  raw: string,
+  used: Set<string>
+): ProjectPick | null {
+  const picks = parseProjectPicks(raw);
+  for (const pick of picks) {
+    if (!pick?.name || !pick?.description) continue;
+    const sig = projectSignature(pick);
+    if (used.has(sig)) continue;
+    used.add(sig);
+    return pick;
+  }
+  return null;
+}
+
+export async function getBuildLibraryProjects(
+  limitDays = 30
+): Promise<BuildLibraryItem[]> {
+  const supabase = await createClient();
+  const { data: digests } = await supabase
+    .from("digests")
+    .select("id, generated_at, project_recommendations")
+    .neq("project_recommendations", "")
+    .neq("project_recommendations", "[]")
+    .order("generated_at", { ascending: false })
+    .limit(Math.max(limitDays * 8, 60));
+
+  if (!digests?.length) return [];
+
+  // Determine "today" based on latest digest that actually has a usable project.
+  let latestDateWithProject: string | null = null;
+  for (const digest of digests) {
+    const picks = parseProjectPicks(digest.project_recommendations);
+    if (picks.length > 0) {
+      latestDateWithProject = new Date(digest.generated_at).toISOString().split("T")[0];
+      break;
+    }
+  }
+
+  const usedSignatures = new Set<string>();
+  const usedDates = new Set<string>();
+  const out: BuildLibraryItem[] = [];
+
+  for (const digest of digests) {
+    if (out.length >= limitDays) break;
+
+    const date = new Date(digest.generated_at).toISOString().split("T")[0];
+    if (latestDateWithProject && date === latestDateWithProject) continue; // current day lives on home hero
+    if (usedDates.has(date)) continue; // one project per day in library
+
+    const pick = getUniquePick(digest.project_recommendations, usedSignatures);
+    if (!pick) continue;
+
+    usedDates.add(date);
+    out.push({
+      digest_id: digest.id,
+      generated_at: digest.generated_at,
+      date,
+      pick,
+    });
+  }
+
+  return out;
 }
 
 export async function getRelatedArticles(

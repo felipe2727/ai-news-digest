@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { getDigestsWithPicks } from "@/lib/queries";
+import { getBuildLibraryProjects } from "@/lib/queries";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import WindowChrome from "@/components/shared/WindowChrome";
-import { parseProjectPicks } from "@/components/blog/ProjectPicks";
 
 const CATEGORY_ICONS: Record<string, string> = {
   tool: "\u{1F6E0}\u{FE0F}",
@@ -16,7 +15,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 };
 
 export default async function PicksPage() {
-  const digests = await getDigestsWithPicks(30);
+  const library = await getBuildLibraryProjects(30);
 
   return (
     <>
@@ -37,29 +36,31 @@ export default async function PicksPage() {
           trending news.
         </p>
 
-        {digests.length === 0 && (
+        {library.length === 0 && (
           <p className="text-muted text-center py-20 font-mono text-sm">
             No ideas yet. Run the pipeline to generate your first digest.
           </p>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
-          {digests.flatMap((digest) => {
-            const picks = parseProjectPicks(digest.project_recommendations);
-            if (!picks.length) return [];
-
-            const dateStr = new Date(digest.generated_at).toLocaleDateString(
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 auto-rows-[420px]">
+          {library.map((entry) => {
+            const pick = entry.pick;
+            const dateStr = new Date(entry.generated_at).toLocaleDateString(
               "en-US",
               { month: "short", day: "numeric" }
             );
 
-            return picks.map((pick, i) => (
+            return (
               <div
-                key={`${digest.id}-${i}`}
-                className="border-b border-r border-border"
+                key={`${entry.date}-${entry.digest_id}`}
+                className="border-b border-r border-border h-full"
               >
-                <WindowChrome filename={`${pick.category || "project"}-${dateStr.toLowerCase().replace(/\s/g, "")}.md`}>
-                  <div className="p-5">
+                <WindowChrome
+                  filename={`${pick.category || "project"}-${dateStr.toLowerCase().replace(/\s/g, "")}.md`}
+                  className="h-full flex flex-col"
+                  contentClassName="flex-1"
+                >
+                  <div className="p-5 h-full flex flex-col">
                     <div className="flex items-center gap-2 mb-3">
                       <span className="text-lg">
                         {CATEGORY_ICONS[pick.category] || CATEGORY_ICONS.tool}
@@ -72,7 +73,7 @@ export default async function PicksPage() {
                       </span>
                     </div>
 
-                    <h3 className="serif-headline text-lg leading-tight mb-2 text-foreground">
+                    <h3 className="serif-headline text-lg leading-tight mb-2 text-foreground line-clamp-2">
                       {pick.name}
                     </h3>
 
@@ -85,19 +86,19 @@ export default async function PicksPage() {
                         <p className="text-[10px] font-mono text-primary uppercase tracking-wider mb-1">
                           Impact Analysis
                         </p>
-                        <p className="text-[11px] font-mono text-muted leading-relaxed">
+                        <p className="text-[11px] font-mono text-muted leading-relaxed line-clamp-4">
                           {pick.why}
                         </p>
                       </div>
                     )}
 
-                    <span className="text-[11px] font-mono text-primary hover:underline">
+                    <span className="text-[11px] font-mono text-primary hover:underline mt-auto">
                       Retrieve_Blueprint &rarr;
                     </span>
                   </div>
                 </WindowChrome>
               </div>
-            ));
+            );
           })}
         </div>
       </main>
