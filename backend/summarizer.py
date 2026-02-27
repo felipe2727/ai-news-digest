@@ -2,10 +2,14 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import re
 import time
+from datetime import datetime, timezone
 
+import requests
 from openai import OpenAI
+from supabase import Client, create_client
 
 from models import NewsItem, DigestSection
 
@@ -23,6 +27,9 @@ class Summarizer:
     def __init__(self, api_key: str, model: str = "gpt-4o-mini"):
         self.client = OpenAI(api_key=api_key)
         self.model = model
+        self.hero_bucket = os.getenv("SUPABASE_HERO_IMAGE_BUCKET", "hero-images")
+        self.supabase = self._init_supabase_client()
+        self._hero_bucket_ready = False
 
     def summarize_item(self, item: NewsItem) -> str:
         """Generate a 2-3 sentence summary of a single news item."""
@@ -88,7 +95,7 @@ class Summarizer:
         return self._parse_projects_json(raw)
 
     def generate_hero_image(self, item: NewsItem) -> str:
-        """Generate a single hero image for the top article using DALL-E 3."""
+        """Generate and persist a hero image for the top article."""
         topic = item.matched_topics[0].replace("_", " ") if item.matched_topics else "ai"
         prompt = (
             "Abstract 3D topographic landscape, cyber-noir, dark background, "
@@ -109,8 +116,12 @@ class Summarizer:
                 )
                 image_url = (response.data[0].url if response.data else "") or ""
                 if image_url:
-                    logger.info("Generated hero image with DALL-E 3")
-                    return image_url
+                    stored_url = self._store_hero_image(item, image_url)
+                    if stored_url:
+                        logger.info("Generated hero image with DALL-E 3 and stored in Supabase")
+                        return stored_url
+                    logger.warning("Generated hero image but failed to persist to Supabase")
+                    return ""
             except Exception as e:
                 logger.warning(
                     "Hero image generation failed (attempt %d/2): %s",
@@ -119,6 +130,92 @@ class Summarizer:
                 )
 
         return ""
+
+    @staticmethod
+    def _init_supabase_client() -> Client | None:
+        """Create a Supabase client for hero-image storage, if configured."""
+        url = os.getenv("SUPABASE_URL", "")
+        key = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
+        if not url or not key:
+            logger.warning("Supabase storage credentials missing; hero images will use fallback")
+            return None
+        try:
+            return create_client(url, key)
+        except Exception as e:
+            logger.warning("Failed to initialize Supabase client: %s", e)
+            return None
+
+    def _ensure_hero_bucket(self) -> bool:
+        """Ensure the hero image bucket exists and is public."""
+        if not self.supabase:
+            return False
+        if self._hero_bucket_ready:
+            return True
+        try:
+            bucket_names: set[str] = set()
+            for bucket in self.supabase.storage.list_buckets() or []:
+                if isinstance(bucket, dict):
+                    name = bucket.get("name") or bucket.get("id")
+                else:
+                    name = getattr(bucket, "name", None) or getattr(bucket, "id", None)
+                if name:
+                    bucket_names.add(str(name))
+
+            if self.hero_bucket not in bucket_names:
+                self.supabase.storage.create_bucket(
+                    self.hero_bucket,
+                    options={
+                        "public": True,
+                        "file_size_limit": 8 * 1024 * 1024,
+                        "allowed_mime_types": ["image/png", "image/jpeg", "image/webp"],
+                    },
+                )
+                logger.info("Created Supabase storage bucket: %s", self.hero_bucket)
+
+            self._hero_bucket_ready = True
+            return True
+        except Exception as e:
+            logger.warning("Failed to ensure hero image bucket '%s': %s", self.hero_bucket, e)
+            return False
+
+    def _store_hero_image(self, item: NewsItem, temp_url: str) -> str:
+        """Download generated image and upload to Supabase Storage, returning public URL."""
+        if not self.supabase:
+            return ""
+        if not self._ensure_hero_bucket():
+            return ""
+
+        try:
+            response = requests.get(temp_url, timeout=30)
+            response.raise_for_status()
+        except Exception as e:
+            logger.warning("Failed to download generated hero image: %s", e)
+            return ""
+
+        content_type = response.headers.get("content-type", "image/png").split(";")[0].strip().lower()
+        ext = "png"
+        if content_type == "image/jpeg":
+            ext = "jpg"
+        elif content_type == "image/webp":
+            ext = "webp"
+        elif content_type not in {"image/png", "image/jpeg", "image/webp"}:
+            content_type = "image/png"
+
+        path = f"{datetime.now(timezone.utc).strftime('%Y/%m/%d')}/{item.id}.{ext}"
+
+        try:
+            self.supabase.storage.from_(self.hero_bucket).upload(
+                path,
+                response.content,
+                file_options={
+                    "content-type": content_type,
+                    "x-upsert": "true",
+                },
+            )
+            return self.supabase.storage.from_(self.hero_bucket).get_public_url(path)
+        except Exception as e:
+            logger.warning("Failed to upload hero image to Supabase Storage: %s", e)
+            return ""
 
     @staticmethod
     def _parse_projects_json(raw: str) -> str:

@@ -37,6 +37,9 @@ FIRECRAWL_API_KEY=...
 # Optional Supabase export + subscriber send
 SUPABASE_URL=...
 SUPABASE_SERVICE_ROLE_KEY=...
+
+# Optional hero image bucket name (default: hero-images)
+SUPABASE_HERO_IMAGE_BUCKET=hero-images
 ```
 
 3. Run pipeline:

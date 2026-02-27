@@ -11,9 +11,13 @@ export default function ArticleCard({ article }: { article: Article }) {
   const filename = sourceFilenames[article.source_type] || "article.md";
 
   return (
-    <Link href={`/articles/${article.slug}`} className="block group">
-      <WindowChrome filename={filename}>
-        <div className="p-5">
+    <Link href={`/articles/${article.slug}`} className="block group h-full">
+      <WindowChrome
+        filename={filename}
+        className="h-full flex flex-col"
+        contentClassName="flex-1"
+      >
+        <div className="p-5 h-full flex flex-col">
           {/* Category as code syntax */}
           {article.matched_topics[0] && (
             <div className="mb-3 text-[11px] font-mono text-muted">
@@ -25,7 +29,7 @@ export default function ArticleCard({ article }: { article: Article }) {
           )}
 
           {/* Headline */}
-          <h3 className="serif-headline text-lg leading-tight mb-2 text-foreground group-hover:text-primary transition-colors decoration-primary underline-offset-4 group-hover:underline">
+          <h3 className="serif-headline text-lg leading-tight mb-2 text-foreground group-hover:text-primary transition-colors decoration-primary underline-offset-4 group-hover:underline line-clamp-3">
             {article.title}
           </h3>
 
@@ -37,7 +41,7 @@ export default function ArticleCard({ article }: { article: Article }) {
           )}
 
           {/* Footer */}
-          <div className="border-t border-dashed border-border pt-3 flex items-center justify-between text-[11px] font-mono text-muted">
+          <div className="mt-auto border-t border-dashed border-border pt-3 flex items-center justify-between text-[11px] font-mono text-muted">
             <span className="text-primary font-bold">
               &#9733; {Math.round(article.score)} pts
             </span>

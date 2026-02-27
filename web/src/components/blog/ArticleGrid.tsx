@@ -26,21 +26,21 @@ export default function ArticleGrid({
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[360px]">
       {articles.map((article, i) => {
         const elements = [];
 
         // Insert BuildThisCard at position 2
         if (i === 1 && buildThisPick) {
           elements.push(
-            <div key="build-this" className="border-b border-r border-border">
+            <div key="build-this" className="border-b border-r border-border h-full">
               <BuildThisCard pick={buildThisPick} />
             </div>
           );
         }
 
         elements.push(
-          <div key={article.id} className="border-b border-r border-border">
+          <div key={article.id} className="border-b border-r border-border h-full">
             <ArticleCard article={article} />
           </div>
         );

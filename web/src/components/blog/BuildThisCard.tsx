@@ -1,5 +1,4 @@
 import Link from "next/link";
-import WindowChrome from "@/components/shared/WindowChrome";
 
 interface ProjectPick {
   name: string;
@@ -21,8 +20,8 @@ const CATEGORY_ICONS: Record<string, string> = {
 
 export default function BuildThisCard({ pick }: { pick: ProjectPick }) {
   return (
-    <Link href="/picks" className="block group">
-      <div className="relative border border-primary/30 bg-green-950/20 ring-1 ring-primary/10 overflow-hidden">
+    <Link href="/picks" className="block group h-full">
+      <div className="relative border border-primary/30 bg-green-950/20 ring-1 ring-primary/10 overflow-hidden h-full flex flex-col">
         {/* Grid overlay */}
         <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
 
@@ -43,7 +42,7 @@ export default function BuildThisCard({ pick }: { pick: ProjectPick }) {
         </div>
 
         {/* Content */}
-        <div className="relative p-5">
+        <div className="relative p-5 h-full flex flex-col">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-lg">
               {CATEGORY_ICONS[pick.category] || CATEGORY_ICONS.tool}
@@ -69,7 +68,7 @@ export default function BuildThisCard({ pick }: { pick: ProjectPick }) {
             </div>
           )}
 
-          <span className="text-[11px] font-mono text-primary group-hover:underline">
+          <span className="text-[11px] font-mono text-primary group-hover:underline mt-auto">
             View Specs &rarr;
           </span>
         </div>

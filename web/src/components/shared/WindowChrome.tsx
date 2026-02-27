@@ -1,10 +1,14 @@
 export default function WindowChrome({
   filename,
   variant = "default",
+  className = "",
+  contentClassName = "",
   children,
 }: {
   filename: string;
   variant?: "default" | "build-this";
+  className?: string;
+  contentClassName?: string;
   children: React.ReactNode;
 }) {
   const borderColor =
@@ -13,7 +17,7 @@ export default function WindowChrome({
       : "border-border";
 
   return (
-    <div className={`border ${borderColor} bg-surface`}>
+    <div className={`border ${borderColor} bg-surface ${className}`}>
       {/* Title bar */}
       <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border">
         <div className="flex items-center gap-1.5">
@@ -26,7 +30,7 @@ export default function WindowChrome({
         </span>
       </div>
       {/* Content */}
-      <div>{children}</div>
+      <div className={contentClassName}>{children}</div>
     </div>
   );
 }
