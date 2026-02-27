@@ -58,10 +58,16 @@ export default function Navbar() {
         {/* Center: command buttons */}
         <div className="flex items-center gap-1">
           <Link
-            href="/"
+            href="/articles"
             className="px-3 py-1 text-[11px] font-mono text-muted hover:text-primary hover:bg-surface-hover transition-colors"
           >
             <span className="text-primary">$</span> cd /articles
+          </Link>
+          <Link
+            href="/picks"
+            className="px-3 py-1 text-[11px] font-mono text-muted hover:text-primary hover:bg-surface-hover transition-colors"
+          >
+            <span className="text-primary">$</span> open /library
           </Link>
           <Link
             href="/search"
