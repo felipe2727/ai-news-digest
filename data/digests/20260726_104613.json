@@ -1,0 +1,313 @@
+{
+  "id": "20260726_104613",
+  "generated_at": "2026-07-26T10:46:13.769020+00:00",
+  "intro_summary": "Today's AI news highlights the emergence of Kimi K3, a Chinese coding assistant that is raising concerns in Silicon Valley. The anniversary of the SDXL model release marks three years since its launch, while Monday.com joins a growing list of tech companies attributing layoffs to AI advancements. In open-source developments, SonderMind has released 300 clinically-reviewed guardrail scenarios, emphasizing the risks of over-calibrated generic LLMs in mental health applications. Additionally, revenue comparisons between AI firms and traditional tech giants reveal shifting dynamics in the industry.",
+  "project_recommendations": "[{\"name\": \"SmartLayoff Framework\", \"description\": \"A robust framework designed to help organizations analyze and optimize workforce dynamics by leveraging AI-driven insights to mitigate the impact of layoffs while maximizing productivity.\", \"why\": \"With an increasing number of tech companies citing AI as a reason for layoffs, this framework addresses the need for smarter workforce management in a changing employment landscape.\", \"url\": \"\", \"category\": \"framework\"}]",
+  "total_items": 18,
+  "sources_checked": 21,
+  "sections": [
+    {
+      "title": "Coding Assistants",
+      "items": [
+        {
+          "item_id": "46a9b79318639ef9",
+          "title": "Kimi K3, the Chinese AI that has put Silicon Valley on alert - EL PAÍS English",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOVlhNQ1NiUVI1eGN0bXF5S01TTm1tQlJWYjZsUWFZRkxxY0xJdVFTRlhNSzBJa01tT2I3TmE1TGtjX3dqbGJRRHZJOFlqbGJTOWdnMFJlMFVqYV9FVmFtWU5jUmVlT0lrc0Y5b25nTWlJZEwzRTNOMUpxb2pMR3F4NlVzZWp2UXlDZlBEMWxnelpsQWdQSDFXNGtJQXVzWlVZTmswQl9MQ2ZjaEpEYlpNd0xiWdIBxwFBVV95cUxOQW5CUzROYzFIVlEtblVsdzQ1Sm0teWhvdnU4M1F0SHkzeFRmdW51YU11TEZCS3VlVVpEUUl4by1mbVhYZzRkOHdpY2R6N0k3cEhaUHUxdkl1c3l2cDFFOXpQbUdBV25rUkhyR2dZMkRSUmtVN0dDbzhZeFF5V3VSNTNMbHlpSDJ3WlhNTEtET3RlRDJlZWJJaWh5enpiOXF2NGFxWlJrbXlhaWlvM0x4V2pLMEF6MWdLMi1aS25iQXJUOG9iMGFN?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-07-26T04:00:00+00:00",
+          "score": 51.5,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "The Chinese AI Kimi K3 has emerged as a significant competitor, raising concerns in Silicon Valley about its advanced capabilities. This development is crucial as it highlights the growing technological prowess of China in the AI sector, potentially shifting the balance of innovation and influence in the industry. Key facts include Kimi K3's impressive performance metrics, which have drawn attention from major tech players in the U.S.",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Breaking News",
+      "items": [
+        {
+          "item_id": "780370b62e247631",
+          "title": "New model release! It was 3 years ago. Happy Birthday SDXL!",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1v6wx2d/new_model_release_it_was_3_years_ago_happy/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-07-26T07:28:47+00:00",
+          "score": 52.3,
+          "matched_topics": [
+            "breaking_news",
+            "media_generation"
+          ],
+          "summary": "Stability AI celebrated the three-year anniversary of its SDXL model, which was released in 2023 and marked a significant improvement over Stable Diffusion 1.5. SDXL's advanced capabilities in understanding complex prompts and generating high-quality images at 1024×1024 resolution have made it a foundational tool for numerous community fine-tuned models. This milestone highlights the model's impact on the AI art landscape.",
+          "extra": {}
+        },
+        {
+          "item_id": "e9e3f92c9d89fe03",
+          "title": "Monday.com is the latest tech company to blame AI for layoffs — here are 20 others",
+          "url": "https://techcrunch.com/2026/07/25/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-07-26T01:30:00+00:00",
+          "score": 20.4,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "Monday.com has joined a growing list of tech companies citing AI as a reason for layoffs, marking a significant trend in the industry. This development highlights the increasing impact of AI on workforce reductions, with at least 20 other companies also attributing job cuts to advancements in artificial intelligence. The trend raises concerns about the future of employment in the tech sector as automation continues to evolve.",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Open Source AI",
+      "items": [
+        {
+          "item_id": "2ec0698bb345afd3",
+          "title": "Local alternative to Kling AI 3.0 Motion Control (ComfyUI, 16GB VRAM)",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1v6ibi8/local_alternative_to_kling_ai_30_motion_control/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-07-25T19:59:59+00:00",
+          "score": 53.5,
+          "matched_topics": [
+            "open_source",
+            "media_generation"
+          ],
+          "summary": "A user is seeking a local alternative to Kling AI 3.0 Motion Control that can operate within ComfyUI, specifically looking for a model that enables precise control of character and camera motion while generating high-quality video animations offline. The requirement includes compatibility with a GPU that has 16 GB of VRAM, such as the RTX 5070 Ti. This inquiry highlights the growing demand for efficient, local AI tools for video production.",
+          "extra": {}
+        },
+        {
+          "item_id": "dd37990730b2e493",
+          "title": "SonderMind Open-Sources 300 Clinically-Reviewed Guardrail Scenarios, Says Generic LLMs Are Dangerously Over-Calibrated for Mental Health - finance.biggo.com",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1zWmdIa2w4cWl3Y1duYXNlaGtuYVRvRGZqZ2ZUcGpLN1BoaHBIZXQ2QmNUamhDeGFQZkVCR0JQWVhPdjhCSWl6cWdxX0hxNzlfU19pVjJvdWhwR2M?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-07-26T00:09:00+00:00",
+          "score": 48.3,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "SonderMind has released 300 clinically-reviewed guardrail scenarios to address concerns about the over-calibration of generic large language models (LLMs) in mental health applications. This initiative aims to enhance the safety and effectiveness of AI tools used in mental health care. The move highlights the need for tailored AI solutions that prioritize patient well-being and mitigate risks associated with generic models.",
+          "extra": {}
+        },
+        {
+          "item_id": "d7e3f82f149109a9",
+          "title": "Krea 2 Identity Edit running in Forge Neo (extension port) — works great, GitHub release soon",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1v68zpa/krea_2_identity_edit_running_in_forge_neo/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-07-25T13:52:07+00:00",
+          "score": 48.1,
+          "matched_topics": [
+            "open_source",
+            "github_repos"
+          ],
+          "summary": "Krea 2 Identity Edit has been successfully ported to Forge Neo as an extension, allowing users to perform instruction-based, identity-preserving edits without needing ComfyUI or custom nodes. This development is significant as it simplifies the editing process by enabling users to generate edits directly by uploading images and writing prompts. A GitHub release is expected soon, enhancing accessibility for users interested in advanced image editing techniques.",
+          "extra": {}
+        },
+        {
+          "item_id": "3f971f2a0b30758d",
+          "title": "I built a self-hosted tool that turns one reference photo into a curated, captioned, trained LoRA and a lot more — open source, MIT",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1v66r1f/i_built_a_selfhosted_tool_that_turns_one/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-07-25T12:12:10+00:00",
+          "score": 46.2,
+          "matched_topics": [
+            "open_source",
+            "github_repos"
+          ],
+          "summary": "A developer has created an open-source tool called \"lora-dataset-studio\" that transforms a single reference photo into a curated, captioned, and trained LoRA model. This tool is significant as it streamlines the process of generating machine learning datasets, making it more accessible for users. The project is released under the MIT license, promoting collaboration and innovation in the AI community.",
+          "extra": {}
+        },
+        {
+          "item_id": "8b49f2a17dcb3dd3",
+          "title": "Comfy-Org/Mage-Flow · Hugging Face",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1v6ccn4/comfyorgmageflow_hugging_face/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-07-25T16:09:17+00:00",
+          "score": 38.9,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "Microsoft's Mage-Flow now officially supports ComfyUI, enhancing its usability for developers and users in the AI community. This integration is significant as it streamlines workflows and improves the user experience for those utilizing AI tools. The collaboration reflects ongoing advancements in AI interface design and accessibility.",
+          "extra": {}
+        },
+        {
+          "item_id": "a012a4c93429343e",
+          "title": "makecindy/cindy",
+          "url": "https://github.com/makecindy/cindy",
+          "source_name": "GitHub Search (llm)",
+          "source_type": "github",
+          "published": null,
+          "score": 37.7,
+          "matched_topics": [
+            "open_source",
+            "agents"
+          ],
+          "summary": "The open-source AI agent, makecindy, has been released on GitHub, designed to operate seamlessly without extensive setup. This development is significant as it enhances accessibility for users looking to implement AI solutions quickly and efficiently. Key features include its out-of-the-box functionality, making it user-friendly for a wide range of applications.",
+          "extra": {
+            "stars": "210",
+            "language": "TypeScript",
+            "topics": [
+              "agent",
+              "ai-agent",
+              "ai-assistant",
+              "android",
+              "claude-code",
+              "codex",
+              "electron",
+              "ios",
+              "llm",
+              "macos",
+              "react-native",
+              "typescript",
+              "windows"
+            ]
+          }
+        },
+        {
+          "item_id": "11ca7df29b85d0ec",
+          "title": "What's the difference between closed, open‑source and open-weight AI? A researcher explains - PBS",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPQk8tTDNWNWMySk52QlB0VVpFdDFVLWxQaEh0Q3VDUHZtWE9iaXFGckNUeWwyaWpGSVZiRkVYLVlzdUVxeEROYUY0cnoxS3ZFRnoydzYxZ1B3WmkyVmlYT2h2SHItdHlqdVFOTDRucjhCb1p5b0xmY2tVUHFYdTVSeDJya1E1U1lyVjJoUWpJMEU3alFhQUJhcThVZXZ4R0FnbzdIbkhyemVjNXVlWDNjajd2WVhBNTZsejFMMDdTS2lZRVRvazZSSnk3ZFljUdIB0wFBVV95cUxQRHdvaUthdXZ2cl9oLUI4REVRaWZJcUU5c0FGQUtydEQ5akszNU56TzRoanBZVUNHRk9WcklpU0FfVnZvT2JTWTBNbE1mZlNRUG1VSmJwMnByM3Bnc2ZISV9JWEZodVpaMjJieTUwSm5Zb28yRU1SbG9WS2YyTFVGaDhaTzRxSjJnSTNBMjF0M0JIRHlHRE1tWU95VGZJU1VHd1M1N2RtU3hmd0VKWXd4YzdvbnZRUXREVFV1UU1hajhuWHhrNHFpeWEyMmFXbTNpSG1V?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-07-25T19:00:54+00:00",
+          "score": 14.0,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "The article explains the distinctions between closed, open-source, and open-weight AI models, emphasizing that these terms relate to the accessibility and modifiability of the AI's underlying information. Understanding these differences is crucial as they impact innovation, collaboration, and transparency in AI development. The concept of open-source software, rooted in the free software movement, advocates for user rights to modify and share software, which is essential for fostering a collaborative tech environment.",
+          "extra": {}
+        },
+        {
+          "item_id": "11ca7df29b85d0ec",
+          "title": "What's the difference between closed, open‑source and open-weight AI? A researcher explains - PBS",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPQk8tTDNWNWMySk52QlB0VVpFdDFVLWxQaEh0Q3VDUHZtWE9iaXFGckNUeWwyaWpGSVZiRkVYLVlzdUVxeEROYUY0cnoxS3ZFRnoydzYxZ1B3WmkyVmlYT2h2SHItdHlqdVFOTDRucjhCb1p5b0xmY2tVUHFYdTVSeDJya1E1U1lyVjJoUWpJMEU3alFhQUJhcThVZXZ4R0FnbzdIbkhyemVjNXVlWDNjajd2WVhBNTZsejFMMDdTS2lZRVRvazZSSnk3ZFljUdIB0wFBVV95cUxQRHdvaUthdXZ2cl9oLUI4REVRaWZJcUU5c0FGQUtydEQ5akszNU56TzRoanBZVUNHRk9WcklpU0FfVnZvT2JTWTBNbE1mZlNRUG1VSmJwMnByM3Bnc2ZISV9JWEZodVpaMjJieTUwSm5Zb28yRU1SbG9WS2YyTFVGaDhaTzRxSjJnSTNBMjF0M0JIRHlHRE1tWU95VGZJU1VHd1M1N2RtU3hmd0VKWXd4YzdvbnZRUXREVFV1UU1hajhuWHhrNHFpeWEyMmFXbTNpSG1V?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-07-25T19:00:54+00:00",
+          "score": 14.0,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "The article explains the distinctions between closed, open-source, and open-weight AI models, emphasizing that these terms relate to the accessibility and modifiability of the AI's underlying information. Understanding these classifications is crucial as they impact innovation, collaboration, and transparency in AI development. The piece highlights the historical context of open-source software, rooted in the free software movement of the 1980s and 1990s.",
+          "extra": {}
+        },
+        {
+          "item_id": "eca6179d3a5f34eb",
+          "title": "Cheaper, open and intelligent: Chinese AI models gain ground, as they make inroads in the US - Boston 25 News",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPSnB3UXd0cWsxdHYzVGx2QTNrZERaQ3hLMUxTTkhtdnRLZ21sUjVOSUI3YkVPVUVVeVp6MVVYUTJIMnNGZ2FwMDM2cEdKU2NRSkVtU2c0Q2s3YU1pTWJreXhrMUNUQ3RzZTBqOWVSOW15R3liYkFBdWh2R2NSeF96V3lDN3FMZ0I3QW5HbXJhZDNmczREY3VneEFjdUpJR2vSAZ8BQVVfeXFMT0pwd1F3dHFrMXR2M1RsdkEza2REWkN4SzFMU05IbXZ0S2dtbFI1TklCN2JFT1VFVXlaejFVWFEySDJzRmdhcDAzNnBHSlNjUUpFbVNnNENrN2FNaU1ia3l4azFDVEN0c2UwajllUjlteUd5YmJBQXVodkdjUnhfeld5QzdxTGdCN0FuR21yYWQzZnM0RGN1Z3hBY3VKSUdr?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-07-26T04:05:00+00:00",
+          "score": 13.4,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "Chinese AI models, particularly Moonshot's Kimi K3, are gaining popularity in the U.S. due to their lower cost and superior performance compared to established competitors. This shift is significant as it highlights the increasing competitiveness of Chinese technology in the global AI market, with users like Mozilla's CTO opting for these models for everyday tasks. The trend indicates a potential change in the landscape of AI tools, favoring more accessible and efficient options.",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Interesting GitHub Repos",
+      "items": [
+        {
+          "item_id": "7c3ca0532108fb69",
+          "title": "lukasz-madon / awesome-remote-job",
+          "url": "https://github.com/lukasz-madon/awesome-remote-job",
+          "source_name": "GitHub Trending",
+          "source_type": "github",
+          "published": null,
+          "score": 18.2,
+          "matched_topics": [
+            "github_repos"
+          ],
+          "summary": "A curated list of remote job opportunities and resources has gained traction on GitHub, reflecting the growing demand for flexible work arrangements. This initiative, inspired by a similar project focused on Python, aims to connect job seekers with remote positions across various fields. Its popularity underscores the shift towards remote work as a viable career option.",
+          "extra": {
+            "stars": "47135",
+            "language": ""
+          }
+        },
+        {
+          "item_id": "6e8b5bcfab21c7f0",
+          "title": "Analog Horror Krea 2 LoRA",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1v6nv2b/analog_horror_krea_2_lora/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-07-25T23:53:59+00:00",
+          "score": 17.9,
+          "matched_topics": [
+            "github_repos"
+          ],
+          "summary": "A user has created their first Krea 2 Style LoRA focused on analog horror and is seeking feedback on their training data and captions. They are considering sharing their work on platforms like GitHub to reach a wider audience. This development highlights the growing interest in niche AI art styles and community collaboration in the AI art space.",
+          "extra": {}
+        },
+        {
+          "item_id": "35d1a40a568f0ae8",
+          "title": "Prompt Architect",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1v6wj31/prompt_architect/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-07-26T07:07:10+00:00",
+          "score": 17.7,
+          "matched_topics": [
+            "github_repos"
+          ],
+          "summary": "Prompt Architect Pro is a new desktop suite that processes large text files to generate structured visual prompts using advanced semantic segmentation techniques. It features a robust database system with anti-corruption filters and supports image analysis through a vision model. This tool is significant for creators and developers in the AI space, enhancing productivity and efficiency in managing visual content.",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Entrepreneurship",
+      "items": [
+        {
+          "item_id": "88ca3e0c503d47ec",
+          "title": "Nebius vs. Strategy: Comparing Revenue Trends Between an Artificial Intelligence Company and a Bitcoin Giant - Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOc3ltQS1UUHVGVE8xMnlfSklENFg4Sl95RkNSU0sxWmViY2xBenplV1oxUHFMc1NpTkxuSEdlRE1nMUtqZFZJSzB2RHJZbm1OSDFLT3MtaGh1UVAwVGhYbHh3cUNIaTZESFhKaVpWM0t2LVpHVU9ETVFiLXNxTFYteXIxNTBfX0NvQnBxMm1TQWtyaVpiWjVQbFhjWlFQOHhDa2hF?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-07-25T21:34:01+00:00",
+          "score": 39.9,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "Nebius, an AI company, is expanding its operations and reported a 21% gross margin for Q1 2026, highlighting its focus on cloud platforms and autonomous driving technologies. In contrast, Strategy, a Bitcoin treasury firm, is under investigation for potential securities law violations while maintaining a steady business model. The comparison of their revenue trends underscores the differing challenges and growth trajectories within the tech and cryptocurrency sectors.",
+          "extra": {}
+        },
+        {
+          "item_id": "eec166fd63ec1d0f",
+          "title": "Nvidia vs. Planet Labs: Comparing Revenue Trends Between an Artificial Intelligence Giant and a Rising Star of the Space-Based Economy - The Motley Fool",
+          "url": "https://news.google.com/rss/articles/CBMijgJBVV95cUxOdGE2TFU5VFY0T1hzeUcwcjFnYk05UmkzZXhaV3NBNWxHcWQzamZSeFB4RW81LVd5MGloLWdZWXRRZjlCdDBMcm5FRi1YTlNvYnZZM2FGUF9Nc0lhaHBGUW15Sk1nS2dELXZud1d3NWVhb3dwUkxrVnkxR3VTSF9SU2xHV3BFX3N6R2JVcW5hWUxmZFpkWFpEN3ZZazJ4Rk4wTTF1bGpWYWw2bjVqekhRSkxsQzlZVzR6TTBXT1E4WGRuN0lKd05pMnUzWDE2WWQ5aElLaFJUWnZINmVyR1c4X2phc0l5T0pEV0lMOG4yUGpmY3dONWktSXpLeFhLRnc1TVU0cmlpY0lxVGVIdVE?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-07-25T20:06:00+00:00",
+          "score": 39.1,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "Nvidia and Planet Labs are being compared in terms of their revenue trends, highlighting the contrasting trajectories of a leading AI company and a growing player in the space-based economy. This comparison is significant as it illustrates the different market dynamics and growth potentials within the tech sector. Key facts include Nvidia's established dominance in AI and Planet Labs' emerging role in satellite imagery and data services.",
+          "extra": {}
+        },
+        {
+          "item_id": "8be01f88693cfe1f",
+          "title": "Figma vs. IBM: What Revenue Growth Trends Tell Investors About the Young Software Design Company and the Veteran Artificial Intelligence Tech Giant - The Motley Fool",
+          "url": "https://news.google.com/rss/articles/CBMinwJBVV95cUxPN1V1TUxma3d3V3dxNG53X192d09iUHlWZkhZTzhDSU5xYUFTSDdpc1JBXzdsOGFWY29zNGhUeHdmXzFKTzZhYmM2NmIyVkpueGtzbVVsZVowNWxNMklSbElZcGFzMlItOEpqTURlT0VUT0R2QkJFenEtbDZyWTJRdDR3N05FX25YZmhvZUpoM1JRTkV4MzkwanFtRG1yMUVzNmo3dHRqV1ZoR3NCYjdROUNxLTBmMjhjc1VkYXBrWnJTMzd3MWJSNkZMU2o1aXpGb2hqWVFNMjlxRkFYMl9fZEhPODd0YlN3S2tPaFh3ck92aEZ2WXZ5aElURUlXLURWc1JKc0dkUHBhX0FKcThKQVhPWmhaY3NmVFJ4LUpLdw?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-07-25T23:15:00+00:00",
+          "score": 38.9,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "Figma has reported consistent revenue growth, driven by its subscription-based design software and new features, despite a significant net income margin loss of 43%. In contrast, IBM is experiencing revenue fluctuations, recently disclosing a shortfall in preliminary results while maintaining a 15% EBIT margin. These trends are crucial for investors as they reflect the companies' financial health and growth potential in the competitive tech landscape.",
+          "extra": {}
+        }
+      ]
+    }
+  ]
+}
