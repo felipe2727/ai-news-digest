@@ -1,0 +1,351 @@
+{
+  "id": "20260829_142809",
+  "generated_at": "2026-08-29T14:28:09.831032+00:00",
+  "intro_summary": "",
+  "project_recommendations": "[]",
+  "total_items": 20,
+  "sources_checked": 21,
+  "sections": [
+    {
+      "title": "Coding Assistants",
+      "items": [
+        {
+          "item_id": "0117842b9fc20580",
+          "title": "I built open-jobs: 2M open jobs so Claude Code can perform your job search",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1w1eg17/i_built_openjobs_2m_open_jobs_so_claude_code_can/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-08-29T06:05:29+00:00",
+          "score": 66.9,
+          "matched_topics": [
+            "coding_assistants",
+            "open_source",
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "dfe20c786e5aea38",
+          "title": "Anyone using Claude Code in the terminal: how do you review what the AI changed without opening an IDE on the side?",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1w1atmj/anyone_using_claude_code_in_the_terminal_how_do/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-08-29T02:58:28+00:00",
+          "score": 63.4,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "99340fdaa5729528",
+          "title": "Claude Code drives 12 iOS simulators simultaneously on my M1 Pro MacBook with 16 GB Ram",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1w1khpc/claude_code_drives_12_ios_simulators/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-08-29T11:50:02+00:00",
+          "score": 62.0,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "9db22186faf6db45",
+          "title": "Hot take: The more Claude Code writes for you, the more disciplined your review process needs to become.",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1w1gpcs/hot_take_the_more_claude_code_writes_for_you_the/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-08-29T08:14:45+00:00",
+          "score": 53.2,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "1f8ec4b555c598b4",
+          "title": "Claude Code unified my workflow for doing research and writing engineering code",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1w1n3fo/claude_code_unified_my_workflow_for_doing/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-08-29T13:50:28+00:00",
+          "score": 51.0,
+          "matched_topics": [
+            "coding_assistants",
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "5acf68a0cd5a98a6",
+          "title": "Adding multiple accounts in desktop app",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1w1l0b0/adding_multiple_accounts_in_desktop_app/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-08-29T12:15:43+00:00",
+          "score": 33.8,
+          "matched_topics": [
+            "coding_assistants",
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Breaking News",
+      "items": [
+        {
+          "item_id": "887f40ed6890865c",
+          "title": "Gnani.ai launches Artha, India-based enterprise AI stack - MediaNama",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5xMGFPeUlLRTYtTE1jU0E5cHFpYmtlenpRS1htNG4yM0gwTlM4dzZqZW0tMnc2STRuZ0h2RG1RanNoeEJBUEJhcVhfZVZtcktqbDBCUDZGckxhZGVTdmFQZkppOUZaYm5kTk54b0pGU1B0Q1pE?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-08-29T09:17:04+00:00",
+          "score": 43.7,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Open Source AI",
+      "items": [
+        {
+          "item_id": "1cc23375fc8290c8",
+          "title": "What’s the difference between proprietary, open weight, and open source AI? - Fast Company",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPTkZkR3lUSXZVamlyR1JpNTdGYUhLSVctZ0NoazNublplaG5VN3ZNV0dOMkFqYnplNHBKbGtXVnFUWW02SHd5TjdoLTB4OXpVaGlHWGcxSm1wUF90WXB5eUx1U1ZBU1p6UDNoYkdfWHh1OFRQMVI0XzhDWGNQZlJGY1htWTZhMmRmOFlHaVJGVnVjRE9LM1JsNmNoLXNhMDZoNUxEODdhQ0RPNk8taExSMDRsb0lVVGNubC1pR3RLamRlZ252UG5Uenh5ZFNra0o1RlZQWnZwT3UyUQ?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-08-29T09:08:33+00:00",
+          "score": 50.0,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "307aadd9969841d4",
+          "title": "usedotai/dot-reflex",
+          "url": "https://github.com/usedotai/dot-reflex",
+          "source_name": "GitHub Search (llm)",
+          "source_type": "github",
+          "published": null,
+          "score": 31.2,
+          "matched_topics": [
+            "open_source",
+            "agents"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "97",
+            "language": "Python",
+            "topics": [
+              "agent-supervision",
+              "ai-agents",
+              "coding-agents",
+              "llm",
+              "open-source",
+              "qlora",
+              "qwen3",
+              "recovery-controller"
+            ]
+          }
+        },
+        {
+          "item_id": "dcefc03aaca52d15",
+          "title": "OpenAI Just Confirmed AGI Is Coming This Year",
+          "url": "https://www.youtube.com/watch?v=7uSjh5bde44",
+          "source_name": "Wes Roth",
+          "source_type": "youtube",
+          "published": "2026-08-29T13:15:58+00:00",
+          "score": 21.6,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "663688bd7bd5c7b7",
+          "title": "Tencent Opens the Weights of a 770B Model — US Labs Close, Chinese Labs Open - Wowtale",
+          "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9ySGFGSDVrNHVtOElsMkpIZ3VXcWtYWHh6VUc0eGhTLVJHVHktTUFsdjRRQmxQQ3NpT2ZNMHRMdncyM3dHS1JMM3EyazNIWV9RaUg4?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-08-28T23:14:58+00:00",
+          "score": 13.2,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Interesting GitHub Repos",
+      "items": [
+        {
+          "item_id": "cf2cdfe6941f0fa7",
+          "title": "An adaptive agentic AI framework for counterfactual validation and adversarial lookahead in automated incident response - Springer Nature Link",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE92cUZfeGc3cmZ0bnV5QjlleU12ZUV0UF9ybXBUMTlLV2hWYVVYZ3B6SjJ4QjFlN2s5LWxyS1lhREZRdmJFQ3FaM014bndheldYYjBGOXpDRWM3bGJhV1RfX282TnV1eV9XOERmMg?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-08-29T11:32:15+00:00",
+          "score": 36.7,
+          "matched_topics": [
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "cf2cdfe6941f0fa7",
+          "title": "An adaptive agentic AI framework for counterfactual validation and adversarial lookahead in automated incident response - Springer Nature Link",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE92cUZfeGc3cmZ0bnV5QjlleU12ZUV0UF9ybXBUMTlLV2hWYVVYZ3B6SjJ4QjFlN2s5LWxyS1lhREZRdmJFQ3FaM014bndheldYYjBGOXpDRWM3bGJhV1RfX282TnV1eV9XOERmMg?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-08-29T11:32:15+00:00",
+          "score": 36.7,
+          "matched_topics": [
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Entrepreneurship",
+      "items": [
+        {
+          "item_id": "d1a3e2c00436f998",
+          "title": "Anthropic Pursues Advanced AI Training Chips: Revealed $7 Billion Planned Acquisition of AI Chip Startup MatX - 36 Kr",
+          "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9oMGNvX0ZldlNVX29CUlYwZTFidlNuRnRiY3JCOURPQlVSUGU5ZkQxRG9kd1FzQ0FNcGJyWmlvZUZPLXl1ckJnbzAxbF82enVTc0hj?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-08-29T06:11:16+00:00",
+          "score": 39.6,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "43a544c1ee8b830e",
+          "title": "The Parallel Consultation: A Literature Review of Patient Use of Large Language Models and Its Implications for Psychiatric Clinical Decision-Making - Cureus",
+          "url": "https://news.google.com/rss/articles/CBMirgJBVV95cUxQU1IxOUg5amtBZmdoNXMwQVJfVWdRRUlVQzNUM1ZmbkxFWV8xRE9HeFZiSVltTjl2WEhwWVVyTGY3elpzN2tlU2FxdzFJaE85QmtydDRPQTJvbDRWY1drZFIwcngwMlJUb0NKSVFCY01sUzNZbnFiUHJPUThBZVJ4b0RTRjVKQnNSUlpYR3ZLZl9vVkhtT0wteWtaOW5jVk12aDRTVnFfRDNSeFlHS1Q3blg0VTRoMWZlQ0M5SG5JRnZ3dUNxYW1iZkNtOWFLU0ZuWUZhOERZcVhaTDVkMTlaVVpVU0Y3cm9TWDg3eDdFNFpVaVRHTzk4dVVRYUhsU2NMZWhWU01pcjNUX1NUaEZNbU8tcmMybG1abmRoWnhPNmJlYU51ZmFkcXlsTXhLUQ?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-08-29T06:09:25+00:00",
+          "score": 39.6,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "a1cba186087686da",
+          "title": "Something Is Going Very Wrong With Google’s AI",
+          "url": "https://www.youtube.com/watch?v=gROKrW59Mn4",
+          "source_name": "TheAIGRID",
+          "source_type": "youtube",
+          "published": "2026-08-28T23:09:22+00:00",
+          "score": 27.3,
+          "matched_topics": [
+            "entrepreneurship",
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "a85aa69b831be69c",
+          "title": "Nvidia’s AI advantage is moving beyond the GPU",
+          "url": "https://techcrunch.com/2026/08/29/nvidias-ai-advantage-is-moving-beyond-the-gpu/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-08-29T13:00:00+00:00",
+          "score": 18.4,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "094279aa58fc600d",
+          "title": "Do you find the Lydia emails helpful?",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1w16qt7/do_you_find_the_lydia_emails_helpful/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-08-28T23:46:07+00:00",
+          "score": 18.4,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Agents",
+      "items": [
+        {
+          "item_id": "8fc526df37af9242",
+          "title": "JordyZomer/lemmalog",
+          "url": "https://github.com/JordyZomer/lemmalog",
+          "source_name": "GitHub Search (llm)",
+          "source_type": "github",
+          "published": null,
+          "score": 20.3,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "90",
+            "language": "Rust",
+            "topics": [
+              "agent-memory",
+              "datalog",
+              "knowledge-graph",
+              "llm",
+              "llm-agents",
+              "mcp",
+              "neurosymbolic"
+            ]
+          }
+        },
+        {
+          "item_id": "419030bf659fe2d3",
+          "title": "How LLM Agents Can Orchestrate Cybersecurity Response Workflows - HackerNoon",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNb1hlMTFYZWhOQzFFci1DeEF1d2pTbjJMcU82TWZhQmFPdExiajlZNVoybUlHRzJ3VmJlM0llbHlZRjZiclpobzlxRHdvcFo3Ylo0SE0tcHJVOUNmejk4aWV6Q2R5Ynk3azJwRFh2YmdMQzAteDRsRE5pOVRad0RERVVvYVI3ZUNSV2d4dWlLMA?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-08-28T21:19:13+00:00",
+          "score": 13.1,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    }
+  ]
+}
