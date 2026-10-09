@@ -1,0 +1,522 @@
+{
+  "id": "20261009_161431",
+  "generated_at": "2026-10-09T16:14:31.284500+00:00",
+  "intro_summary": "",
+  "project_recommendations": "[]",
+  "total_items": 28,
+  "sources_checked": 21,
+  "sections": [
+    {
+      "title": "Coding Assistants",
+      "items": [
+        {
+          "item_id": "8fbc0e9ca0029cc0",
+          "title": "What are Claude Code \"Power Users\" doing with Claude Code that the average developer isn't?",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1x0uhhr/what_are_claude_code_power_users_doing_with/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-10-08T15:49:35+00:00",
+          "score": 93.1,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "acb2aec4ec517695",
+          "title": "Microqian2th/dsh-codex-effort-slider",
+          "url": "https://github.com/Microqian2th/dsh-codex-effort-slider",
+          "source_name": "GitHub Search (llm)",
+          "source_type": "github",
+          "published": null,
+          "score": 59.8,
+          "matched_topics": [
+            "coding_assistants",
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "61",
+            "language": "JavaScript",
+            "topics": [
+              "ai",
+              "ai-agents",
+              "codex",
+              "deepseek",
+              "deepseek-ai",
+              "deepseek-harness",
+              "deepseek-plugin",
+              "deepseek-v4",
+              "dsh",
+              "dsh-plugin",
+              "dsh-plugin-desktop",
+              "effort-slider",
+              "llm",
+              "reasoning-effort"
+            ]
+          }
+        },
+        {
+          "item_id": "26d9ab10e7a7f73c",
+          "title": "I made a claude code mod that uses Haiku 5.5 (or Jev) to pick the best model and effort for your task. (and more...)",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1x1nnkn/i_made_a_claude_code_mod_that_uses_haiku_55_or/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-10-09T15:01:08+00:00",
+          "score": 51.4,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "adf88778e3388197",
+          "title": "Claude Code Compacts Automatically Before Cache Expires, THANK YOU!",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1x1a6ym/claude_code_compacts_automatically_before_cache/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-10-09T02:51:31+00:00",
+          "score": 41.0,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "5dd99e91ba7b07ac",
+          "title": "efim0v/brow",
+          "url": "https://github.com/efim0v/brow",
+          "source_name": "GitHub Search (llm)",
+          "source_type": "github",
+          "published": null,
+          "score": 22.1,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "51",
+            "language": "Swift",
+            "topics": [
+              "ai",
+              "ai-agents",
+              "ai-coding",
+              "anthropic",
+              "claude",
+              "claude-code",
+              "claude-code-usage",
+              "coding-agents",
+              "developer-tools",
+              "llm",
+              "macos",
+              "macos-app",
+              "menubar",
+              "multi-account",
+              "notch",
+              "rate-limits",
+              "swift",
+              "swiftui",
+              "usage-monitor",
+              "usage-tracker"
+            ]
+          }
+        },
+        {
+          "item_id": "85d03134549bd0aa",
+          "title": "Any lawyers here using Claude for their day-to-day work?",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1x1ll95/any_lawyers_here_using_claude_for_their_daytoday/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-10-09T13:37:34+00:00",
+          "score": 21.7,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Breaking News",
+      "items": [
+        {
+          "item_id": "0856c1a27e7e11a7",
+          "title": "Anthropic launches free AI security scans for open-source projects",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1008521/anthropic-open-source-oss-scanner",
+          "source_name": "The Verge AI",
+          "source_type": "news",
+          "published": "2026-10-08T21:53:51+00:00",
+          "score": 90.8,
+          "matched_topics": [
+            "breaking_news",
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "d60d6ebb59e48115",
+          "title": "OpenAI’s “Alien Math” Is Freaking People Out",
+          "url": "https://www.youtube.com/watch?v=rxpV3QLV-pg",
+          "source_name": "Wes Roth",
+          "source_type": "youtube",
+          "published": "2026-10-09T04:28:24+00:00",
+          "score": 27.0,
+          "matched_topics": [
+            "breaking_news",
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "49c489e07a9e5dd3",
+          "title": "Anthropic bans ‘abusive or cruel behavior’ toward Claude",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1008100/anthropic-new-usage-policy-abuse-claude",
+          "source_name": "The Verge AI",
+          "source_type": "news",
+          "published": "2026-10-08T17:00:00+00:00",
+          "score": 20.0,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "5566b7ce38a02548",
+          "title": "sharkdp / hyperfine",
+          "url": "https://github.com/sharkdp/hyperfine",
+          "source_name": "GitHub Trending",
+          "source_type": "github",
+          "published": null,
+          "score": 19.4,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "29027",
+            "language": "Rust"
+          }
+        },
+        {
+          "item_id": "9b144d58de64884f",
+          "title": "SpaceXAI backs Omarchy, the controversial Linux distro, with $1.5 million in compute",
+          "url": "https://www.theverge.com/tech/1008148/spacexai-omarchy-grok-david-heinemeier-hansson",
+          "source_name": "The Verge AI",
+          "source_type": "news",
+          "published": "2026-10-08T17:57:01+00:00",
+          "score": 19.1,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "388bba42f80356a6",
+          "title": "Massive AI News : Gemini 4 Argon, OpenAI Breakthroughts, RSI Happening, and MORE!",
+          "url": "https://www.youtube.com/watch?v=6lIgfRZaL-o",
+          "source_name": "TheAIGRID",
+          "source_type": "youtube",
+          "published": "2026-10-08T19:00:19+00:00",
+          "score": 13.8,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "6b1d77128909cc49",
+          "title": "Artificial Intelligence: Language Models That See Every Letter | Newswise - Newswise",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNc2F4cW1KZ0xFcHVrc0xkUDhFa084LUlqMUxGN3kyZVgwWDFBeFRPV3pPVkU4bjVrODl1TUxtemh3bl9SUzdHUXI5WVpfNXVmc0RBTDEwcEZlX1YydlYteGhBUk5DeDFwN1Y2MFdkaFgwU0h1TU5MNHJQV0ZtRHNrYTl3R2tyZndBV3Z5ckpqRHVtdjBWOUFQRm9ZVdIBmwFBVV95cUxNc2F4cW1KZ0xFcHVrc0xkUDhFa084LUlqMUxGN3kyZVgwWDFBeFRPV3pPVkU4bjVrODl1TUxtemh3bl9SUzdHUXI5WVpfNXVmc0RBTDEwcEZlX1YydlYteGhBUk5DeDFwN1Y2MFdkaFgwU0h1TU5MNHJQV0ZtRHNrYTl3R2tyZndBV3Z5ckpqRHVtdjBWOUFQRm9ZVQ?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-10-09T11:05:00+00:00",
+          "score": 13.4,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "6b1d77128909cc49",
+          "title": "Artificial Intelligence: Language Models That See Every Letter | Newswise - Newswise",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNc2F4cW1KZ0xFcHVrc0xkUDhFa084LUlqMUxGN3kyZVgwWDFBeFRPV3pPVkU4bjVrODl1TUxtemh3bl9SUzdHUXI5WVpfNXVmc0RBTDEwcEZlX1YydlYteGhBUk5DeDFwN1Y2MFdkaFgwU0h1TU5MNHJQV0ZtRHNrYTl3R2tyZndBV3Z5ckpqRHVtdjBWOUFQRm9ZVdIBmwFBVV95cUxNc2F4cW1KZ0xFcHVrc0xkUDhFa084LUlqMUxGN3kyZVgwWDFBeFRPV3pPVkU4bjVrODl1TUxtemh3bl9SUzdHUXI5WVpfNXVmc0RBTDEwcEZlX1YydlYteGhBUk5DeDFwN1Y2MFdkaFgwU0h1TU5MNHJQV0ZtRHNrYTl3R2tyZndBV3Z5ckpqRHVtdjBWOUFQRm9ZVQ?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-10-09T11:05:00+00:00",
+          "score": 13.4,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Open Source AI",
+      "items": [
+        {
+          "item_id": "808809ecb4655622",
+          "title": "Run Ollama Locally: Self-Host an LLM in 13 Steps [2026] - https://tech-insider.org/",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5jZjNjYXNvdlRBa01PNjdWUkh2bHpfbi1XZGNMd1RFRlRRWF90U0pqdl8zWDRaczZHbU9SZ3lnenJJTzVXaDRaUnc5MEhTRHZOUU1PNmlfbXR3NXUwWUFQUFhxa01peUtSdzJtZVFNdHRWQURUbnAxaA?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-10-09T10:12:27+00:00",
+          "score": 47.5,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "1929017f5df96ae4",
+          "title": "LosaLosSantos/aurelio-finance",
+          "url": "https://github.com/LosaLosSantos/aurelio-finance",
+          "source_name": "GitHub Search (llm)",
+          "source_type": "github",
+          "published": null,
+          "score": 20.6,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "1054",
+            "language": "Python",
+            "topics": [
+              "ai",
+              "dividends",
+              "etf",
+              "finance",
+              "financial-planning",
+              "fintech",
+              "investing",
+              "llm",
+              "net-worth",
+              "personal-finance",
+              "portfolio-tracker",
+              "self-hosted",
+              "stocks",
+              "wealth-management"
+            ]
+          }
+        },
+        {
+          "item_id": "d685e7c53fa8c3f8",
+          "title": "Sev7eEn7/dsh-sieve",
+          "url": "https://github.com/Sev7eEn7/dsh-sieve",
+          "source_name": "GitHub Search (llm)",
+          "source_type": "github",
+          "published": null,
+          "score": 20.1,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "59",
+            "language": "TypeScript",
+            "topics": [
+              "agent-tools",
+              "ai-agent",
+              "ai-coding",
+              "coding-agent",
+              "context-engineering",
+              "context-management",
+              "context-pruning",
+              "context-window",
+              "cordis",
+              "deepseek",
+              "deepseek-harness",
+              "dsh-plugin",
+              "llm",
+              "llm-agent",
+              "llm-cost",
+              "prompt-compression",
+              "token-efficiency",
+              "token-optimization",
+              "tool-output",
+              "typescript"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "AI Entrepreneurship",
+      "items": [
+        {
+          "item_id": "3c5e66d9de6d1c79",
+          "title": "Instinct was the buzziest AI agent around — can it survive Muse?",
+          "url": "https://www.theverge.com/tech/1008254/instinct-agent-ai-hands-on-muse-dots",
+          "source_name": "The Verge AI",
+          "source_type": "news",
+          "published": "2026-10-09T14:00:00+00:00",
+          "score": 50.9,
+          "matched_topics": [
+            "entrepreneurship",
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "b96ccdc9eec577a3",
+          "title": "OpenAI revenue shortfall exposes vulnerability in artificial intelligence ecosystem - Fox Business",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5JamNjclhJNVJSN0FsQlNDMnY5ZFktbTN2LVU0bk9ha2otZU9UVGhVaTM5UG9WWncyZzd0ZExaTDBGWHowaWo4SFZia2N1RTFpYjdBdEZ0ZTI1aFk?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-10-09T14:05:38+00:00",
+          "score": 40.7,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "baf9b28a387d8bb0",
+          "title": "Claude Startup Program no longer offering a year of Claude Team and $1K in API Credits",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1x1af87/claude_startup_program_no_longer_offering_a_year/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-10-09T03:03:22+00:00",
+          "score": 40.3,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "2426f6e1347dd0c6",
+          "title": "OpenAI’s revenue is reportedly $20 billion less than previously projected",
+          "url": "https://techcrunch.com/2026/10/08/openais-revenue-is-reportedly-20-billion-less-than-previously-projected/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-10-08T18:19:42+00:00",
+          "score": 39.7,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "ea50a03cbf325c64",
+          "title": "Lessons from the Public Sector Artificial Intelligence Adoption in Developing Countries: An AI Life Cycle Perspective - UNU | United Nations University",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOaVlCNTVBSVI4ZlZKWUs1TmN3bU52X1dnZV9tcTlUOTZIdmpTYUdzSHdwb2I4SnhqNHZYTklfcHpsOWlUeVVHTWNOMnpsY2hJT0RLLTBRMzZNdWhNY1hhVU9SOGp3aUdFRHNTd0lVS1ZVUmhwQU1fMW5YMjFtVmN4VzNoT2NCcGUyeGRMRFNyNjduRU1OY0JTNlBtd3E4V3JPWE1CU3MzYklyS2tYV2pMYjNB?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-10-09T12:44:13+00:00",
+          "score": 39.5,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "21e31e4e869e0707",
+          "title": "Why does Claude need to see my ovulation cycle? 🥺",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1x1grtv/why_does_claude_need_to_see_my_ovulation_cycle/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-10-09T09:24:03+00:00",
+          "score": 31.8,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "7bd525b884109b29",
+          "title": "California is trying to shut down robot vs. human cage matches",
+          "url": "https://www.theverge.com/tech/1008401/california-shut-down-rek-fighting-robot-company-human",
+          "source_name": "The Verge AI",
+          "source_type": "news",
+          "published": "2026-10-08T20:06:56+00:00",
+          "score": 25.1,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "f2bbbdc80487618b",
+          "title": "A16z’s Olivia Moore on the state of consumer AI",
+          "url": "https://techcrunch.com/2026/10/09/a16zs-olivia-moore-on-the-state-of-consumer-ai/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-10-09T15:43:33+00:00",
+          "score": 20.0,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "2d837d367b192c68",
+          "title": "Ben Affleck is an AI nerd, and the internet is impressed",
+          "url": "https://techcrunch.com/2026/10/08/ben-affleck-is-an-ai-nerd-and-the-internet-is-impressed/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-10-08T18:20:32+00:00",
+          "score": 19.4,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "b9b61e8f9f6c96a1",
+          "title": "We know this is disappointing and we’re very sorry",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1x1cgpo/we_know_this_is_disappointing_and_were_very_sorry/",
+          "source_name": "r/ClaudeAI",
+          "source_type": "reddit",
+          "published": "2026-10-09T04:55:12+00:00",
+          "score": 18.8,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Agents",
+      "items": [
+        {
+          "item_id": "34de0981eaae0131",
+          "title": "Google brings agentic AI to Gemini, starting with businesses",
+          "url": "https://techcrunch.com/2026/10/08/google-brings-agentic-ai-to-gemini-starting-with-businesses/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-10-08T18:18:00+00:00",
+          "score": 20.7,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    }
+  ]
+}
