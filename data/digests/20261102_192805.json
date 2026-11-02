@@ -1,0 +1,266 @@
+{
+  "id": "20261102_192805",
+  "generated_at": "2026-11-02T19:28:05.936719+00:00",
+  "intro_summary": "",
+  "project_recommendations": "[]",
+  "total_items": 16,
+  "sources_checked": 21,
+  "sections": [
+    {
+      "title": "Coding Assistants",
+      "items": [
+        {
+          "item_id": "e732affa3e390d12",
+          "title": "OpenAI is finally merging ChatGPT’s Chat and Work tabs",
+          "url": "https://techcrunch.com/2026/11/02/openai-is-finally-merging-chatgpts-chat-and-work-tabs/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-11-02T13:57:53+00:00",
+          "score": 21.1,
+          "matched_topics": [
+            "coding_assistants"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Breaking News",
+      "items": [
+        {
+          "item_id": "646bb84451050086",
+          "title": "AI Product & Service Launches – 11/2/2026 - planadviser",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE84YjVLa2hpNVJJWUMyOWpmMUpLSDdYTjhQdWljTXppWFZMUHlvYVJTcmdEUDBINUhXQTJRSFI1VkZwZ01KcXVXRHVZUF9DRk1oN0FDaTcxYlNYNWVzU2hOZUJQdmV0Q0ZhYXIwVnRueDRKRmUt?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-11-02T18:30:17+00:00",
+          "score": 45.3,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "8d1320e11d63e421",
+          "title": "Let’s Talk Warren County: Artificial Intelligence (AI) announced - The Warren Record",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNczVhSXpxVUw4dEF2S2V4dlJYNXJzSjMtajNlLVZsMXJBUlNUUlBraV9YOTlDVHAycktXRkItSHlGR1VaSWJ3RjJFOGFNU3pXc0kwWXNPa1dvRC02eUZTVEQ5WVh4UkE3UGVmRkZtWUVRS1hTbFhQcmpsV2JLUW9XVEUxXzBzX1lFZ0tn?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-11-02T13:00:00+00:00",
+          "score": 44.2,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "40ba53b55033d8bf",
+          "title": "Artificial Intelligence Technology Solutions Launches Campaign to Expand SARA AI Security Platform Adoption - Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNMFl4bllFcVdxR0JMd09LaWp5VjJMbTc4Y2N6bC1ZNkZ4dFozVm05MF9NaXhhNjdVcVZrcU16eS1qQXczaTh4X1F2TTZoUnNMQWVoZnladXh6REVzUDBuVEtHTmpBNE5qQWtzVHFuZDFiWHZzZDBTZGsxTjZ6V09nWWdXTHJTZEtHbVp3R3U0cnRnS2t2RGdSVl9oSzREWHZoZUU3Tl8xOXp2R2NkS1VES2g3bjIwcEVi?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-11-02T15:55:33+00:00",
+          "score": 43.8,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "6f5d80bf0c4300ef",
+          "title": "New frontier-level, long horizon benchmark GDPx (successor of GDPval). Best models scoring ~12%",
+          "url": "https://www.reddit.com/r/singularity/comments/1xlr2l4/new_frontierlevel_long_horizon_benchmark_gdpx/",
+          "source_name": "r/singularity",
+          "source_type": "reddit",
+          "published": "2026-11-02T07:41:31+00:00",
+          "score": 37.5,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "709b687f913a5acc",
+          "title": "\"When we proved the first Millenium Prize problem, it was 10000 agents of the model that is gonna be released soon, the next GPT, working for about 4 days\"",
+          "url": "https://www.reddit.com/r/singularity/comments/1xlyml4/when_we_proved_the_first_millenium_prize_problem/",
+          "source_name": "r/singularity",
+          "source_type": "reddit",
+          "published": "2026-11-02T14:27:10+00:00",
+          "score": 37.2,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "033276023288ef4d",
+          "title": "‘We may release models we can’t control’: Amodei, Altman … and Gemini Carbon",
+          "url": "https://www.youtube.com/watch?v=0Kw6_DTZPrY",
+          "source_name": "AI Explained",
+          "source_type": "youtube",
+          "published": "2026-11-02T17:02:16+00:00",
+          "score": 13.1,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Open Source AI",
+      "items": [
+        {
+          "item_id": "ac53d76f37da4f4c",
+          "title": "Calix Releases Communications Language Model on Hugging Face - The Fast Mode",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNb05HRktQdi1RaVlDVzhUUUtoZkU3d0poY1lBeDBwOW9DY0JzblhRQ0RhekdoMjFDcVNJWG1aclRmaW1kSjV1cVlOREkxRFh4Ul9MT0dmSjR6dG5xWG10Z0VGVncxd3NsZlRGam1GMldNQkNwRXA1eWxBajdfdXlyQXVTXzl5bkd5S0JxaV9YMTY5dzBncVhXV1ZVMmk2QzAzLTRMZ0REQ0ZacllDdHlLLXZ5eG1wdw?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-11-01T23:59:41+00:00",
+          "score": 48.2,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "b0e90aa5538ae4e4",
+          "title": "Sparks of Weight-Space Programming: LLMs can natively read & write neural network weights",
+          "url": "https://www.reddit.com/r/singularity/comments/1xm5oy9/sparks_of_weightspace_programming_llms_can/",
+          "source_name": "r/singularity",
+          "source_type": "reddit",
+          "published": "2026-11-02T18:45:06+00:00",
+          "score": 22.1,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Video/Image/Voice Generation",
+      "items": [
+        {
+          "item_id": "5a201e1426e1fb30",
+          "title": "Omen AI adds liquid know-how in $16 million Aquatic Labs acquisition",
+          "url": "https://techcrunch.com/2026/11/02/omen-ai-adds-liquid-know-how-in-16-million-aquatic-labs-acquisition/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-11-02T15:00:00+00:00",
+          "score": 26.4,
+          "matched_topics": [
+            "media_generation",
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "565e6fad1f4c3724",
+          "title": "OpenAI pitches data center power plants as a way to protect nearby areas",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1024604/openai-data-center-grid-protection-program",
+          "source_name": "The Verge AI",
+          "source_type": "news",
+          "published": "2026-11-02T18:01:30+00:00",
+          "score": 19.8,
+          "matched_topics": [
+            "media_generation"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Interesting GitHub Repos",
+      "items": [
+        {
+          "item_id": "2099bcdcc8ded79c",
+          "title": "Generative Artificial Intelligence in Clinical Reasoning Education: A Focused Review and Framework - Cureus",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOTjdmaWJjVHEwYlVXTnFjZTVaMTZlalRTYXQ4LTc3NS1UUnpQQVQ0clJPLVVyZ3ZOZG1ZRVlzbUduWTVzSERLaWIzMjJoLVpHaFVlcmg1Q0U0TzF6NGVvX3ZMMzdNQWZhVUpsanpld01XcGVva2k2Ung2Z19va3E5bHBxWl8wTjRLblBIX082U1UzczZTTWl5d202djJEUVEtSzQxWlNmUGhsT1F6THZaWVZlLTU4c1RGMGwzdFRDS2VTSnlwN1BRamRIamZCLVFnenc?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-11-02T15:14:59+00:00",
+          "score": 35.6,
+          "matched_topics": [
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "2099bcdcc8ded79c",
+          "title": "Generative Artificial Intelligence in Clinical Reasoning Education: A Focused Review and Framework - Cureus",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOTjdmaWJjVHEwYlVXTnFjZTVaMTZlalRTYXQ4LTc3NS1UUnpQQVQ0clJPLVVyZ3ZOZG1ZRVlzbUduWTVzSERLaWIzMjJoLVpHaFVlcmg1Q0U0TzF6NGVvX3ZMMzdNQWZhVUpsanpld01XcGVva2k2Ung2Z19va3E5bHBxWl8wTjRLblBIX082U1UzczZTTWl5d202djJEUVEtSzQxWlNmUGhsT1F6THZaWVZlLTU4c1RGMGwzdFRDS2VTSnlwN1BRamRIamZCLVFnenc?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-11-02T15:14:59+00:00",
+          "score": 35.6,
+          "matched_topics": [
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Entrepreneurship",
+      "items": [
+        {
+          "item_id": "6b0ea78703a86a04",
+          "title": "UC students unravel AI tendency for sycophancy - University of Cincinnati",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBBdmZCUTd4bkJnZWp6SlFER3FpV1lhbFRTRkthUU1ZMkxtV1FrQXJLZkpPdTREbEpfUWhmblZfaXVoODhfbXVydnZzdHZTakVyUGFrcTdvTXlCd0VLUWU4XzR1SFBRUQ?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-11-02T18:38:52+00:00",
+          "score": 39.1,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "82437f76fa83e024",
+          "title": "Anthropic Just Made a Move That Could Change Capitalism Forever",
+          "url": "https://www.youtube.com/watch?v=zadg3dWaMts",
+          "source_name": "TheAIGRID",
+          "source_type": "youtube",
+          "published": "2026-11-02T11:15:13+00:00",
+          "score": 27.3,
+          "matched_topics": [
+            "entrepreneurship",
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "0b86c010857d521d",
+          "title": "The New York Times sues Brave web browser for AI scraping and bypassing paywalls",
+          "url": "https://www.theverge.com/tech/1024588/brave-lawsuit-ai-scraping-new-york-times",
+          "source_name": "The Verge AI",
+          "source_type": "news",
+          "published": "2026-11-02T17:51:19+00:00",
+          "score": 18.6,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    }
+  ]
+}
