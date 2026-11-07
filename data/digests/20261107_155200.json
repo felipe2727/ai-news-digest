@@ -1,0 +1,719 @@
+{
+  "id": "20261107_155200",
+  "generated_at": "2026-11-07T15:52:00.227602+00:00",
+  "intro_summary": "",
+  "project_recommendations": "[]",
+  "total_items": 30,
+  "sources_checked": 21,
+  "sections": [
+    {
+      "title": "AI Breaking News",
+      "items": [
+        {
+          "item_id": "24033556c9788e6f",
+          "title": "Why are all the newly released Image Edit models junk?",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1xpwnro/why_are_all_the_newly_released_image_edit_models/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-11-07T03:46:15+00:00",
+          "score": 78.9,
+          "matched_topics": [
+            "breaking_news",
+            "open_source",
+            "media_generation"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "87fd3ec93b652922",
+          "title": "George Kurtz Just Announced Incredible News for CrowdStrike Investors and the Artificial Intelligence (AI) Industry - Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNbmJJbDVQcTNKQnZzLUJQUENiR2NyQmppS19oOEhmV09TODdjQlhGbDVYTWMwa2RxcGc2RjVYVHZJdEs2SlB5dXhqQTRIQVRaclFLS3F2dnRVSk9jSldJX3ljbVZqRmNRTjFCVld5alY1dlRaZjRTZ2lzTFdjVm53dzk2U0gwZF9NOFV4R0JLMk11MUN5dE5wVkd0T1M2Q3dDODFIeQ?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-11-07T12:29:00+00:00",
+          "score": 44.7,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "700dc76279506f25",
+          "title": "The one thing holding theoretical CS together just broke... kinda",
+          "url": "https://www.youtube.com/watch?v=iw9SZgyahqg",
+          "source_name": "Fireship",
+          "source_type": "youtube",
+          "published": "2026-11-06T16:42:38+00:00",
+          "score": 20.5,
+          "matched_topics": [
+            "breaking_news"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Open Source AI",
+      "items": [
+        {
+          "item_id": "820614e93abd678f",
+          "title": "Draw Things Mac – Help needed with custom.json model entries",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1xq4rl5/draw_things_mac_help_needed_with_customjson_model/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-11-07T12:02:06+00:00",
+          "score": 45.8,
+          "matched_topics": [
+            "open_source",
+            "media_generation"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "2b6f7419f11d834d",
+          "title": "viggle image swap for multi character swap",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1xpyeta/viggle_image_swap_for_multi_character_swap/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-11-07T05:22:18+00:00",
+          "score": 22.0,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "c500f7a4377882c1",
+          "title": "Rebuilt Higgsfield's \"Miracle\" demo edit by edit with Viggle-remake",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1xpz5ti/rebuilt_higgsfields_miracle_demo_edit_by_edit/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-11-07T06:05:40+00:00",
+          "score": 21.8,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "7ff5f249af6a7e57",
+          "title": "p-h3-image 2 step lora is out",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1xq1po9/ph3image_2_step_lora_is_out/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-11-07T08:44:53+00:00",
+          "score": 21.5,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "5a679536c996019c",
+          "title": "TBG ComfyUi Node for Layered Decomposition – RevealLayer",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1xq27mf/tbg_comfyui_node_for_layered_decomposition/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-11-07T09:17:36+00:00",
+          "score": 20.6,
+          "matched_topics": [
+            "open_source"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Video/Image/Voice Generation",
+      "items": [
+        {
+          "item_id": "23bbf26f5f0258ea",
+          "title": "FreeVideo vs normal minimax",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1xq6lbt/freevideo_vs_normal_minimax/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-11-07T13:38:52+00:00",
+          "score": 50.8,
+          "matched_topics": [
+            "media_generation",
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "c8fc7f6173d06fba",
+          "title": "SCAIL-2 vs MiniMax for Motion Control – RTX 5090",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1xq2wze/scail2_vs_minimax_for_motion_control_rtx_5090/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-11-07T10:04:22+00:00",
+          "score": 44.2,
+          "matched_topics": [
+            "media_generation"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "51549d46e38a12f2",
+          "title": "Thinking Machines debuts Inkling 2 Small amid reported $5B fundraising push - SiliconANGLE",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNT29PVEU2SWp1djkxd2x3dzl2SmFKMDVxZVVQTmFuWmh5VFpoWlZ0RXczNHh0eFJIQm1wRlRKX1FTcWs5ak1XalVjWHVpQktWdGpmRjNReGc0M2RTRTVXdWlTYm1HbTJCRGl5dXRHclAzSEhHM1VfTEFFcTU3U3ZKbjdpZ2dUd21RVmYxM2RieWtSYm1tUHNESUJ4bnk3aWFkWU9EbjRyRnhfb25yQ1hWaQ?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-11-06T21:27:00+00:00",
+          "score": 43.3,
+          "matched_topics": [
+            "media_generation"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "bf88cc37361de398",
+          "title": "Updated hyperflow-h3-flash (4, 6, or 8 steps)",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1xq0kuk/updated_hyperflowh3flash_4_6_or_8_steps/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-11-07T07:32:27+00:00",
+          "score": 31.8,
+          "matched_topics": [
+            "media_generation",
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "Interesting GitHub Repos",
+      "items": [
+        {
+          "item_id": "462d34b487186cf0",
+          "title": "C++ Desktop Client for ComfyUI",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1xq2eei/c_desktop_client_for_comfyui/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-11-07T09:30:10+00:00",
+          "score": 29.6,
+          "matched_topics": [
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "f5c31668eeb763e4",
+          "title": "First test of Geiru Context Suite to produce a 2 minute shot! Works great!!",
+          "url": "https://www.reddit.com/r/StableDiffusion/comments/1xpuf8b/first_test_of_geiru_context_suite_to_produce_a_2/",
+          "source_name": "r/StableDiffusion",
+          "source_type": "reddit",
+          "published": "2026-11-07T01:50:31+00:00",
+          "score": 23.5,
+          "matched_topics": [
+            "github_repos",
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "440ac9df5ef1fbd3",
+          "title": "cli / cli",
+          "url": "https://github.com/cli/cli",
+          "source_name": "GitHub Trending",
+          "source_type": "github",
+          "published": null,
+          "score": 19.2,
+          "matched_topics": [
+            "github_repos"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "46904",
+            "language": "Go"
+          }
+        }
+      ]
+    },
+    {
+      "title": "AI Entrepreneurship",
+      "items": [
+        {
+          "item_id": "6c7191a9daddd032",
+          "title": "OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
+          "source_name": "The Verge AI",
+          "source_type": "news",
+          "published": "2026-11-06T23:46:18+00:00",
+          "score": 19.2,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "b19a52adc8186729",
+          "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
+          "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+          "source_name": "TechCrunch AI",
+          "source_type": "news",
+          "published": "2026-11-06T22:53:46+00:00",
+          "score": 18.8,
+          "matched_topics": [
+            "entrepreneurship"
+          ],
+          "summary": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "title": "AI Agents",
+      "items": [
+        {
+          "item_id": "da7606a0280517ab",
+          "title": "Router-Driven Multi-Agent Artificial Intelligence Automates Geotechnical Foundation Engineering Calculations - Bioengineer.org",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPalc1cHlKX1ZvWUlHSDRkTkZlbEticHRjbkRyb0dQOF9keEhEeWxEZHBZRWVWdjZKQUtTSVU3MTNZQV8ySGVRM21iemtGeDAxZ3ZmZ2JKRExGbURRWkd3Vlc5VHpXTnloUW9FUGM2andWLUlpWURGNWtlYlRZNEYyZVdCSFBKUUpjc3E0QjZnZFJ5ek9ZOXhWS1R3LUNzeWRIdFQxbkZZQUNIX1NoZUlNdkl1ekxVc3dCTlp5a3dackxXSC1tRUpKckMxNUp6dw?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-11-07T11:17:54+00:00",
+          "score": 45.2,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "da7606a0280517ab",
+          "title": "Router-Driven Multi-Agent Artificial Intelligence Automates Geotechnical Foundation Engineering Calculations - Bioengineer.org",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPalc1cHlKX1ZvWUlHSDRkTkZlbEticHRjbkRyb0dQOF9keEhEeWxEZHBZRWVWdjZKQUtTSVU3MTNZQV8ySGVRM21iemtGeDAxZ3ZmZ2JKRExGbURRWkd3Vlc5VHpXTnloUW9FUGM2andWLUlpWURGNWtlYlRZNEYyZVdCSFBKUUpjc3E0QjZnZFJ5ek9ZOXhWS1R3LUNzeWRIdFQxbkZZQUNIX1NoZUlNdkl1ekxVc3dCTlp5a3dackxXSC1tRUpKckMxNUp6dw?oc=5",
+          "source_name": "Google News AI",
+          "source_type": "news",
+          "published": "2026-11-07T11:17:54+00:00",
+          "score": 45.2,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "0ccc48fb9926d495",
+          "title": "Multi-Agent Language Model Architecture Generates Rubric-Grounded Feedback - Bioengineer.org",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOQlRPVWxSbWVEZVN6bHBpODlHdUdNQ2JMMXJyN3daNkRTallyV1piRlctYk9zS2luY3NNTXpaek5YRjlGaF9VaTBJYkpCYmFwVWl4dFlYcjVVQTNZT3JFWV9KaDRDWk5wSERnandaSDU1cDdFZ1VNcHB6OUVIQjBBNjVjYldrN05GTTNvaldTTGJsQW9aaW9yb05mS245bWxibUI5QlloVWRqWHVqRHRmcmJyUFFWMllkNkNTY053?oc=5",
+          "source_name": "Google News LLM",
+          "source_type": "news",
+          "published": "2026-11-07T12:00:00+00:00",
+          "score": 44.4,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {}
+        },
+        {
+          "item_id": "74d911d2defdb336",
+          "title": "Omegacoral/ai--manus",
+          "url": "https://github.com/Omegacoral/ai--manus",
+          "source_name": "GitHub Search (generative-ai)",
+          "source_type": "github",
+          "published": null,
+          "score": 21.8,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "82",
+            "language": null,
+            "topics": [
+              "ai",
+              "ai-agents",
+              "ai-sdk",
+              "anthropic",
+              "chatbot",
+              "function-calling",
+              "gemeni",
+              "generative-ai",
+              "llm",
+              "multimodal",
+              "openai",
+              "react",
+              "solidjs",
+              "streaming",
+              "svelte",
+              "tanstack",
+              "tool-calling",
+              "typescript",
+              "typescript-sdk",
+              "vue"
+            ]
+          }
+        },
+        {
+          "item_id": "cad1959c28bf23be",
+          "title": "TaytopazAbyssal26005/ai--manus",
+          "url": "https://github.com/TaytopazAbyssal26005/ai--manus",
+          "source_name": "GitHub Search (llm)",
+          "source_type": "github",
+          "published": null,
+          "score": 21.8,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "82",
+            "language": null,
+            "topics": [
+              "ai",
+              "ai-agents",
+              "ai-sdk",
+              "anthropic",
+              "chatbot",
+              "function-calling",
+              "gemeni",
+              "generative-ai",
+              "llm",
+              "multimodal",
+              "openai",
+              "react",
+              "solidjs",
+              "streaming",
+              "svelte",
+              "tanstack",
+              "tool-calling",
+              "typescript",
+              "typescript-sdk",
+              "vue"
+            ]
+          }
+        },
+        {
+          "item_id": "f09871aa18ffb836",
+          "title": "SableMysticit32531/ai--manus",
+          "url": "https://github.com/SableMysticit32531/ai--manus",
+          "source_name": "GitHub Search (llm)",
+          "source_type": "github",
+          "published": null,
+          "score": 21.8,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "82",
+            "language": null,
+            "topics": [
+              "ai",
+              "ai-agents",
+              "ai-sdk",
+              "anthropic",
+              "chatbot",
+              "function-calling",
+              "gemeni",
+              "generative-ai",
+              "llm",
+              "multimodal",
+              "openai",
+              "react",
+              "solidjs",
+              "streaming",
+              "svelte",
+              "tanstack",
+              "tool-calling",
+              "typescript",
+              "typescript-sdk",
+              "vue"
+            ]
+          }
+        },
+        {
+          "item_id": "40e0ae2a33c75d43",
+          "title": "OdysseyglassSamurai13935/ai--manus",
+          "url": "https://github.com/OdysseyglassSamurai13935/ai--manus",
+          "source_name": "GitHub Search (generative-ai)",
+          "source_type": "github",
+          "published": null,
+          "score": 21.8,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "82",
+            "language": null,
+            "topics": [
+              "ai",
+              "ai-agents",
+              "ai-sdk",
+              "anthropic",
+              "chatbot",
+              "function-calling",
+              "gemeni",
+              "generative-ai",
+              "llm",
+              "multimodal",
+              "openai",
+              "react",
+              "solidjs",
+              "streaming",
+              "svelte",
+              "tanstack",
+              "tool-calling",
+              "typescript",
+              "typescript-sdk",
+              "vue"
+            ]
+          }
+        },
+        {
+          "item_id": "9cc030c8d7c64481",
+          "title": "proteus1121/ai_manus",
+          "url": "https://github.com/proteus1121/ai_manus",
+          "source_name": "GitHub Search (generative-ai)",
+          "source_type": "github",
+          "published": null,
+          "score": 21.6,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "82",
+            "language": null,
+            "topics": [
+              "ai",
+              "ai-agents",
+              "ai-sdk",
+              "anthropic",
+              "chatbot",
+              "function-calling",
+              "gemeni",
+              "generative-ai",
+              "llm",
+              "multimodal",
+              "openai",
+              "react",
+              "solidjs",
+              "streaming",
+              "svelte",
+              "tanstack",
+              "tool-calling",
+              "typescript",
+              "typescript-sdk",
+              "vue"
+            ]
+          }
+        },
+        {
+          "item_id": "05d2d67d448201fc",
+          "title": "monirchemrubd/ai-manus",
+          "url": "https://github.com/monirchemrubd/ai-manus",
+          "source_name": "GitHub Search (generative-ai)",
+          "source_type": "github",
+          "published": null,
+          "score": 21.5,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "82",
+            "language": "Python",
+            "topics": [
+              "ai",
+              "ai-agents",
+              "ai-sdk",
+              "anthropic",
+              "chatbot",
+              "function-calling",
+              "gemeni",
+              "generative-ai",
+              "llm",
+              "multimodal",
+              "openai",
+              "react",
+              "solidjs",
+              "streaming",
+              "svelte",
+              "tanstack",
+              "tool-calling",
+              "typescript",
+              "typescript-sdk",
+              "vue"
+            ]
+          }
+        },
+        {
+          "item_id": "9f245ddc34c1089f",
+          "title": "abhinay-h/manus-ai",
+          "url": "https://github.com/abhinay-h/manus-ai",
+          "source_name": "GitHub Search (generative-ai)",
+          "source_type": "github",
+          "published": null,
+          "score": 21.5,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "82",
+            "language": "Python",
+            "topics": [
+              "ai",
+              "ai-agents",
+              "ai-sdk",
+              "anthropic",
+              "chatbot",
+              "function-calling",
+              "gemeni",
+              "generative-ai",
+              "llm",
+              "multimodal",
+              "openai",
+              "react",
+              "solidjs",
+              "streaming",
+              "svelte",
+              "tanstack",
+              "tool-calling",
+              "typescript",
+              "typescript-sdk",
+              "vue"
+            ]
+          }
+        },
+        {
+          "item_id": "d0964eeff0d2878f",
+          "title": "quyetcao/ai-manus",
+          "url": "https://github.com/quyetcao/ai-manus",
+          "source_name": "GitHub Search (llm)",
+          "source_type": "github",
+          "published": null,
+          "score": 21.5,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "83",
+            "language": "Python",
+            "topics": [
+              "ai",
+              "ai-agents",
+              "ai-sdk",
+              "anthropic",
+              "chatbot",
+              "function-calling",
+              "gemeni",
+              "generative-ai",
+              "llm",
+              "multimodal",
+              "openai",
+              "react",
+              "solidjs",
+              "streaming",
+              "svelte",
+              "tanstack",
+              "tool-calling",
+              "typescript",
+              "typescript-sdk",
+              "vue"
+            ]
+          }
+        },
+        {
+          "item_id": "b2fc404c3ed80d36",
+          "title": "dharmapalkarki123/ai-manus",
+          "url": "https://github.com/dharmapalkarki123/ai-manus",
+          "source_name": "GitHub Search (generative-ai)",
+          "source_type": "github",
+          "published": null,
+          "score": 21.5,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "82",
+            "language": "Python",
+            "topics": [
+              "ai",
+              "ai-agents",
+              "ai-sdk",
+              "anthropic",
+              "chatbot",
+              "function-calling",
+              "gemeni",
+              "generative-ai",
+              "llm",
+              "multimodal",
+              "openai",
+              "react",
+              "solidjs",
+              "streaming",
+              "svelte",
+              "tanstack",
+              "tool-calling",
+              "typescript",
+              "typescript-sdk",
+              "vue"
+            ]
+          }
+        },
+        {
+          "item_id": "3440ddc2a772b8b1",
+          "title": "SinceGalaxyquiver49740/ai--manus",
+          "url": "https://github.com/SinceGalaxyquiver49740/ai--manus",
+          "source_name": "GitHub Search (generative-ai)",
+          "source_type": "github",
+          "published": null,
+          "score": 21.4,
+          "matched_topics": [
+            "agents"
+          ],
+          "summary": "",
+          "extra": {
+            "stars": "82",
+            "language": null,
+            "topics": [
+              "ai",
+              "ai-agents",
+              "ai-sdk",
+              "anthropic",
+              "chatbot",
+              "function-calling",
+              "gemeni",
+              "generative-ai",
+              "llm",
+              "multimodal",
+              "openai",
+              "react",
+              "solidjs",
+              "streaming",
+              "svelte",
+              "tanstack",
+              "tool-calling",
+              "typescript",
+              "typescript-sdk",
+              "vue"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
